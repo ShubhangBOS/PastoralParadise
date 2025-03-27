@@ -5,18 +5,28 @@ import FormInput from "../common/FormInput";
 import { useAppStore } from "@/store/store";
 
 const AuthModal = () => {
-  const { setAuthModal } = useAppStore();
+  const { setAuthModal, setIsLoggedIn, setUserInfo } = useAppStore();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [userFound, setUserFound] = useState(null);
+  const [userFound, setUserFound] = useState(false);
 
   const verifyEmail = async () => {};
 
   const handleLogin = async () => {};
 
-  const handleSignup = async () => {};
+  const handleSignup = async (e) => {
+    if (firstName && lastName && password) {
+      const data = {
+        firstName: firstName,
+        lastName: lastName,
+        password: password,
+      };
+      setUserInfo(data);
+      setAuthModal();
+    }
+  };
   return (
     <div className="relative z-50 ">
       <div className="fixed inset-0 bg-gray-500 opacity-75 transition-opacity">
@@ -31,7 +41,13 @@ const AuthModal = () => {
                   >
                     <X />
                   </span>
-                  <span>login or signup</span>
+                  {userFound === null ? (
+                    <span>login or signup</span>
+                  ) : userFound ? (
+                    <span>Login</span>
+                  ) : (
+                    <span>Sign Up</span>
+                  )}
                 </div>
                 <div className="p-5">
                   <h3 className="text-xl pb-5">Welcome to Pastoral Paradise</h3>
@@ -40,7 +56,7 @@ const AuthModal = () => {
                       name="email"
                       placeholder="Email"
                       values={email}
-                      setvalue={setEmail}
+                      setValue={setEmail}
                     />
                   )}
                   {userFound === true && (
@@ -48,7 +64,7 @@ const AuthModal = () => {
                       name="password"
                       placeholder="Password"
                       values={password}
-                      setvalue={setPassword}
+                      setValue={setPassword}
                     />
                   )}
                   {userFound === false && (
@@ -57,20 +73,20 @@ const AuthModal = () => {
                         name="firstName"
                         placeholder="First Name"
                         values={firstName}
-                        setvalue={setFirstName}
+                        setValue={setFirstName}
                       />
                       <FormInput
                         name="lastName"
                         placeholder="Last Name"
                         values={lastName}
-                        setvalue={setLastName}
+                        setValue={setLastName}
                       />
                       <FormInput
                         name="password"
                         placeholder="Password"
                         type="password"
                         values={password}
-                        setvalue={setPassword}
+                        setValue={setPassword}
                       />
                     </div>
                   )}

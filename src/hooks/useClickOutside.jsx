@@ -1,4 +1,4 @@
-import { userAppStore } from "airbnb/store/store";
+import { userAppStore } from "@/store/store";
 import { useEffect, RefObject, useRef } from "react";
 
 function useClickOutside(isScheduleBar = false) {

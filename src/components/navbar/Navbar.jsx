@@ -7,12 +7,9 @@ import ContextMenu from "../common/ContextMenu";
 import { useAppStore } from "@/store/store";
 
 const Navbar = () => {
-  const { setAuthModal } = useAppStore();
+  const { setAuthModal, userInfo, setUserInfo } = useAppStore();
   const [isContextMenuVisible, setIsContextMenuVisible] = useState(false);
 
-  useEffect(() => {
-    console.log("1234", typeof setAuthModal);
-  });
   const contextMenuOptions = [
     {
       name: "Login",
@@ -41,6 +38,47 @@ const Navbar = () => {
       },
     },
   ];
+
+  const authenticatedContextMenuOptions = [
+    {
+      name: "Messages",
+      callBack: () => {
+        setIsContextMenuVisible(false);
+      },
+    },
+    {
+      name: "Notifications",
+      callBack: () => {
+        setIsContextMenuVisible(false);
+      },
+    },
+    {
+      name: "Trips",
+      callBack: () => {
+        setIsContextMenuVisible(false);
+      },
+    },
+    {
+      name: "Wishlists",
+      callBack: () => {
+        setIsContextMenuVisible(false);
+      },
+    },
+    {
+      name: "Help",
+      callBack: () => {
+        setIsContextMenuVisible(false);
+      },
+    },
+    {
+      name: "Logout",
+      callBack: () => {
+        setUserInfo(null);
+        setIsContextMenuVisible(false);
+        localStorage.clear();
+      },
+    },
+  ];
   return (
     <header className="w-full flex flex-col justify-center transition-all duration-300 h-20 border-b border-b-gray-200">
       <div className="flex items-center justify-between px-20">
@@ -62,14 +100,20 @@ const Navbar = () => {
               onClick={() => setIsContextMenuVisible(!isContextMenuVisible)}
             >
               <Menu />
-              <span>
-                <Image
-                  src="/home/empty-profile.png"
-                  alt="profile"
-                  width={30}
-                  height={30}
-                />
-              </span>
+              {userInfo ? (
+                <span className="flex justify-center bg-black items-center text-white h-7 w-7 text-sm rounded-full">
+                  {userInfo?.firstName?.split("").shift().toUpperCase()}
+                </span>
+              ) : (
+                <span>
+                  <Image
+                    src="/home/empty-profile.png"
+                    alt="profile"
+                    width={30}
+                    height={30}
+                  />
+                </span>
+              )}
             </li>
           </ul>
         </div>
@@ -82,7 +126,9 @@ const Navbar = () => {
             x: window.innerWidth - 250,
             y: 70,
           }}
-          options={contextMenuOptions}
+          options={
+            userInfo ? authenticatedContextMenuOptions : contextMenuOptions
+          }
         />
       )}
     </header>
