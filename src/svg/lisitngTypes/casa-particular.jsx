@@ -14,8 +14,8 @@ export default function CasaParticular() {
             height={45}
             preserveAspectRatio="xMidYMid meet"
             style={{
-              width: "100%",
-              height: "100%",
+              // width: "100%",
+              // height: "100%",
               transform: "translate3d(0px, 0px, 0px)",
               contentVisibility: "visible",
             }}
