@@ -5,8 +5,10 @@ import React, { useEffect, useState } from "react";
 import { Menu } from "lucide-react";
 import ContextMenu from "../common/ContextMenu";
 import { useAppStore } from "@/store/store";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
+  const router = useRouter();
   const { setAuthModal, userInfo, setUserInfo } = useAppStore();
   const [isContextMenuVisible, setIsContextMenuVisible] = useState(false);
 
@@ -56,12 +58,21 @@ const Navbar = () => {
       name: "Trips",
       callBack: () => {
         setIsContextMenuVisible(false);
+        router.push("/trips");
       },
     },
     {
       name: "Wishlists",
       callBack: () => {
         setIsContextMenuVisible(false);
+        router.push("/wishlist");
+      },
+    },
+    {
+      name: "Manage Listings",
+      callBack: () => {
+        setIsContextMenuVisible(false);
+        router.push("/my-listings");
       },
     },
     {
@@ -89,7 +100,10 @@ const Navbar = () => {
         </div>
         <div className="flex-grow basis-0">
           <ul className="flex items-center justify-end gap-6 font-medium">
-            <li className="cursor-pointer">
+            <li
+              className="cursor-pointer"
+              onClick={() => router.push("/new-listing")}
+            >
               <span>Add Your Property</span>
             </li>
             <li className="cursor-pointer">
