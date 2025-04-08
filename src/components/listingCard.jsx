@@ -33,7 +33,10 @@ const ListingCard = ({
     console.log("wishlists", wishLists);
   }, [wishLists]);
   return (
-    <div className="flex items-center justify-center flex-col gap-1">
+    <div
+      className="flex items-center justify-center flex-col gap-1"
+      onClick={() => router.push(`/listing/${data.id}`)}
+    >
       <div className="flex items-center justify-center cursor-pointer w-full">
         <div className="flex flex-col gap-2">
           <div className="relative w-64 h-56">

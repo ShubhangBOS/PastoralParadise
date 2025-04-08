@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { X } from "lucide-react";
 import FormInput from "../common/FormInput";
 import { useAppStore } from "@/store/store";
+import { checkUser, login, signup } from "@/lib/auth";
 
 const AuthModal = () => {
   const { setAuthModal, setIsLoggedIn, setUserInfo } = useAppStore();
@@ -10,11 +11,22 @@ const AuthModal = () => {
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [userFound, setUserFound] = useState(false);
+  const [userFound, setUserFound] = useState(null);
 
-  const verifyEmail = async () => {};
+  const verifyEmail = async () => {
+    const data = await checkUser(email);
+    if (!data) setUserFound(false);
+    else setUserFound(true);
+  };
 
-  const handleLogin = async () => {};
+  const handleLogin = async () => {
+    if (email && password) {
+      const data = await login(email, password);
+      setUserInfo(data);
+      setIsLoggedIn(true);
+      setAuthModal();
+    }
+  };
 
   const handleSignup = async (e) => {
     if (firstName && lastName && password) {

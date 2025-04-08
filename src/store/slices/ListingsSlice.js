@@ -1,4 +1,3 @@
-"use client";
 export const createListingSlice = (set, get) => ({
   listings: [
     {
@@ -125,11 +124,46 @@ export const createListingSlice = (set, get) => ({
   isMapView: false,
   userListings: [],
   wishLists: [],
-  // wishListsPage: [],
-
+  currentListing: {
+    id: 1,
+    locationType: "Farm House",
+    placeType: "An entire place",
+    mapData: { longitude: "1.44.5.6.7", latitude: "4.55.6.7.8.8" },
+    locationData: undefined,
+    placeSpace: { bathrooms: 4, beds: 4, guest: 16 },
+    placeAmeneties: [
+      "Wifi",
+      "TV",
+      "Kitchen",
+      "Washing Machine",
+      "Free parking on premises",
+      "Paid parking on premises",
+      "Air conditioning",
+      "Dedicated workplace",
+      "Pool",
+      "Hot tub",
+      "Patio",
+      "BBQ grill",
+    ],
+    photos: [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2mI2y7tFQ6tLl58HsdJsoyEJ6D5MGi_pDEA&s",
+      "https://img.vistarooms.com/gallery/compressed/idyllic-farmhouse-a-glasshouse-29e2c9.jpg",
+      "https://assets.architecturaldigest.in/photos/61922845a69fa9f9fffb41cf/16:9/w_2560%2Cc_limit/delhi%2520farmhouse.png",
+      "https://cdn.decorilla.com/online-decorating/wp-content/uploads/2023/04/Modern-farmhouse-decor-in-an-open-living-space-by-Decorilla-1024x683.jpeg?width=900",
+      "https://cdn.decorilla.com/online-decorating/wp-content/uploads/2022/09/Modern-Farmhouse-interior-design-guide-by-Decorilla-1024x683.jpeg?width=900",
+    ],
+    title: "Mannat Hills",
+    description:
+      "SANTIPHAP ROOM - is a spacious en-suite located on the top floor of the renovated 40-year old shophouse call . The room is a Thai-contemporary inspired, overlooking one of the most sacred and a balcony with little garden.",
+    price: 9000,
+    listingCreatedBy: {
+      firstName: "Hemant",
+      lastName: "Chauhan",
+    },
+  },
   setListings: (listings) => set({ listings }),
   setIsMapView: () => set({ isMapView: !get().isMapView }),
   setUserListings: (userListings) => set({ userListings }),
   setWishLists: (wishLists) => set({ wishLists }),
-  // setWishListsPage: (wishListsPage) => set({ wishListsPage }),
+  setCurrentListing: (listing) => set({ currentListing: listing }),
 });

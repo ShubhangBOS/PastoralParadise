@@ -94,7 +94,10 @@ const Navbar = () => {
     <header className="w-full flex flex-col justify-center transition-all duration-300 h-20 border-b border-b-gray-200">
       <div className="flex items-center justify-between px-20">
         <div className="flex-grow basis-0">
-          <div className="w-max cursor-pointer">
+          <div
+            className="w-max cursor-pointer"
+            onClick={() => router.push("/")}
+          >
             <Image src="/home/logo.png" width={150} height={60} alt="logo" />
           </div>
         </div>
