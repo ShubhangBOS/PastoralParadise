@@ -8,7 +8,7 @@ const ContextMenu = ({ options, coordinates, contextMenu, setContextMenu }) => {
     callBack();
   };
 
-  useEffect(() => { 
+  useEffect(() => {
     const handleOutsideClick = (e) => {
       if (
         contextMenuRef.current &&

@@ -29,9 +29,6 @@ const ListingCard = ({
 
   const deleteListing = () => {};
 
-  useEffect(() => {
-    console.log("wishlists", wishLists);
-  }, [wishLists]);
   return (
     <div
       className="flex items-center justify-center flex-col gap-1"

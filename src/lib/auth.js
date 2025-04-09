@@ -1,46 +1,29 @@
-import { createUrl, get, isStoredJwt, post, setStoredJwt } from "./http";
+import { createUrl, post } from "./http";
 
-export const me = async () => {
-  return isStoredJwt()
-    ? (await get(createUrl("/api/me")).catch(() => null))?.data
-    : null;
-};
-
-export const login = async (username, password) => {
-  const result = (
-    await post(createUrl("api/Login/Login"), { username, password }).catch(
-      () => null
-    )
-  )?.data;
-
-  if (!result) {
-    return alert("Could not login");
-  }
-  setStoredJwt(result.accessToken);
-  return me();
-};
-
-export const signup = async (username, password, firstName, lastName) => {
-  const result = (
-    await post(createUrl("/api/signup"), {
-      username,
+export const login = async (emailid, password) => {
+  try {
+    const response = await post(createUrl("api/Login/Login"), {
+      emailid,
       password,
+    });
+    return response.data;
+  } catch (err) {
+    alert("Could not login");
+    return null;
+  }
+};
+
+export const signup = async (emailid, firstName, lastName, password) => {
+  try {
+    const response = await post(createUrl("api/Login/Signup"), {
+      emailid,
       firstName,
       lastName,
-    }).catch(() => null)
-  )?.data;
-
-  if (!result) {
-    return alert("Could not sign up");
+      password,
+    });
+    return response.data;
+  } catch (err) {
+    alert("Could not sign up");
+    return null;
   }
-  setStoredJwt(result.accessToken);
-  return me();
-};
-
-export const checkUser = async (email) => {
-  const result = (
-    await post(createUrl("api/Login/Login"), { email }).catch(() => null)
-  )?.data;
-  if (!result) return false;
-  return true;
 };

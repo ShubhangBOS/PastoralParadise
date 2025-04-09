@@ -91,7 +91,7 @@ export default function TripScheduler() {
           </div>
         </div>
         <button
-          className="bg-airbnb-gradient py-3 mt-5  px-5 text-white text-base font-medium rounded-md cursor-pointer w-full"
+          className="bg-pastoral-gradient py-3 mt-5  px-5 text-white text-base font-medium rounded-md cursor-pointer w-full"
           onClick={handleReservation}
         >
           Reserve

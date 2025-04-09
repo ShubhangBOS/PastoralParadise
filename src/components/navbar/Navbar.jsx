@@ -9,27 +9,30 @@ import { useRouter } from "next/navigation";
 
 const Navbar = () => {
   const router = useRouter();
-  const { setAuthModal, userInfo, setUserInfo } = useAppStore();
+  const { setAuthModal, userInfo, setUserInfo, setAuthMode, restoreAuth } =
+    useAppStore();
   const [isContextMenuVisible, setIsContextMenuVisible] = useState(false);
+
+  useEffect(() => {
+    restoreAuth();
+  }, []);
 
   const contextMenuOptions = [
     {
       name: "Login",
       callBack: () => {
-        setAuthModal();
+        setAuthModal(true); // You can enhance this to pass mode too
+        setAuthMode("login");
+        // localStorage.setItem("authMode", "login");
         setIsContextMenuVisible(false);
       },
     },
     {
-      name: "Signup",
+      name: "Sign Up",
       callBack: () => {
-        setAuthModal();
-        setIsContextMenuVisible(false);
-      },
-    },
-    {
-      name: "Add Your Property",
-      callBack: () => {
+        setAuthModal(true);
+        setAuthMode("signup");
+        // localStorage.setItem("authMode", "signup");
         setIsContextMenuVisible(false);
       },
     },
@@ -103,12 +106,14 @@ const Navbar = () => {
         </div>
         <div className="flex-grow basis-0">
           <ul className="flex items-center justify-end gap-6 font-medium">
-            <li
-              className="cursor-pointer"
-              onClick={() => router.push("/new-listing")}
-            >
-              <span>Add Your Property</span>
-            </li>
+            {userInfo?.emailid === "admin" && (
+              <li
+                className="cursor-pointer"
+                onClick={() => router.push("/new-listing")}
+              >
+                <span>Add Your Property</span>
+              </li>
+            )}
             <li className="cursor-pointer">
               <Globe />
             </li>
