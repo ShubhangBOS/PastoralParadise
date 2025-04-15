@@ -29,28 +29,32 @@ const ListingCard = ({
 
   const deleteListing = () => {};
 
+  useEffect(() => {
+    console.log("listingData", data);
+  }, [data]);
+
   return (
     <div
       className="flex items-center justify-center flex-col gap-1"
-      onClick={() => router.push(`/listing/${data.id}`)}
+      onClick={() => router.push(`/listing/${data.farmHouseCode}`)}
     >
       <div className="flex items-center justify-center cursor-pointer w-full">
         <div className="flex flex-col gap-2">
           <div className="relative w-64 h-56">
             <Image
-              src={data?.photos[0]}
+              src={data?.farm_ImagePath1 || "/home/defaultFarmImage.jpg"}
               fill
               alt="listings"
               className="rounded-lg object-cover"
             />
-            {(pathname === "/" || pathname === "/wishlist") && (
+            {/* {(pathname === "/" || pathname === "/wishlist") && (
               <div
                 className="absolute right-2 top-2"
                 onClick={(e) => {
                   e.stopPropagation();
                   if (wishLists?.some((item) => item.id === data.id)) {
-                    console.log("data.id", data?.id);
-                    removeWishlist(data?.id);
+                    console.log("data.id", data?.farmHouseCode);
+                    removeWishlist(data?.farmHouseCode);
                   } else {
                     addWishList();
                   }
@@ -65,11 +69,11 @@ const ListingCard = ({
                   }`}
                 />
               </div>
-            )}
+            )} */}
           </div>
           <div>
-            <h3>{data?.title}</h3>
-            <span>&#8377; {data?.price}</span>
+            <h3>{data?.farm_Name}</h3>
+            <span>&#8377; {data?.farm_BookingPrice}</span>
           </div>
         </div>
       </div>

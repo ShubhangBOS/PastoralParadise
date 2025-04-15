@@ -2,7 +2,8 @@ import { useAppStore } from "@/store/store";
 import React from "react";
 
 const Price = () => {
-  const { price, setPrice } = useAppStore();
+  const { farm_BookingPrice, setFarmBookingPrice } =
+    useAppStore();
   return (
     <div className="flex items-center justify-center h-full text-pastoral-light-black">
       <div className="flex flex-col gap-5">
@@ -13,11 +14,11 @@ const Price = () => {
         <div className="flex flex-col gap-4">
           <textarea
             className="border border-gray-400 h-56 w-[550px] rounded-lg active:border-gray-950 p-6 no-scrollbar text-4xl"
-            value={price}
+            value={farm_BookingPrice}
             onChange={(e) => {
               if (e.target.value) {
-                setPrice(parseInt(e.target.value));
-              } else setPrice(0);
+                setFarmBookingPrice(parseInt(e.target.value));
+              } else setFarmBookingPrice(0);
             }}
           />
         </div>

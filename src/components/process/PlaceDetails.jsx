@@ -1,12 +1,27 @@
 import { useAppStore } from "@/store/store";
-import React from "react";
+import React, { useEffect } from "react";
 import FormInput from "../common/FormInput";
 
 const PlaceDetails = () => {
-  const { locationData, setLocationData } = useAppStore();
-  const handleChange = (name, value) => {
-    setLocationData({ ...locationData, [name]: value });
-  };
+  const {
+    address1,
+    address2,
+    address3,
+    landMark,
+    city,
+    state,
+    country,
+    pinCode,
+    setAddress1,
+    setAddress2,
+    setAddress3,
+    setLandmark,
+    setCity,
+    setState,
+    setCountry,
+    setPincode,
+  } = useAppStore();
+
   return (
     <div className="flex justify-center items-center h-full flex-col gap-2 w-full">
       <div className="flex flex-col gap-3 text-center">
@@ -19,66 +34,66 @@ const PlaceDetails = () => {
       <div className="flex flex-col w-full items-center gap-3 h-full overflow-auto no-scrollbar pb-20 pt-5">
         <div className="flex flex-col gap-2 w-[30%]">
           <FormInput
-            isListing
-            name="neighborhood"
+            name="address1"
             placeholder="House, flat, bldg, etc."
-            setValue={handleChange}
+            setValue={setAddress1}
             type="text"
-            value={locationData?.neighborhood}
+            value={address1}
           />
         </div>
         <div className="flex flex-col gap-2 w-[30%]">
           <FormInput
-            isListing
-            name="place"
+            name="address2"
             placeholder="Area/village (if applicable)"
-            setValue={handleChange}
+            setValue={setAddress2}
             type="text"
-            value={locationData?.place}
+            value={address2}
           />{" "}
           <FormInput
-            isListing
-            name="locality"
+            name="address3"
             placeholder="Street Address"
-            setValue={handleChange}
+            setValue={setAddress3}
             type="text"
-            value={locationData?.locality}
+            value={address3}
           />
         </div>
         <div className="flex flex-col gap-2 w-[30%]">
           <FormInput
-            isListing
             name="landmark"
             placeholder="Nearby landmark (if applicable)"
-            setValue={handleChange}
+            setValue={setLandmark}
             type="text"
-            value={locationData?.landmark}
+            value={landMark}
           />{" "}
           <FormInput
-            isListing
-            name="district"
+            name="city"
             placeholder="City / town"
-            setValue={handleChange}
+            setValue={setCity}
             type="text"
-            value={locationData?.district}
+            value={city}
+          />
+          <FormInput
+            name="state"
+            placeholder="State"
+            setValue={setState}
+            type="text"
+            value={state}
           />
         </div>
         <div className="flex flex-col gap-2 w-[30%]">
           <FormInput
-            isListing
-            name="postcode"
+            name="pinCode"
             placeholder="PIN code"
-            setValue={handleChange}
+            setValue={setPincode}
             type="text"
-            value={locationData?.postcode}
+            value={pinCode}
           />{" "}
           <FormInput
-            isListing
             name="country"
             placeholder="Country / province"
-            setValue={handleChange}
+            setValue={setCountry}
             type="text"
-            value={locationData?.country}
+            value={country}
           />
         </div>
       </div>

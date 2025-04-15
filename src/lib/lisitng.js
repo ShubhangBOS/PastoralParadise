@@ -1,44 +1,50 @@
-// import { get } from "http";
-// import { createUrl, post } from "./http";
-// import qs from "qs";
-// import axios from "axios";
+import { get } from "http";
+import { createUrl, post } from "./http";
+import qs from "qs";
+import axios from "axios";
 // import { data } from "autoprefixer";
 
-// export const createLisitngAPI = async (listingData) => {
-//   const result = (
-//     await post(createUrl("/api/listings"), {
-//       ...listingData,
-//     }).catch(() => null)
-//   )?.data;
+export const createLisitngAPI = async (listingData) => {
+  try {
+    const response = await post(
+      createUrl("api/FarmHouseDetails/FarmHouse_Location_SpaceDetails"),
+      {
+        ...listingData,
+      }
+    );
+    return response.data;
+  } catch (err) {
+    alert("Could not login");
+    return null;
+  }
+};
 
-//   if (!result) {
-//     return alert("Could not create task");
-//   }
+export const getAllListings = async () => {
+  const query = qs.stringify({
+    orderBy: { createdAt: "asc" },
+  });
 
-//   return result;
-// };
+  try {
+    const result = await axios.get(
+      createUrl(`api/FarmHouseDetails/List_FarmhouseAllDetail`)
+    );
+    return result.data;
+  } catch (err) {
+    alert("Could not get listings");
+    return [];
+  }
+};
 
-// export const getAllListings = async () => {
-//   const query = qs.stringify({
-//     orderBy: { createdAt: "asc" },
-//   });
-
-//   const result = await axios.get(createUrl(`/api/listings?${query}`));
-
-//   if (!result) {
-//     alert("Could not get listings");
-//     return [];
-//   }
-
-//   return result.data;
-// };
-
-// export const getListing = async (listingId) => {
-//   const result = await axios.get(createUrl(`/api/listings/${listingId}`));
-//   if (!result) {
-//   }
-//   return result.data;
-// };
+export const getListing = async (listingId) => {
+  try {
+    const result = await axios.get(
+      createUrl(`api/FarmHouseDetails/List_FarmhouseSingleDetail/${listingId}`)
+    );
+    return result.data;
+  } catch (error) {
+    alert("Could not get listing");
+  }
+};
 
 // export const getSearchListing = async (searchTerm) => {
 //   const query = qs.stringify({

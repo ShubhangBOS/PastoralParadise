@@ -1,6 +1,8 @@
 // import { Geist, Geist_Mono } from "next/font/google";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Suspense } from "react";
+import NavigationEvents from "@/components/common/NavigationEvents";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -39,6 +41,9 @@ export default function RootLayout({ children }) {
         cz-shortcut-listen="true"
       >
         {children}
+        <Suspense fallback={null}>
+          <NavigationEvents />
+        </Suspense>
       </body>
     </html>
   );

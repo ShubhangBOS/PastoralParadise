@@ -7,10 +7,20 @@ import ListView from "@/components/views/ListView";
 import MapView from "@/components/views/MapView";
 import ViewSwitchBadge from "@/components/views/ViewSwitchBadge";
 import { listingTypes } from "@/data/listingTypes";
+import { getAllListings } from "@/lib/lisitng";
 import { useAppStore } from "@/store/store";
+import { useEffect } from "react";
 
 export default function Home() {
   const { isAuthModalOpen, setListings, isMapView } = useAppStore();
+  useEffect(() => {
+    const getData = async () => {
+      const data = await getAllListings();
+      console.log("listings", data.data);
+      setListings(data.data);
+    };
+    getData();
+  }, [setListings]);
   return (
     <div className="max-h-[100vh] h-[100vh]">
       <Navbar />

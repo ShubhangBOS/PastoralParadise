@@ -1,7 +1,12 @@
-import React from "react";
+"use client";
+import { useAppStore } from "@/store/store";
+import React, { useEffect } from "react";
+import { login } from "@/lib/auth";
 
 const NavigationEvents = () => {
-  return <div>NavigationEvents</div>;
+  const { userInfo, setUserInfo } = useAppStore();
+  useEffect(() => {}, [userInfo]);
+  return null;
 };
 
 export default NavigationEvents;

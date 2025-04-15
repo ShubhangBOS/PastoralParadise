@@ -2,13 +2,33 @@ import { useAppStore } from "@/store/store";
 import React from "react";
 
 const FloorPlan = () => {
-  const { placeSpace, setPlaceSpace } = useAppStore();
+  const {
+    no_Bathroom,
+    no_BedRoom,
+    no_Guest,
+    setBathroom,
+    setBedRoom,
+    setGuest,
+  } = useAppStore();
+
   const handleIncrement = (type) => {
-    setPlaceSpace({ ...placeSpace, [type]: placeSpace[type] + 1 });
+    if (type === "bedroom") setBedRoom(no_BedRoom + 1);
+    else if (type === "bathroom") setBathroom(no_Bathroom + 1);
+    else if (type === "guest") setGuest(no_Guest + 1);
   };
+
   const handleDecrement = (type) => {
-    setPlaceSpace({ ...placeSpace, [type]: placeSpace[type] - 1 });
+    if (type === "bedroom" && no_BedRoom > 0) setBedRoom(no_BedRoom - 1);
+    else if (type === "bathroom" && no_Bathroom > 0)
+      setBathroom(no_Bathroom - 1);
+    else if (type === "guest" && no_Guest > 0) setGuest(no_Guest - 1);
   };
+
+  const data = [
+    { label: "bedroom", value: no_BedRoom },
+    { label: "bathroom", value: no_Bathroom },
+    { label: "guest", value: no_Guest },
+  ];
   return (
     <div className="flex justify-center items-center h-full flex-col gap-5">
       <div className="flex flex-col gap-3 text-center">
@@ -21,23 +41,23 @@ const FloorPlan = () => {
         </p>
       </div>
       <div className="flex flex-col w-[40%] gap-5">
-        {Object.keys(placeSpace).map((place) => (
+        {data.map((item) => (
           <div
-            key={place}
+            key={item.label}
             className="flex justify-between w-full text-lg items-center"
           >
-            <span className="capitalize">{place}</span>
+            <span className="capitalize">{item.label}</span>
             <div className="flex gap-10 items-center justify-between w-48">
               <button
                 className="border border-gray-200 py-[10px] rounded-full px-5 flex items-center justify-center hover:border-gray-500"
-                onClick={() => handleDecrement(place)}
+                onClick={() => handleDecrement(item.label)}
               >
                 -
               </button>
-              <button>{placeSpace[place]}</button>
+              <button>{item.value}</button>
               <button
                 className="border border-gray-200 py-[10px] rounded-full px-5 flex items-center justify-center hover:border-gray-500"
-                onClick={() => handleIncrement(place)}
+                onClick={() => handleIncrement(item.label)}
               >
                 +
               </button>

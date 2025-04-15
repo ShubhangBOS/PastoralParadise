@@ -2,7 +2,7 @@ import { useAppStore } from "@/store/store";
 import React from "react";
 
 const Title = () => {
-  const { title, setTitle } = useAppStore();
+  const { farm_Name, setFarmName } = useAppStore();
   return (
     <div className="flex flex-col gap-5 items-center justify-center h-full text-pastoral-light-black">
       <div className="flex flex-col gap-2">
@@ -17,14 +17,14 @@ const Title = () => {
       <div className="flex flex-col gap-4">
         <textarea
           className="border border-gray-400 h-40 w-[550px] rounded-lg active:border-gray-950 p-6 no-scrollbar text-4xl"
-          value={title}
+          value={farm_Name}
           onChange={(e) => {
             if (e.target.value.length <= 32) {
-              setTitle(e.target.value);
+              setFarmName(e.target.value);
             }
           }}
         />
-        <span>{title.length}/32</span>
+        <span>{farm_Name.length}/32</span>
       </div>
     </div>
   );

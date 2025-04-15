@@ -1,7 +1,8 @@
 "use client";
 import Overview from "@/components/process/Overview";
 import AirBnbLogoShort from "@/svg/airbnb-logo-short";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useAppStore } from "@/store/store";
 import Image from "next/image";
 import StepOneStarter from "@/components/process/StepOneStarter";
 import ListingTypeSelector from "@/components/process/ListingTypeSelector";
@@ -17,8 +18,11 @@ import Description from "@/components/process/Description";
 import StepThreeStarter from "@/components/process/StepThreeStarter";
 import Price from "@/components/process/Price";
 import ListingCreated from "@/components/process/ListingCreated";
+import { useRouter } from "next/navigation";
 
 const page = () => {
+  const { userInfo } = useAppStore();
+  const router = useRouter();
   const [step, setStep] = useState(0);
   const getComponent = () => {
     switch (step) {
@@ -26,31 +30,31 @@ const page = () => {
         return <Overview />;
       case 1:
         return <StepOneStarter />;
+      // case 2:
+      //   return <ListingTypeSelector />;
+      // case 2:
+      //   return <ListingPlaceType />;
+      // case 2:
+      //   return <PlaceLocation />;
       case 2:
-        return <ListingTypeSelector />;
-      case 3:
-        return <ListingPlaceType />;
-      case 4:
-        return <PlaceLocation />;
-      case 5:
         return <PlaceDetails />;
-      case 6:
+      case 3:
         return <FloorPlan />;
-      case 7:
+      case 4:
         return <StepTwoStarter />;
-      case 8:
+      case 5:
         return <ProcessAmeneties />;
-      case 9:
-        return <Photos />;
-      case 10:
-        return <Title />;
-      case 11:
-        return <Description />;
-      case 12:
-        return <StepThreeStarter />;
-      case 13:
+      case 6:
         return <Price />;
-      case 14:
+      case 7:
+        return <Title />;
+      case 8:
+        return <Description />;
+      case 9:
+        return <StepThreeStarter />;
+      case 10:
+        return <Photos />;
+      case 11:
         return <ListingCreated />;
       default:
         return <></>;
@@ -65,10 +69,17 @@ const page = () => {
     setStep(step + 1);
   };
 
+  useEffect(() => {
+    console.log("userInfo", userInfo);
+    if (userInfo?.emailid !== "admin") {
+      router.push("/");
+    }
+  }, [userInfo, router]);
+
   return (
     <div className="grid grid-rows-new-listing h-[100vh]">
       <header className="flex items-center px-20 justify-between">
-        <div className="cursor-pointer">
+        <div className="cursor-pointer" onClick={() => router.push("/")}>
           <Image src="/home/logo.png" width={150} height={60} alt="logo" />
         </div>
         {step <= 13 && (
