@@ -92,7 +92,7 @@ export const AmenetiesType = [
       { name: "Smoke alarm", svgPath: <SmokeAlarm />, id: "smokeAlarm" },
       { name: "First aid kit", svgPath: <FirstAid />, id: "firstAidKit" },
       {
-        name: "carbonMonoOxideAlarm",
+        name: "Fire Extinguisher",
         svgPath: <FireExt />,
         id: "fireExtinguisher",
       },

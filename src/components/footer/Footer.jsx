@@ -11,8 +11,8 @@ export default function Footer() {
     "destinations",
   ];
   return (
-    <div className="px-20 border-t border-t-gray-200 py-4 flex justify-between w-full text-sm z-50 bg-white items-center ">
-      <ul className="flex gap-3 font-normal">
+    <div className="px-10 md:px-20 border-t border-t-gray-200 py-4 flex justify-between w-full text-sm z-50 bg-white items-center ">
+      <ul className="flex flex-col lg:flex-row gap-3 font-normal">
         <li>&copy; {new Date().getFullYear()} Pastoral Paradise, Inc</li>
         {links.map((link) => (
           <li key={link}>
@@ -22,12 +22,12 @@ export default function Footer() {
           </li>
         ))}
       </ul>
-      <ul className="flex gap-4 font-medium items-center">
+      <ul className="flex flex-col lg:flex-row gap-4 font-medium items-center">
         <li className="flex items-center gap-2 cursor-pointer">
           <Globe /> English (IN)
         </li>
         <li className="cursor-pointer">&#8377; INR</li>
-        <li className="flex items-center gap-2 cursor-pointer">
+        <li className="flex items-center cursor-pointer">
           Support & Resources <ChevronUp />{" "}
         </li>
       </ul>

@@ -45,11 +45,11 @@ const page = () => {
       case 5:
         return <ProcessAmeneties />;
       case 6:
-        return <Price />;
-      case 7:
         return <Title />;
-      case 8:
+      case 7:
         return <Description />;
+      case 8:
+        return <Price />;
       case 9:
         return <StepThreeStarter />;
       case 10:
@@ -77,8 +77,8 @@ const page = () => {
   }, [userInfo, router]);
 
   return (
-    <div className="grid grid-rows-new-listing h-[100vh]">
-      <header className="flex items-center px-20 justify-between">
+    <div className="grid grid-rows-new-listing min-h-screen">
+      <header className="flex items-center px-5 md:px-10 lg:px-20 mt-5 justify-between">
         <div className="cursor-pointer" onClick={() => router.push("/")}>
           <Image src="/home/logo.png" width={150} height={60} alt="logo" />
         </div>
@@ -90,7 +90,7 @@ const page = () => {
       </header>
       {getComponent()}
       <footer
-        className={`flex items-center px-20 pb-4 border-t-4 border-t-gray-300 ${
+        className={`flex items-center px-5 md:px-10 lg:px-20 pb-4 border-t-4 border-t-gray-300 bg-white opacity-100 ${
           step > 0 ? "justify-between" : "justify-end"
         }`}
       >
@@ -102,7 +102,15 @@ const page = () => {
             Back
           </button>
         )}
-        {step !== 0 ? (
+        {step === 11 ? (
+          <button
+            className="bg-[#222222] py-3 mt-5 px-5 text-white text-base font-medium rounded-md cursor-pointer opacity-10"
+            disabled
+            onClick={handleNext}
+          >
+            Next
+          </button>
+        ) : step !== 0 ? (
           <button
             className="bg-[#222222] py-3 mt-5 px-5 text-white text-base font-medium rounded-md cursor-pointer"
             onClick={handleNext}

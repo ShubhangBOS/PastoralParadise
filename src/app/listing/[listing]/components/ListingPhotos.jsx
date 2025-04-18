@@ -1,24 +1,41 @@
 import { useAppStore } from "@/store/store";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const ListingPhotos = () => {
-  const { currentListing } = useAppStore();
+  const { imageListings } = useAppStore();
   const [currentPhoto, setCurrentPhoto] = useState(0);
+
+  useEffect(() => {
+    console.log("imageListings", imageListings);
+  }, [imageListings]);
+
   return (
     <div className="flex gap-5 flex-col">
       <div className="relative w-full h-[60vh]">
-        <Image alt="listing" fill src={currentListing.photos[currentPhoto]} />
+        <Image
+          alt="listing"
+          fill
+          src={
+            imageListings.length > 0
+              ? `http://192.168.0.124:81${imageListings[currentPhoto].imagePath}`
+              : "/home/defaultFarmImage.jpg"
+          }
+        />
       </div>
-      {currentListing.photos.length > 1 && (
+      {imageListings.length > 1 && (
         <ul className="flex gap-5 flex-wrap">
-          {currentListing.photos.map((photo, index) => (
+          {imageListings.map((photo, index) => (
             <li
-              key={photo}
+              key={photo.imageId}
               className="relative w-48 h-32 cursor-pointer"
               onClick={() => setCurrentPhoto(index)}
             >
-              <Image src={photo} fill alt="all photos" />
+              <Image
+                src={`http://192.168.0.124:81${photo.imagePath}`}
+                fill
+                alt="all photos"
+              />
             </li>
           ))}
         </ul>

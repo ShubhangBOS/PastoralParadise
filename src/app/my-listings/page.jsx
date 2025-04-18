@@ -13,7 +13,11 @@ const page = () => {
       <div className="flex justify-start items-start">
         <div className="grid grid-cols-4 px-10 gap-3 py-10 w-full items-start">
           {listings.map((listing, index) => (
-            <ListingCard data={listing} isMyListing key={listing.id} />
+            <ListingCard
+              data={listing}
+              isMyListing
+              key={listing.farmHouseCode}
+            />
           ))}
         </div>
       </div>

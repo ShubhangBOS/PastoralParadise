@@ -14,23 +14,9 @@ const nextConfig = {
         pathname: "**",
       },
       {
-        protocol: "https",
-        hostname: "encrypted-tbn0.gstatic.com",
-        pathname: "**",
-      },
-      {
-        protocol: "https",
-        hostname: "img.vistarooms.com",
-        pathname: "**",
-      },
-      {
-        protocol: "https",
-        hostname: "assets.architecturaldigest.in",
-        pathname: "**",
-      },
-      {
-        protocol: "https",
-        hostname: "cdn.decorilla.com",
+        protocol: "http",
+        hostname: "192.168.0.124",
+        port: "81",
         pathname: "**",
       },
     ],

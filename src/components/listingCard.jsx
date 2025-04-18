@@ -42,7 +42,11 @@ const ListingCard = ({
         <div className="flex flex-col gap-2">
           <div className="relative w-64 h-56">
             <Image
-              src={data?.farm_ImagePath1 || "/home/defaultFarmImage.jpg"}
+              src={
+                data?.farm_ImagePath1
+                  ? `http://192.168.0.124:81${data.farm_ImagePath1}`
+                  : "/home/defaultFarmImage.jpg"
+              }
               fill
               alt="listings"
               className="rounded-lg object-cover"
@@ -72,8 +76,8 @@ const ListingCard = ({
             )} */}
           </div>
           <div>
-            <h3>{data?.farm_Name}</h3>
-            <span>&#8377; {data?.farm_BookingPrice}</span>
+            <h3>{data?.farmName}</h3>
+            <span>&#8377; {data?.farmBookingPrice}</span>
           </div>
         </div>
       </div>

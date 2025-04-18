@@ -1,12 +1,10 @@
-import { get } from "http";
 import { createUrl, post } from "./http";
-import qs from "qs";
 import axios from "axios";
 // import { data } from "autoprefixer";
 
 export const createLisitngAPI = async (listingData) => {
   try {
-    const response = await post(
+    const response = await axios.post(
       createUrl("api/FarmHouseDetails/FarmHouse_Location_SpaceDetails"),
       {
         ...listingData,
@@ -14,15 +12,15 @@ export const createLisitngAPI = async (listingData) => {
     );
     return response.data;
   } catch (err) {
-    alert("Could not login");
+    console.error("Could not create listing. Please try after sometime.");
     return null;
   }
 };
 
 export const getAllListings = async () => {
-  const query = qs.stringify({
-    orderBy: { createdAt: "asc" },
-  });
+  // const query = qs.stringify({
+  //   orderBy: { createdAt: "asc" },
+  // });
 
   try {
     const result = await axios.get(
@@ -30,7 +28,7 @@ export const getAllListings = async () => {
     );
     return result.data;
   } catch (err) {
-    alert("Could not get listings");
+    console.error("Could not get listings");
     return [];
   }
 };
@@ -42,7 +40,51 @@ export const getListing = async (listingId) => {
     );
     return result.data;
   } catch (error) {
-    alert("Could not get listing");
+    console.error("Could not get listing");
+  }
+};
+
+export const addListingPhotos = async ({ files, farmHouseCode }) => {
+  try {
+    const formData = new FormData();
+
+    formData.append("ImageId", 0);
+    formData.append("FarmHouseCode", farmHouseCode);
+    formData.append("ImageCategory", "all photos");
+    formData.append("ImagePath", "");
+    formData.append("UpdateColumnName", "");
+    formData.append("TaskType", "ins");
+
+    files.forEach((file) => {
+      formData.append("Images", file);
+    });
+
+    const response = await axios.post(
+      createUrl("/api/FarmhouseImage/FarmHouseImagesUpload"),
+      formData,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    );
+
+    return response.data;
+  } catch (err) {
+    console.error("Image upload error:", err);
+    return null;
+  }
+};
+
+export const getAllListingImages = async (farmHouseCode) => {
+  try {
+    const result = await post(
+      createUrl("/api/FarmhouseImage/getFarmhouseImages"),
+      farmHouseCode
+    );
+    return result.data?.data || [];
+  } catch (err) {
+    console.error("Error getting Images. Please try again later");
   }
 };
 

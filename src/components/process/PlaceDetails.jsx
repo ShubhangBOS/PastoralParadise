@@ -23,7 +23,7 @@ const PlaceDetails = () => {
   } = useAppStore();
 
   return (
-    <div className="flex justify-center items-center h-full flex-col gap-2 w-full">
+    <div className="flex justify-center items-center h-full flex-col gap-2 w-full overflow-auto no-scrollbar">
       <div className="flex flex-col gap-3 text-center">
         <h2 className="font-semibold text-4xl">Confirm your address</h2>
         <p>
@@ -32,7 +32,7 @@ const PlaceDetails = () => {
         </p>
       </div>
       <div className="flex flex-col w-full items-center gap-3 h-full overflow-auto no-scrollbar pb-20 pt-5">
-        <div className="flex flex-col gap-2 w-[30%]">
+        <div className="flex flex-col gap-2 px-5 md:px-0 w-full md:w-[50%] lg:w-[30%]">
           <FormInput
             name="address1"
             placeholder="House, flat, bldg, etc."
@@ -41,7 +41,7 @@ const PlaceDetails = () => {
             value={address1}
           />
         </div>
-        <div className="flex flex-col gap-2 w-[30%]">
+        <div className="flex flex-col gap-2 px-5 md:px-0 w-full md:w-[50%] lg:w-[30%]">
           <FormInput
             name="address2"
             placeholder="Area/village (if applicable)"
@@ -57,7 +57,7 @@ const PlaceDetails = () => {
             value={address3}
           />
         </div>
-        <div className="flex flex-col gap-2 w-[30%]">
+        <div className="flex flex-col gap-2 px-5 md:px-0 w-full md:w-[50%] lg:w-[30%]">
           <FormInput
             name="landmark"
             placeholder="Nearby landmark (if applicable)"
@@ -80,7 +80,7 @@ const PlaceDetails = () => {
             value={state}
           />
         </div>
-        <div className="flex flex-col gap-2 w-[30%]">
+        <div className="flex flex-col gap-2 px-5 md:px-0 w-full md:w-[50%] lg:w-[30%]">
           <FormInput
             name="pinCode"
             placeholder="PIN code"

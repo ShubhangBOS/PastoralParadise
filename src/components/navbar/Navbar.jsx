@@ -58,6 +58,13 @@ const Navbar = () => {
       },
     },
     {
+      name: "Add Your Property",
+      callBack: () => {
+        setIsContextMenuVisible(false);
+        router.push("/new-listing");
+      },
+    },
+    {
       name: "Trips",
       callBack: () => {
         setIsContextMenuVisible(false);
@@ -95,7 +102,7 @@ const Navbar = () => {
   ];
   return (
     <header className="w-full flex flex-col justify-center transition-all duration-300 h-20 border-b border-b-gray-200">
-      <div className="flex items-center justify-between px-20">
+      <div className="flex items-center justify-between px-5 md:px-20">
         <div className="flex-grow basis-0">
           <div
             className="w-max cursor-pointer"
@@ -108,15 +115,15 @@ const Navbar = () => {
           <ul className="flex items-center justify-end gap-6 font-medium">
             {userInfo?.emailid === "admin" && (
               <li
-                className="cursor-pointer"
+                className="cursor-pointer hidden sm:block"
                 onClick={() => router.push("/new-listing")}
               >
                 <span>Add Your Property</span>
               </li>
             )}
-            <li className="cursor-pointer">
+            {/* <li className="cursor-pointer">
               <Globe />
-            </li>
+            </li> */}
             <li
               className="flex cursor-pointer items-center gap-2 border border-gray-300 py-2 px-3 rounded-full hover:shadow-xl transition-all duration-500"
               onClick={() => setIsContextMenuVisible(!isContextMenuVisible)}

@@ -24,7 +24,7 @@ const Overview = () => {
     },
   ];
   return (
-    <div className="flex h-full justify-between items-center px-32 gap-20">
+    <div className="flex flex-col md:flex-row h-full md:justify-between items-center px-5 md:px-10 lg:px-32 gap-5 md:gap-10 lg:gap-20 overflow-auto no-scrollbar">
       <div>
         <strong>
           <h1 className="text-5xl leading-normal text-pastoral-light-black">
@@ -32,17 +32,24 @@ const Overview = () => {
           </h1>
         </strong>
       </div>
-      <ul className="flex flex-col gap-16 ">
+      <ul className="flex flex-col gap-5 md:gap-16">
         {data.map(({ description, title, image }, index) => (
-          <li key={title} className="flex items-center justify-start gap-6 ">
-            <strong className="text-2xl pt-5 text-pastoral-light-black">
-              {index + 1}
-            </strong>
-            <div className="pt-5">
-              <strong className="text-2xl text-pastoral-light-black">
-                <h3>{title}</h3>
+          <li
+            key={title}
+            className="flex items-start md:items-center flex-col sm:flex-row justify-start gap-6 "
+          >
+            <div className="flex gap-5">
+              <strong className="text-2xl pt-5 text-pastoral-light-black">
+                {index + 1}.
               </strong>
-              <p className="text-pastoral-light-gray text-lg">{description}</p>
+              <div className="pt-5">
+                <strong className="text-2xl text-pastoral-light-black">
+                  <h3>{title}</h3>
+                </strong>
+                <p className="text-pastoral-light-gray text-lg">
+                  {description}
+                </p>
+              </div>
             </div>
             <div className="relative w-48 h-32 object-cover">
               <Image src={image} alt="overview" fill />

@@ -1,18 +1,48 @@
 import { useAppStore } from "@/store/store";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { getAllListingImages } from "@/lib/lisitng";
 import dynamic from "next/dynamic";
 const ListingCard = dynamic(() => import("../listingCard"), { ssr: false });
 
 const ListView = () => {
   const { listings } = useAppStore();
+  const [mergedListings, setMergedListings] = useState([]);
+
   useEffect(() => {
-    console.log("listView", listings);
+    const fetchImagesAndMerge = async () => {
+      const images = await getAllListingImages({ farmHouseCode: "" });
+
+      // Group images by farmHouseCode
+      const imageMap = images.reduce((acc, img) => {
+        const code = img.farmHouseCode.toUpperCase(); // normalize casing
+        if (!acc[code]) acc[code] = [];
+        acc[code].push(img);
+        return acc;
+      }, {});
+
+      const updatedListings = listings.map((listing) => {
+        const code = listing.farmHouseCode.toUpperCase();
+        const imagesForListing = imageMap[code] || [];
+        return {
+          ...listing,
+          farm_ImagePath1: imagesForListing[0]?.imagePath || null,
+          allImages: imagesForListing,
+        };
+      });
+
+      setMergedListings(updatedListings);
+    };
+
+    if (listings?.length > 0) {
+      fetchImagesAndMerge();
+    }
   }, [listings]);
+
   return (
     <div>
-      {listings?.length > 0 ? (
-        <div className="grid grid-cols-5 px-20 gap-10 py-10 justify-start items-start">
-          {listings?.map((listing, index) => (
+      {mergedListings?.length > 0 ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 px-20 gap-10 py-10 justify-start items-start">
+          {mergedListings.map((listing) => (
             <ListingCard key={listing.farmHouseCode} data={listing} />
           ))}
         </div>

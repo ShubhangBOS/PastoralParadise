@@ -4,32 +4,32 @@ import { AmenetiesType } from "@/data/Amenities";
 
 const ListingAmenties = () => {
   const { currentListing } = useAppStore();
-  function getSvgPathByName(name) {
-    for (const amenity of AmenetiesType) {
-      for (const data of amenity.data) {
-        if (data.name === name) {
-          return data.svgPath;
-        }
-      }
-    }
-    return null;
-  }
 
-  useEffect(() => {
-    console.log("currentListing", currentListing.placeAmeneties);
-  }, []);
+  // Flatten AmenetiesType into a single map for easier lookup by id
+  const amenitiesMap = AmenetiesType.flatMap((group) => group.data).reduce(
+    (acc, item) => {
+      acc[item.id] = item;
+      return acc;
+    },
+    {}
+  );
+
+  const availableAmenities = Object.entries(currentListing?.aminities[0] || {})
+    .filter(([_, value]) => value)
+    .map(([key]) => amenitiesMap[key])
+    .filter(Boolean);
 
   return (
-    <div className="flex flex-col gap-2">
-      <h4 className="text-xl font-semibold ">Amenties</h4>
+    <div className="flex flex-col gap-2 mb-2">
+      <h4 className="text-xl font-semibold">Amenities</h4>
       <ul className="grid grid-cols-5 gap-2">
-        {currentListing?.placeAmeneties?.map((amenity) => (
+        {availableAmenities.map((amenity) => (
           <li
-            key={amenity}
+            key={amenity.id}
             className="border border-gray-300 p-3 rounded-lg flex flex-col justify-start items-start"
           >
-            {getSvgPathByName(amenity)}
-            <span>{amenity}</span>
+            {amenity.svgPath}
+            <span>{amenity.name}</span>
           </li>
         ))}
       </ul>
