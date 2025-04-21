@@ -52,10 +52,6 @@ const Photos = () => {
   };
 
 
-  useEffect(() => {
-    console.log("createNewListing", createNewListing);
-  }, [createNewListing]);
-
   return (
     <div className="flex gap-5 items-center justify-center flex-col h-full">
       <h2 className="font-semibold text-4xl">

@@ -56,7 +56,6 @@ const StepThreeStarter = () => {
       });
 
       if (response.status) {
-        console.log("createNewListing", response.data[0]);
         setCreateNewListing(response.data[0]);
       }
     };

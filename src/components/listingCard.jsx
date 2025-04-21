@@ -23,15 +23,11 @@ const ListingCard = ({
   const removeWishlist = (wishListId) => {
     alert(wishListId);
     const currArr = wishLists.filter((item) => item.id !== wishListId);
-    console.log(currArr);
     setWishLists(currArr);
   };
 
   const deleteListing = () => {};
 
-  useEffect(() => {
-    console.log("listingData", data);
-  }, [data]);
 
   return (
     <div

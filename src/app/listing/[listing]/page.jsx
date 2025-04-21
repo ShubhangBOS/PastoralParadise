@@ -34,7 +34,6 @@ const page = () => {
       const listingData = await getListing(params.listing);
       const current = listingData.data[0];
       setCurrentListing(current);
-      console.log("currentListing", current);
 
       const imageData = await getAllListingImages({
         farmHouseCode: params.listing,
@@ -42,7 +41,6 @@ const page = () => {
       setImageListings(imageData);
 
       const checkInOutData = await getCheckInCheckouts(params.listing);
-      console.log("dates", checkInOutData);
       setCheckInOutDates(checkInOutData?.data || []);
     };
 

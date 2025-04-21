@@ -7,7 +7,6 @@ const ListingPhotos = () => {
   const [currentPhoto, setCurrentPhoto] = useState(0);
 
   useEffect(() => {
-    console.log("imageListings", imageListings);
   }, [imageListings]);
 
   return (

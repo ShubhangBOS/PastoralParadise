@@ -10,7 +10,6 @@ export const createLisitngAPI = async (listingData) => {
         ...listingData,
       }
     );
-    console.log("response", response);
     return response.data;
   } catch (err) {
     console.error("Could not create listing. Please try after sometime.");

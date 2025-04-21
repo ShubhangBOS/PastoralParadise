@@ -45,7 +45,6 @@ const BookPage = () => {
     useAppStore.getState().setBookingDetails(updatedBookingDetails);
 
     const bookingData = await createBookingAPI(updatedBookingDetails);
-    console.log("Booking response:", bookingData);
 
     if (bookingData?.status === true) {
       setShowSuccessModal(true);

@@ -90,7 +90,6 @@ const page = () => {
   };
 
   useEffect(() => {
-    console.log("userInfo", userInfo);
     if (userInfo?.emailid !== "admin") {
       router.push("/");
     }

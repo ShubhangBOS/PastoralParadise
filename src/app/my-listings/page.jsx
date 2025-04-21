@@ -39,9 +39,6 @@ const page = () => {
     }
   }, [listings]);
 
-  useEffect(() => {
-    console.log("manage listing", listings);
-  }, []);
   return (
     <div>
       <Navbar />

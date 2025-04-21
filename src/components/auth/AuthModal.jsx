@@ -29,7 +29,6 @@ const AuthModal = () => {
   const handleSignup = async () => {
     if (email && firstName && lastName && password) {
       const data = await signup(email, firstName, lastName, password);
-      console.log("1234", data);
       if (data.status) {
         setUserInfo(data);
         setIsLoggedIn(true);
