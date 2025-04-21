@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiUrl = "http://192.168.0.124:81/";
+const apiUrl = "https://api.thepastoralparadise.com";
 
 const api = axios.create({
   baseURL: apiUrl,

@@ -24,6 +24,10 @@ const page = () => {
   const { userInfo } = useAppStore();
   const router = useRouter();
   const [step, setStep] = useState(0);
+  const [isLocationValid, setIsLocationValid] = useState(true);
+  const [isTitleValid, setIsTitleValid] = useState(true);
+  const [isDescriptionValid, setIsDescriptionValid] = useState(true);
+  const [isPriceValid, setIsPriceValid] = useState(true);
   const getComponent = () => {
     switch (step) {
       case 0:
@@ -37,7 +41,7 @@ const page = () => {
       // case 2:
       //   return <PlaceLocation />;
       case 2:
-        return <PlaceDetails />;
+        return <PlaceDetails setIsValid={setIsLocationValid} />;
       case 3:
         return <FloorPlan />;
       case 4:
@@ -45,11 +49,11 @@ const page = () => {
       case 5:
         return <ProcessAmeneties />;
       case 6:
-        return <Title />;
+        return <Title setIsValid={setIsTitleValid} />;
       case 7:
-        return <Description />;
+        return <Description setIsValid={setIsDescriptionValid} />;
       case 8:
-        return <Price />;
+        return <Price setIsValid={setIsPriceValid} />;
       case 9:
         return <StepThreeStarter />;
       case 10:
@@ -66,6 +70,22 @@ const page = () => {
   };
 
   const handleNext = () => {
+    if (!isLocationValid) {
+      alert("Please fill all required fields before proceeding.");
+      return;
+    }
+    if (!isTitleValid) {
+      alert("Please fill your place title");
+      return;
+    }
+    if (!isDescriptionValid) {
+      alert("Please fill your place description");
+      return;
+    }
+    if (!isPriceValid) {
+      alert("Price can not be zero");
+      return;
+    }
     setStep(step + 1);
   };
 

@@ -1,5 +1,7 @@
 @import "tailwindcss";
 @config "../../tailwind.config.mjs";
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
 
 /* Hide scrollbar for Chrome, Safari and Opera */
 .no-scrollbar::-webkit-scrollbar {

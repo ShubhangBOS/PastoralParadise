@@ -48,7 +48,7 @@ export default function Home() {
         </div>
       </div> */}
       {isMapView ? <MapView /> : <ListView />}
-      <ViewSwitchBadge />
+      {/* <ViewSwitchBadge /> */}
       <Footer />
       {isAuthModalOpen && <AuthModal />}
     </div>

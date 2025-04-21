@@ -14,11 +14,12 @@ const ListView = () => {
 
       // Group images by farmHouseCode
       const imageMap = images.reduce((acc, img) => {
-        const code = img.farmHouseCode.toUpperCase(); // normalize casing
+        const code = img.farmHouseCode.toUpperCase();
         if (!acc[code]) acc[code] = [];
         acc[code].push(img);
         return acc;
       }, {});
+
 
       const updatedListings = listings.map((listing) => {
         const code = listing.farmHouseCode.toUpperCase();

@@ -10,6 +10,7 @@ export const createLisitngAPI = async (listingData) => {
         ...listingData,
       }
     );
+    console.log("response", response);
     return response.data;
   } catch (err) {
     console.error("Could not create listing. Please try after sometime.");
@@ -85,6 +86,31 @@ export const getAllListingImages = async (farmHouseCode) => {
     return result.data?.data || [];
   } catch (err) {
     console.error("Error getting Images. Please try again later");
+  }
+};
+
+export const createBookingAPI = async (bookingDetail) => {
+  try {
+    const response = await post(
+      createUrl("/api/BookingDetails/BookingDetails"),
+      bookingDetail
+    );
+    return response.data;
+  } catch (err) {
+    console.error("Could not create booking");
+    return null;
+  }
+};
+
+export const getCheckInCheckouts = async (listingId) => {
+  try {
+    const response = await axios.get(
+      createUrl(`/api/BookingDetails/CheckIn_Out?FarmhouseCode=${listingId}`)
+    );
+    return response.data;
+  } catch (err) {
+    console.error("could not get checkin and checkout dates");
+    return null;
   }
 };
 

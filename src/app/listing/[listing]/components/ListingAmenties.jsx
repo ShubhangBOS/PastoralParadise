@@ -22,7 +22,7 @@ const ListingAmenties = () => {
   return (
     <div className="flex flex-col gap-2 mb-2">
       <h4 className="text-xl font-semibold">Amenities</h4>
-      <ul className="grid grid-cols-5 gap-2">
+      <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2">
         {availableAmenities.map((amenity) => (
           <li
             key={amenity.id}

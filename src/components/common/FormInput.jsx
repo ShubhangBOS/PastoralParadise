@@ -7,6 +7,7 @@ const FormInput = ({
   setValue,
   placeholder,
   isListing = false,
+  required = false,
 }) => {
   return (
     <input
@@ -14,6 +15,7 @@ const FormInput = ({
       value={value}
       name={name}
       placeholder={placeholder}
+      required={required}
       onChange={(e) =>
         isListing ? setValue(name, e.target.value) : setValue(e.target.value)
       }
@@ -22,4 +24,4 @@ const FormInput = ({
   );
 };
 
-export default FormInput;
+export default FormInput;    

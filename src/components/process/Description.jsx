@@ -1,8 +1,12 @@
 import { useAppStore } from "@/store/store";
-import React from "react";
+import React, { useEffect } from "react";
 
-const Description = () => {
+const Description = ({ setIsValid }) => {
   const { farmDescription, setFarmDescription } = useAppStore();
+  useEffect(() => {
+    const valid = farmDescription?.trim() !== "";
+    setIsValid(valid);
+  }, [farmDescription, setIsValid]);
   return (
     <div className="flex items-center justify-center h-full text-pastoral-light-black px-5 md:px-5">
       <div className="flex flex-col gap-5">

@@ -10,30 +10,43 @@ import ListingAmenties from "./components/ListingAmenties";
 import ListingMap from "./components/ListingMap";
 import TripScheduler from "./components/TripScheduler";
 import Footer from "@/components/footer/Footer";
-import { getListing, getAllListingImages } from "@/lib/lisitng";
+import {
+  getListing,
+  getAllListingImages,
+  getCheckInCheckouts,
+} from "@/lib/lisitng";
 import { useParams } from "next/navigation";
 
 const page = () => {
   const params = useParams();
-  const { currentListing, setCurrentListing, userInfo, setImageListings } =
-    useAppStore();
-  const farmHouseCode = params.listing;
+  const {
+    currentListing,
+    setCurrentListing,
+    userInfo,
+    setImageListings,
+    setCheckInOutDates,
+  } = useAppStore();
+
   useEffect(() => {
-    const getCurrentListing = async () => {
-      const data = await getListing(params.listing);
-      console.log(data.data[0]);
-      setCurrentListing(data.data[0]);
+    const fetchData = async () => {
+      if (!params.listing) return;
+
+      const listingData = await getListing(params.listing);
+      const current = listingData.data[0];
+      setCurrentListing(current);
+      console.log("currentListing", current);
+
+      const imageData = await getAllListingImages({
+        farmHouseCode: params.listing,
+      });
+      setImageListings(imageData);
+
+      const checkInOutData = await getCheckInCheckouts(params.listing);
+      console.log("dates", checkInOutData);
+      setCheckInOutDates(checkInOutData?.data || []);
     };
 
-    const getListingImages = async () => {
-      const data = await getAllListingImages({ farmHouseCode });
-      setImageListings(data);
-    };
-
-    if (params.listing) {
-      getCurrentListing();
-      getListingImages();
-    }
+    fetchData();
   }, [params.listing, setCurrentListing]);
 
   if (!currentListing) {
@@ -52,25 +65,24 @@ const page = () => {
       {currentListing && (
         <div>
           <Navbar />
-          <div className="px-4 sm:px-8 md:px-12 lg:px-20 pt-8 sm:pt-10 text-pastoral-light-black grid gap-8 lg:gap-10 lg:grid-cols-[2fr_1fr]">
+          <div className="px-4 sm:px-8 md:px-12 lg:px-20 mx-0 2xl:mx-40 pt-8 sm:pt-10 text-pastoral-light-black grid gap-8 lg:gap-10 lg:grid-cols-[2fr_1fr]">
             {/* Main Content */}
             <div className="flex flex-col gap-6">
               <div className="flex flex-col gap-1">
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold break-words">
-                  {currentListing.farmName}
+                  {currentListing?.farmName}
                 </h2>
-                <span className="text-base sm:text-lg cursor-pointer underline">
-                  {currentListing.city}, {currentListing.state}
+                <span className="text-base sm:text-lg cursor-pointer ">
+                  {currentListing?.city}, {currentListing?.state}
                 </span>
               </div>
 
               <ListingPhotos />
 
-              <div className="flex flex-col gap-6">
+              <div className="flex flex-col gap-6 mb-8">
                 <div className="flex flex-col gap-4">
                   <h3 className="text-xl sm:text-2xl font-semibold">
-                    Farmhouse hosted by {userInfo?.firstName}{" "}
-                    {userInfo?.lastName}
+                    Farmhouse hosted by Banerjee Gupta
                   </h3>
 
                   {/* Space Info */}
@@ -90,9 +102,13 @@ const page = () => {
                     ))}
                   </ul>
 
+                  <hr className="w-full border border-gray-300 my-8" />
+
                   <p className="text-sm sm:text-base leading-relaxed">
-                    {currentListing.farmDescription}
+                    {currentListing?.farmDescription}
                   </p>
+
+                  <hr className="w-full border border-gray-300 my-8" />
 
                   <ListingAmenties />
                   {/* <ListingMap /> */}

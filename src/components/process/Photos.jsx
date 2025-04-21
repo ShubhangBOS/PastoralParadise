@@ -9,8 +9,21 @@ const Photos = () => {
   const [uploadedPhotos, setUploadedPhotos] = useState([]);
 
   const handleUpload = async (e) => {
-    const files = e.target.files;
-    if (!files || files.length === 0) return;
+    const fileList = e.target.files;
+    if (!fileList || fileList.length === 0) return;
+
+    const files = Array.from(fileList); // convert FileList to Array
+
+    const unsupported = files.filter((file) =>
+      file.name.toLowerCase().endsWith(".avif")
+    );
+
+    if (unsupported.length > 0) {
+      alert(
+        "AVIF files are not supported. Please upload JPG, PNG, or WEBP images."
+      );
+      return;
+    }
 
     if (!createNewListing?.farmHouseCode) {
       alert("FarmHouseCode is missing.");
@@ -21,7 +34,7 @@ const Photos = () => {
       setUploading(true);
 
       const result = await addListingPhotos({
-        files: Array.from(files),
+        files,
         farmHouseCode: createNewListing.farmHouseCode,
       });
 
@@ -37,6 +50,7 @@ const Photos = () => {
       setUploading(false);
     }
   };
+
 
   useEffect(() => {
     console.log("createNewListing", createNewListing);
@@ -66,7 +80,7 @@ const Photos = () => {
         {uploadedPhotos.map((photo, index) => (
           <div className="relative h-36 w-[200px]" key={index}>
             <Image
-              src={`http://192.168.0.124:81${photo}`}
+              src={`https://api.thepastoralparadise.com${photo}`}
               fill
               alt={`upload-${index}`}
               className="object-cover rounded"

@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   devIndicators: false,
+  reactStrictMode: false,
   env: {
     NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME: "dctahvizk",
     NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN:
@@ -11,6 +12,11 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "res.cloudinary.com",
+        pathname: "**",
+      },
+      {
+        protocol: "https",
+        hostname: "api.thepastoralparadise.com",
         pathname: "**",
       },
       {

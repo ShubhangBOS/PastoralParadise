@@ -44,7 +44,7 @@ const ListingCard = ({
             <Image
               src={
                 data?.farm_ImagePath1
-                  ? `http://192.168.0.124:81${data.farm_ImagePath1}`
+                  ? `https://api.thepastoralparadise.com${data.farm_ImagePath1}`
                   : "/home/defaultFarmImage.jpg"
               }
               fill
@@ -83,7 +83,7 @@ const ListingCard = ({
       </div>
       {isMyListing && (
         <button
-          className="bg-pastoral-gradient py-3 mt-5 text-white text-base font-medium rounded-md cursor-pointer w-80"
+          className="bg-pastoral-gradient py-3 mt-5 text-white text-base font-medium rounded-md cursor-pointer w-70"
           onClick={deleteListing}
         >
           Delete

@@ -1,8 +1,12 @@
 import { useAppStore } from "@/store/store";
-import React from "react";
+import React, { useEffect } from "react";
 
-const Price = () => {
+const Price = ({ setIsValid }) => {
   const { farmBookingPrice, setFarmBookingPrice } = useAppStore();
+  useEffect(() => {
+    const valid = farmBookingPrice !== 0;
+    setIsValid(valid);
+  }, [farmBookingPrice, setIsValid]);
   return (
     <div className="flex items-center justify-center h-full text-pastoral-light-black px-5 md:px-0">
       <div className="flex flex-col gap-5">

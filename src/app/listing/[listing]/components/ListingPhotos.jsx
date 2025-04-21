@@ -18,7 +18,7 @@ const ListingPhotos = () => {
           fill
           src={
             imageListings.length > 0
-              ? `http://192.168.0.124:81${imageListings[currentPhoto].imagePath}`
+              ? `https://api.thepastoralparadise.com${imageListings[currentPhoto].imagePath}`
               : "/home/defaultFarmImage.jpg"
           }
         />
@@ -32,7 +32,7 @@ const ListingPhotos = () => {
               onClick={() => setCurrentPhoto(index)}
             >
               <Image
-                src={`http://192.168.0.124:81${photo.imagePath}`}
+                src={`https://api.thepastoralparadise.com${photo.imagePath}`}
                 fill
                 alt="all photos"
               />
