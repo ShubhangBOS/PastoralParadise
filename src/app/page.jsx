@@ -12,6 +12,7 @@ import { useAppStore } from "@/store/store";
 import { useEffect } from "react";
 
 export default function Home() {
+  
   const { isAuthModalOpen, setListings, isMapView } = useAppStore();
   useEffect(() => {
     const getData = async () => {
@@ -20,6 +21,7 @@ export default function Home() {
     };
     getData();
   }, [setListings]);
+
   return (
     <div className="max-h-[100vh] h-[100vh]">
       <Navbar />

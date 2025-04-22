@@ -7,7 +7,7 @@ import { getAllListingImages } from "@/lib/lisitng";
 import React, { useEffect, useState } from "react";
 
 const page = () => {
-  const { listings } = useAppStore();
+  const { listings, setListings } = useAppStore();
   const [mergedListings, setMergedListings] = useState([]);
 
   useEffect(() => {
@@ -50,6 +50,16 @@ const page = () => {
                 data={listing}
                 isMyListing
                 key={listing.farmHouseCode}
+                onDelete={(code) => {
+                  setMergedListings((prev) =>
+                    prev.filter((item) => item.farmHouseCode !== code)
+                  );
+                  setListings(
+                    listings.filter(
+                      (item) => item.farmHouseCode !== deletedCode
+                    )
+                  );
+                }}
               />
             ))}
           </div>

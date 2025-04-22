@@ -113,6 +113,19 @@ export const getCheckInCheckouts = async (listingId) => {
   }
 };
 
+export const deleteListingAPI = async (listingId) => {
+  try {
+    const response = await post(
+      createUrl("/api/FarmHouseDetails/Delete_farmname_OtherDetails"),
+      listingId
+    );
+    return response.data;
+  } catch (err) {
+    console.error("could not delete listing now, please try after sometime");
+    return null;
+  }
+};
+
 // export const getSearchListing = async (searchTerm) => {
 //   const query = qs.stringify({
 //     where: {
