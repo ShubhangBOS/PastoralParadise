@@ -3,6 +3,7 @@ import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { Heart } from "lucide-react";
 import { useAppStore } from "@/store/store";
+import { deleteListingAPI } from "@/lib/lisitng";
 import { useEffect } from "react";
 
 const ListingCard = ({
@@ -10,6 +11,7 @@ const ListingCard = ({
   isMyListing = false,
   isWishList = false,
   wishListId = undefined,
+  onDelete = () => {},
 }) => {
   const { wishLists, setWishLists } = useAppStore();
   const pathname = usePathname();
@@ -26,8 +28,20 @@ const ListingCard = ({
     setWishLists(currArr);
   };
 
-  const deleteListing = () => {};
+  const deleteListing = async (e) => {
+    e.stopPropagation();
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this listing?"
+    );
+    if (!confirmDelete) return;
 
+    const res = await deleteListingAPI({ farmHouseCode: data.farmHouseCode });
+    if (res?.status) {
+      onDelete(data.farmHouseCode);
+    } else {
+      alert("There is error deleting the listing, Please try after Sometime");
+    }
+  };
 
   return (
     <div

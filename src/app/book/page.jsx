@@ -26,6 +26,12 @@ const BookPage = () => {
 
   const router = useRouter();
 
+  useEffect(() => {
+    if (!bookingDetails || !currentListing) {
+      router.back(); 
+    }
+  }, [bookingDetails, currentListing, router]);
+
   const handleContinue = async () => {
     const currentBookingDetails = useAppStore.getState().bookingDetails;
 
@@ -113,8 +119,7 @@ const BookPage = () => {
 
               <FormInput
                 name="phoneNumber"
-                placeholder="Phone Number"
-                type="number"
+                placeholder="Enter 10 digit Phone Number"
                 value={phoneNumber}
                 setValue={setPhoneNumber}
                 required

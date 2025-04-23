@@ -133,7 +133,11 @@ export default function TripScheduler() {
           >
             <label className="font-semibold text-xs">GUESTS</label>
             <span className="text-sm">
-              {totalGuests} guest{totalGuests > 1 ? "s" : ""}
+              {totalGuests} guest{totalGuests > 1 ? "s" : ""}{" "}
+              {guestCounts.infants > 0
+                ? `, ${guestCounts.infants} Infants`
+                : ""}
+              {guestCounts.pets > 0 ? ` & ${guestCounts.pets} Pets` : ""}
             </span>
           </div>
 

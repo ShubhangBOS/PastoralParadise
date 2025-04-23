@@ -9,6 +9,17 @@ const FormInput = ({
   isListing = false,
   required = false,
 }) => {
+  const handleInputChange = (e) => {
+    const inputValue = e.target.value;
+
+    if (name === "phoneNumber") {
+      if (/^\d*$/.test(inputValue) && inputValue.length <= 10) {
+        isListing ? setValue(name, inputValue) : setValue(inputValue);
+      }
+    } else {
+      isListing ? setValue(name, inputValue) : setValue(inputValue);
+    }
+  };
   return (
     <input
       type={type}
@@ -16,12 +27,10 @@ const FormInput = ({
       name={name}
       placeholder={placeholder}
       required={required}
-      onChange={(e) =>
-        isListing ? setValue(name, e.target.value) : setValue(e.target.value)
-      }
+      onChange={handleInputChange}
       className="border border-gray-300 px-2 py-4 rounded-md w-full"
     />
   );
 };
 
-export default FormInput;    
+export default FormInput;

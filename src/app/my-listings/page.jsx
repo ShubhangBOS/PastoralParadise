@@ -5,10 +5,13 @@ import Navbar from "@/components/navbar/Navbar";
 import { useAppStore } from "@/store/store";
 import { getAllListingImages } from "@/lib/lisitng";
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 const page = () => {
   const { listings, setListings } = useAppStore();
   const [mergedListings, setMergedListings] = useState([]);
+
+  const router = useRouter();
 
   useEffect(() => {
     const fetchImagesAndMerge = async () => {
@@ -36,8 +39,10 @@ const page = () => {
 
     if (listings?.length > 0) {
       fetchImagesAndMerge();
+    } else {
+      router.push("/");
     }
-  }, [listings]);
+  }, [listings, router]);
 
   return (
     <div>
@@ -55,9 +60,7 @@ const page = () => {
                     prev.filter((item) => item.farmHouseCode !== code)
                   );
                   setListings(
-                    listings.filter(
-                      (item) => item.farmHouseCode !== deletedCode
-                    )
+                    listings.filter((item) => item.farmHouseCode !== code)
                   );
                 }}
               />
