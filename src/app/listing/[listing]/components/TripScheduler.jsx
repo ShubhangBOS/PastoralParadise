@@ -237,7 +237,7 @@ export default function TripScheduler() {
       <div className="flex border border-gray-400 rounded-lg p-4 gap-2 items-start px-8">
         <span>
           <strong>This is a rare find. </strong>
-          {userInfo?.firstName}'s place on Pastoral is usually fully booked.
+          Hemant's place on Pastoral is usually fully booked.
         </span>
         <Daimond />
       </div>

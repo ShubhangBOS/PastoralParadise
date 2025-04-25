@@ -1,6 +1,6 @@
 "use client";
 import AuthModal from "@/components/auth/AuthModal";
-import ListingCard from "@/components/listingCard";
+import ListingCard from "@/components/ListingCard";
 import { useAppStore } from "@/store/store";
 import React, { useEffect, useState } from "react";
 import Navbar from "@/components/navbar/Navbar";

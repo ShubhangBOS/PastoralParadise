@@ -2,7 +2,7 @@ import { useAppStore } from "@/store/store";
 import React, { useEffect, useState } from "react";
 import { getAllListingImages } from "@/lib/lisitng";
 import dynamic from "next/dynamic";
-const ListingCard = dynamic(() => import("../listingCard"), { ssr: false });
+const ListingCard = dynamic(() => import("../ListingCard"), { ssr: false });
 
 const ListView = () => {
   const { listings } = useAppStore();
@@ -19,7 +19,6 @@ const ListView = () => {
         acc[code].push(img);
         return acc;
       }, {});
-
 
       const updatedListings = listings.map((listing) => {
         const code = listing.farmHouseCode.toUpperCase();
@@ -44,7 +43,7 @@ const ListView = () => {
       {mergedListings?.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 px-20 gap-10 py-10 justify-start items-start">
           {mergedListings.map((listing) => (
-            <ListingCard key={listing.farmHouseCode} data={listing}  />
+            <ListingCard key={listing.farmHouseCode} data={listing} />
           ))}
         </div>
       ) : (

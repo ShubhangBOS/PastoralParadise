@@ -28,7 +28,7 @@ const BookPage = () => {
 
   useEffect(() => {
     if (!bookingDetails || !currentListing) {
-      router.back(); 
+      router.back();
     }
   }, [bookingDetails, currentListing, router]);
 
@@ -160,8 +160,8 @@ const BookPage = () => {
 
             <div className="space-y-2 mt-5">
               <p className="text-xs text-gray-500">
-                We’ll call or text you to confirm your number. Standard message
-                and data rates apply.
+                We’ll call and mail you to confirm your booking. For any
+                additional enquiry you can contact to our support team.
               </p>
               <button
                 type="submit"
@@ -174,7 +174,6 @@ const BookPage = () => {
         </div>
       </div>
 
-      {/* Right Section - Price Summary */}
       <div className="border rounded-lg p-4 shadow-md max-h-100">
         <div className="text-sm text-gray-700 space-y-1">
           <p className="text-2xl">

@@ -80,7 +80,7 @@ const page = () => {
               <div className="flex flex-col gap-6 mb-8">
                 <div className="flex flex-col gap-4">
                   <h3 className="text-xl sm:text-2xl font-semibold">
-                    Farmhouse hosted by Banerjee Gupta
+                    Farmhouse hosted by Hemant Sharma
                   </h3>
 
                   {/* Space Info */}
