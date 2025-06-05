@@ -44,6 +44,20 @@ export const getListing = async (listingId) => {
   }
 };
 
+export const getListingImages = async(listingId) => {
+  try{
+    const payload = {listingId};
+    const response = await post(
+      createUrl("/api/FarmhouseImage/getFarmhouseImages"),
+      payload
+    )
+
+    return response.data
+  } catch(error) {
+    console.error("Could not get listing")
+  }
+}
+
 export const addListingPhotos = async ({ files, farmHouseCode }) => {
   try {
     const formData = new FormData();
@@ -101,6 +115,34 @@ export const createBookingAPI = async (bookingDetail) => {
   }
 };
 
+
+export const searchQueryAPI = async (
+  searchbyState,
+  searchbyFarmTitle,
+  searchbyCheckin,
+  searchbyCheckout
+) => {
+  try {
+    const payload = {
+      searchbyState,
+      searchbyFarmTitle,
+      searchbyCheckin,
+      searchbyCheckout,
+    };
+
+    const response = await post(
+      createUrl("/api/Search/SearchFarmhouse"),
+      payload
+    );
+
+    return response.data;
+  } catch (err) {
+    alert("Could not perform search operation.");
+    console.error(err);
+  }
+};
+
+
 export const getCheckInCheckouts = async (listingId) => {
   try {
     const response = await axios.get(
@@ -122,6 +164,19 @@ export const deleteListingAPI = async (listingId) => {
     return response.data;
   } catch (err) {
     console.error("could not delete listing now, please try after sometime");
+    return null;
+  }
+};
+
+export const getTripsAPI = async (tripData) => {
+  try {
+    const response = await post(
+      createUrl("/api/BookingDetails/Search_BookingStatus"),
+      tripData
+    );
+    return response.data;
+  } catch (err) {
+    console.error("could not get trips, please try after sometime");
     return null;
   }
 };

@@ -7,7 +7,7 @@ import { useAppStore } from "@/store/store";
 import React, { useEffect } from "react";
 import ListingPhotos from "./components/ListingPhotos";
 import ListingAmenties from "./components/ListingAmenties";
-import ListingMap from "./components/ListingMap";
+// import ListingMap from "./components/ListingMap";
 import TripScheduler from "./components/TripScheduler";
 import Footer from "@/components/footer/Footer";
 import {

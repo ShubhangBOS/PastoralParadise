@@ -6,6 +6,7 @@ export const createListingSlice = (set, get) => ({
   currentListing: undefined,
   createNewListing: undefined,
   imageListings: [],
+  tripListings: [],
   setListings: (listings) => set({ listings }),
   setIsMapView: () => set({ isMapView: !get().isMapView }),
   setUserListings: (userListings) => set({ userListings }),
@@ -13,4 +14,5 @@ export const createListingSlice = (set, get) => ({
   setCurrentListing: (listing) => set({ currentListing: listing }),
   setCreateNewListing: (createNewListing) => set({ createNewListing }),
   setImageListings: (imageListings) => set({ imageListings }),
+  setTripListings: (tripListings) => set({ tripListings }),
 });

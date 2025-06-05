@@ -6,16 +6,17 @@ import { Menu } from "lucide-react";
 import ContextMenu from "../common/ContextMenu";
 import { useAppStore } from "@/store/store";
 import { useRouter } from "next/navigation";
+import SearchInput from "./Search";
 
 const Navbar = () => {
   const router = useRouter();
-  const { setAuthModal, userInfo, setUserInfo, setAuthMode, restoreAuth } =
+  const { setAuthModal, userInfo, setUserInfo, setAuthMode } =
     useAppStore();
   const [isContextMenuVisible, setIsContextMenuVisible] = useState(false);
 
-  useEffect(() => {
-    restoreAuth();
-  }, []);
+  // useEffect(() => {
+  //   restoreAuth();
+  // }, []);
 
   const contextMenuOptions = [
     {
@@ -96,13 +97,13 @@ const Navbar = () => {
       callBack: () => {
         setUserInfo(null);
         setIsContextMenuVisible(false);
-        localStorage.clear();
+        sessionStorage.clear();
       },
     },
   ];
   
   return (
-    <header className="w-full flex flex-col justify-center transition-all duration-300 h-20 border-b border-b-gray-200">
+    <header className="w-full flex flex-col justify-center transition-all duration-300 h-20  mb-4">
       <div className="flex items-center justify-between px-5 md:px-20">
         <div className="flex-grow basis-0">
           <div
@@ -112,6 +113,7 @@ const Navbar = () => {
             <Image src="/home/logo.png" width={150} height={60} alt="logo" />
           </div>
         </div>
+          <SearchInput/>
         <div className="flex-grow basis-0">
           <ul className="flex items-center justify-end gap-6 font-medium">
             {userInfo?.emailid === "admin" && (
@@ -154,7 +156,7 @@ const Navbar = () => {
           setContextMenu={setIsContextMenuVisible}
           coordinates={{
             x: window.innerWidth - 250,
-            y: 70,
+            y: 55,
           }}
           options={
             userInfo ? authenticatedContextMenuOptions : contextMenuOptions

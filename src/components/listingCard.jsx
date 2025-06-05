@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
-import { Heart } from "lucide-react";
+import { Heart, MapPin } from "lucide-react";
 import { useAppStore } from "@/store/store";
 import { deleteListingAPI } from "@/lib/lisitng";
 import { useEffect } from "react";
@@ -54,12 +54,15 @@ const ListingCard = ({
             <Image
               src={
                 data?.farm_ImagePath1
-                  ? `https://api.thepastoralparadise.com${data.farm_ImagePath1}`
+                  ? `http://192.168.1.35:81${data.farm_ImagePath1}`
                   : "/home/defaultFarmImage.jpg"
               }
               fill
               alt="listings"
-              className="rounded-lg object-cover"
+              className="rounded-lg object-cover hover:scale-105"
+              placeholder="blur"
+              blurDataURL="/home/defaultFarmImage.jpg"
+              loading="lazy"
             />
             {/* {(pathname === "/" || pathname === "/wishlist") && (
               <div
@@ -86,8 +89,16 @@ const ListingCard = ({
             )} */}
           </div>
           <div>
-            <h3>{data?.farmName}</h3>
-            <span>&#8377; {data?.farmBookingPrice}</span>
+            <h3 className="text-xl font-semibold text-pastoral-theme-color capitalize">
+              {data?.farmName}
+            </h3>
+            <div className="flex flex-col items-left justify-start text-sm gap-1">
+              <span className="font-bold text-gray-600">&#8377; {data?.farmBookingPrice}</span>
+              <div className="flex items-left justify-start text-sm font-light gap-1">
+              <MapPin className="w-4 h-4" />
+              <span className="font-medium capitalize">{data?.state}</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

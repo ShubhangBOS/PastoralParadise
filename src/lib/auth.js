@@ -1,10 +1,11 @@
 import { createUrl, post } from "./http";
 
-export const login = async (emailid, password) => {
+export const login = async (emailid, password, userRole) => {
   try {
     const response = await post(createUrl("api/Login/Login"), {
       emailid,
       password,
+      userRole,
     });
     return response.data;
   } catch (err) {
@@ -13,13 +14,14 @@ export const login = async (emailid, password) => {
   }
 };
 
-export const signup = async (emailid, firstName, lastName, password) => {
+export const signup = async (emailid, firstName, lastName, password, userRole) => {
   try {
     const response = await post(createUrl("api/Login/Signup"), {
       emailid,
       firstName,
       lastName,
       password,
+      userRole
     });
     return response.data;
   } catch (err) {

@@ -11,98 +11,153 @@ const AuthModal = () => {
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [isHost, setIsHost] = useState(false);
+  const [userRole, setUserRole] = useState("");
+
+  const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+  const determineUserRole = () => {
+    if (email === "admin") return "admin";
+    if (isHost) return "host";
+    if (isValidEmail(email)) return "user";
+    return "";
+  };
 
   const handleLogin = async () => {
     if (email && password) {
-      const data = await login(email, password);
+      const userRole = determineUserRole();
+
+      if (!userRole) {
+        alert("Please enter a valid email or select 'I am a host'");
+        return;
+      }
+
+      const data = await login(email, password, userRole);
 
       if (data.status) {
         setUserInfo(data.data[0]);
         setIsLoggedIn(true);
-        setAuthModal();
-        localStorage.setItem("userInfo", JSON.stringify(data.data[0]));
-        localStorage.setItem("isLoggedIn", "true");
+        setAuthModal(false);
+        sessionStorage.setItem("userInfo", JSON.stringify(data.data[0]));
+        sessionStorage.setItem("isLoggedIn", "true");
+      } else {
+        alert(data.returnMessage || "Login failed.");
       }
     }
   };
 
   const handleSignup = async () => {
     if (email && firstName && lastName && password) {
-      const data = await signup(email, firstName, lastName, password);
+      const userRole = "Host" ? "admin" : "user";
+
+      const data = await signup(
+        email,
+        firstName,
+        lastName,
+        password,
+        userRole
+      );
       if (data.status) {
         setUserInfo(data);
         setIsLoggedIn(true);
-        setAuthModal();
-        localStorage.setItem("userInfo", JSON.stringify(data));
-        localStorage.setItem("isLoggedIn", "true");
+        setAuthModal(false);
+        sessionStorage.setItem("userInfo", JSON.stringify(data));
+        sessionStorage.setItem("isLoggedIn", "true");
       }
     }
   };
+  
 
   return (
     <div className="relative z-50">
-      <div className="fixed inset-0 bg-gray-500/50 backdrop-blur-sm" />
+      {/* Backdrop */}
+      <div className="fixed inset-0 bg-black/40 backdrop-blur-sm" />
+
+      {/* Modal Container */}
       <div className="fixed inset-0 z-10 overflow-y-auto">
-        <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-          <div className="relative overflow-hidden rounded-lg bg-white shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-            <div className="bg-white pb-4 pt-5">
-              <div className="border-b border-b-gray-200 flex items-center justify-center relative pb-5">
-                <span
-                  className="absolute left-5 cursor-pointer text-lg"
-                  onClick={setAuthModal}
-                >
-                  <X />
-                </span>
-                <span>{authMode === "login" ? "Login" : "Sign Up"}</span>
-              </div>
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  authMode === "login" ? handleLogin() : handleSignup();
-                }}
+        <div className="flex min-h-full items-center justify-center p-4 text-center">
+          <div className="relative w-full max-w-xl bg-gray-100 rounded-xl shadow-xl transition-all">
+            {/* Header */}
+            <div className="flex items-center justify-center border-b p-4 relative ">
+              <span className="text-lg font-semibold">
+                {authMode === "login" ? "Login" : "Sign Up"}
+              </span>
+              <button
+                className="absolute right-4 text-gray-500 hover:text-red-500 cursor-pointer"
+                onClick={() => setAuthModal(false)}
               >
-                <div className="p-5">
-                  <h3 className="text-xl pb-5">Welcome to Pastoral Paradise</h3>
-                  <div className="flex flex-col gap-5">
-                    <FormInput
-                      name="email"
-                      placeholder="Email"
-                      values={email}
-                      setValue={setEmail}
-                    />
-                    {authMode === "signup" && (
-                      <>
-                        <FormInput
-                          name="firstName"
-                          placeholder="First Name"
-                          values={firstName}
-                          setValue={setFirstName}
-                        />
-                        <FormInput
-                          name="lastName"
-                          placeholder="Last Name"
-                          values={lastName}
-                          setValue={setLastName}
-                        />
-                      </>
-                    )}
-                    <FormInput
-                      name="password"
-                      type="password"
-                      placeholder="Password"
-                      values={password}
-                      setValue={setPassword}
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    className="bg-pastoral-theme-color py-3 mt-5 w-full text-white text-lg font-medium rounded-md cursor-pointer"
-                  >
-                    {authMode === "login" ? "Login" : "Sign Up"}
-                  </button>
-                </div>
-              </form>
+                <X className="w-5 h-5" />
+              </button>
             </div>
+
+            {/* Form */}
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                authMode === "login" ? handleLogin() : handleSignup();
+              }}
+              className="p-6 space-y-5"
+            >
+              <h3 className="text-xl font-medium text-center">
+                Welcome to Pastoral Paradise
+              </h3>
+
+              {authMode === "signup" && (
+                <>
+                  <FormInput
+                    name="firstName"
+                    placeholder="First Name *"
+                    values={firstName}
+                    setValue={setFirstName}
+                  />
+                  <FormInput
+                    name="lastName"
+                    placeholder="Last Name"
+                    values={lastName}
+                    setValue={setLastName}
+                  />
+                </>
+              )}
+              {authMode === "signup" && (
+                <div className="flex items-center gap-2">
+                  <label className="text-sm font-medium">I am a</label>
+                  <select
+                    className="flex-1 p-2 border border-gray-300 rounded-md text-sm"
+                    value={userRole}
+                    onChange={(e) => setUserRole(e.target.value)}
+                  >
+                    <option value="User" className="font-medium text-sm">
+                      User
+                    </option>
+                    <option value="Host" className="font-medium text-sm">
+                      Host
+                    </option>
+                  </select>
+                </div>
+              )}
+
+              <FormInput
+                name="email"
+                placeholder="Email *"
+                values={email}
+                setValue={setEmail}
+              />
+
+              <FormInput
+                name="password"
+                type="password"
+                placeholder="Password *"
+                values={password}
+                setValue={setPassword}
+              />
+
+              <button
+                type="submit"
+                className="bg-pastoral-theme-color w-full py-3 text-white text-base font-semibold rounded-md hover:opacity-90 transition cursor-pointer"
+              >
+                {authMode === "login" ? "Login" : "Sign Up"}
+              </button>
+            </form>
           </div>
         </div>
       </div>

@@ -1,0 +1,191 @@
+(node:6848) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ⨯ ./node_modules/@swc/helpers/esm/_class_private_field_loose_base.js
+Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_class_private_field_loose_base.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_class_private_field_loose_base.js
+./node_modules/next/dist/client/components/promise-queue.js
+./node_modules/next/dist/client/components/router-reducer/reducers/prefetch-reducer.js
+./node_modules/next/dist/client/components/app-router.js
+./node_modules/next/dist/client/app-index.js
+ ⨯ ./node_modules/@swc/helpers/esm/_class_private_field_loose_base.js
+Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_class_private_field_loose_base.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_class_private_field_loose_base.js
+./node_modules/next/dist/client/components/promise-queue.js
+./node_modules/next/dist/client/components/router-reducer/reducers/prefetch-reducer.js
+./node_modules/next/dist/client/components/app-router.js
+./node_modules/next/dist/client/app-index.js
+ ⨯ ./node_modules/@swc/helpers/esm/_class_private_field_loose_base.js
+Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_class_private_field_loose_base.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_class_private_field_loose_base.js
+./node_modules/next/dist/client/components/promise-queue.js
+./node_modules/next/dist/client/components/router-reducer/reducers/prefetch-reducer.js
+./node_modules/next/dist/client/components/app-router.js
+./node_modules/next/dist/client/app-index.js
+ ⨯ ./node_modules/@swc/helpers/esm/_class_private_field_loose_base.js
+Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_class_private_field_loose_base.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_class_private_field_loose_base.js
+./node_modules/next/dist/client/components/promise-queue.js
+./node_modules/next/dist/client/components/router-reducer/reducers/prefetch-reducer.js
+./node_modules/next/dist/client/components/app-router.js
+./node_modules/next/dist/client/app-index.js
+ ⨯ ./node_modules/@swc/helpers/esm/_class_private_field_loose_base.js
+Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_class_private_field_loose_base.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_class_private_field_loose_base.js
+./node_modules/next/dist/client/components/promise-queue.js
+./node_modules/next/dist/client/components/router-reducer/reducers/prefetch-reducer.js
+./node_modules/next/dist/client/components/app-router.js
+./node_modules/next/dist/client/app-index.js
+ ⨯ ./node_modules/@swc/helpers/esm/_class_private_field_loose_base.js
+Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_class_private_field_loose_base.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_class_private_field_loose_base.js
+./node_modules/next/dist/client/components/promise-queue.js
+./node_modules/next/dist/client/components/router-reducer/reducers/prefetch-reducer.js
+./node_modules/next/dist/client/components/app-router.js
+./node_modules/next/dist/client/app-index.js
+ ⨯ ./node_modules/@swc/helpers/esm/_class_private_field_loose_base.js
+Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_class_private_field_loose_base.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_class_private_field_loose_base.js
+./node_modules/next/dist/client/components/promise-queue.js
+./node_modules/next/dist/client/components/router-reducer/reducers/prefetch-reducer.js
+./node_modules/next/dist/client/components/app-router.js
+./node_modules/next/dist/client/app-index.js
+ ⨯ ./node_modules/@swc/helpers/esm/_class_private_field_loose_base.js
+Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_class_private_field_loose_base.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_class_private_field_loose_base.js
+./node_modules/next/dist/client/components/promise-queue.js
+./node_modules/next/dist/client/components/router-reducer/reducers/prefetch-reducer.js
+./node_modules/next/dist/client/components/app-router.js
+./node_modules/next/dist/client/app-index.js
+ ⨯ ./node_modules/@swc/helpers/esm/_class_private_field_loose_base.js
+Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_class_private_field_loose_base.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_class_private_field_loose_base.js
+./node_modules/next/dist/client/components/promise-queue.js
+./node_modules/next/dist/client/components/router-reducer/reducers/prefetch-reducer.js
+./node_modules/next/dist/client/components/app-router.js
+./node_modules/next/dist/client/app-index.js
+ ⨯ ./node_modules/@swc/helpers/esm/_class_private_field_loose_base.js
+Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_class_private_field_loose_base.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_class_private_field_loose_base.js
+./node_modules/next/dist/client/components/promise-queue.js
+./node_modules/next/dist/client/components/router-reducer/reducers/prefetch-reducer.js
+./node_modules/next/dist/client/components/app-router.js
+./node_modules/next/dist/client/app-index.js
+ ⨯ ./node_modules/@swc/helpers/esm/_class_private_field_loose_base.js
+Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_class_private_field_loose_base.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_class_private_field_loose_base.js
+./node_modules/next/dist/client/components/promise-queue.js
+./node_modules/next/dist/client/components/router-reducer/reducers/prefetch-reducer.js
+./node_modules/next/dist/client/components/app-router.js
+./node_modules/next/dist/client/app-index.js
+ ⨯ ./node_modules/@swc/helpers/esm/_class_private_field_loose_base.js
+Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_class_private_field_loose_base.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_class_private_field_loose_base.js
+./node_modules/next/dist/client/components/promise-queue.js
+./node_modules/next/dist/client/components/router-reducer/reducers/prefetch-reducer.js
+./node_modules/next/dist/client/components/app-router.js
+./node_modules/next/dist/client/app-index.js
+ ⨯ ./node_modules/@swc/helpers/esm/_class_private_field_loose_base.js
+Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_class_private_field_loose_base.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_class_private_field_loose_base.js
+./node_modules/next/dist/client/components/promise-queue.js
+./node_modules/next/dist/client/components/router-reducer/reducers/prefetch-reducer.js
+./node_modules/next/dist/client/components/app-router.js
+./node_modules/next/dist/client/app-index.js
+ ⨯ ./node_modules/@swc/helpers/esm/_class_private_field_loose_base.js
+Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_class_private_field_loose_base.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_class_private_field_loose_base.js
+./node_modules/next/dist/client/components/promise-queue.js
+./node_modules/next/dist/client/components/router-reducer/reducers/prefetch-reducer.js
+./node_modules/next/dist/client/components/app-router.js
+./node_modules/next/dist/client/app-index.js
+ ⨯ ./node_modules/@swc/helpers/esm/_class_private_field_loose_base.js
+Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_class_private_field_loose_base.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_class_private_field_loose_base.js
+./node_modules/next/dist/client/components/promise-queue.js
+./node_modules/next/dist/client/components/router-reducer/reducers/prefetch-reducer.js
+./node_modules/next/dist/client/components/app-router.js
+./node_modules/next/dist/client/app-index.js
+ ⨯ ./node_modules/@swc/helpers/esm/_class_private_field_loose_base.js
+Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_class_private_field_loose_base.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_class_private_field_loose_base.js
+./node_modules/next/dist/client/components/promise-queue.js
+./node_modules/next/dist/client/components/router-reducer/reducers/prefetch-reducer.js
+./node_modules/next/dist/client/components/app-router.js
+./node_modules/next/dist/client/app-index.js
+ ⨯ ./node_modules/@swc/helpers/esm/_class_private_field_loose_base.js
+Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_class_private_field_loose_base.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_class_private_field_loose_base.js
+./node_modules/next/dist/client/components/promise-queue.js
+./node_modules/next/dist/client/components/router-reducer/reducers/prefetch-reducer.js
+./node_modules/next/dist/client/components/app-router.js
+./node_modules/next/dist/client/app-index.js
+ ⨯ ./node_modules/@swc/helpers/esm/_class_private_field_loose_base.js
+Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_class_private_field_loose_base.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_class_private_field_loose_base.js
+./node_modules/next/dist/client/components/promise-queue.js
+./node_modules/next/dist/client/components/router-reducer/reducers/prefetch-reducer.js
+./node_modules/next/dist/client/components/app-router.js
+./node_modules/next/dist/client/app-index.js
+ ⨯ ./node_modules/@swc/helpers/esm/_class_private_field_loose_base.js
+Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_class_private_field_loose_base.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_class_private_field_loose_base.js
+./node_modules/next/dist/client/components/promise-queue.js
+./node_modules/next/dist/client/components/router-reducer/reducers/prefetch-reducer.js
+./node_modules/next/dist/client/components/app-router.js
+./node_modules/next/dist/client/app-index.js
+ ⨯ ./node_modules/@swc/helpers/esm/_class_private_field_loose_base.js
+Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_class_private_field_loose_base.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_class_private_field_loose_base.js
+./node_modules/next/dist/client/components/promise-queue.js
+./node_modules/next/dist/client/components/router-reducer/reducers/prefetch-reducer.js
+./node_modules/next/dist/client/components/app-router.js
+./node_modules/next/dist/client/app-index.js
+ ⨯ ./node_modules/@swc/helpers/esm/_class_private_field_loose_base.js
+Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_class_private_field_loose_base.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_class_private_field_loose_base.js
+./node_modules/next/dist/client/components/promise-queue.js
+./node_modules/next/dist/client/components/router-reducer/reducers/prefetch-reducer.js
+./node_modules/next/dist/client/components/app-router.js
+./node_modules/next/dist/client/app-index.js

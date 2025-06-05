@@ -1,5 +1,6 @@
 "use client";
 import AuthModal from "@/components/auth/AuthModal";
+import Spinner from "@/components/common/Spinner";
 import Footer from "@/components/footer/Footer";
 import ListingBar from "@/components/listingbar/ListingBar";
 import Navbar from "@/components/navbar/Navbar";
@@ -9,23 +10,28 @@ import ViewSwitchBadge from "@/components/views/ViewSwitchBadge";
 import { listingTypes } from "@/data/listingTypes";
 import { getAllListings } from "@/lib/lisitng";
 import { useAppStore } from "@/store/store";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
-  
-  const { isAuthModalOpen, setListings, isMapView } = useAppStore();
+  const { authModal, setListings, isMapView } = useAppStore();
+  // const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     const getData = async () => {
-      const data = await getAllListings();
-      setListings(data.data);
+      // setLoading(true);
+      const response = await getAllListings();
+      if (response) {
+        setListings(response.data);
+        // setLoading(false);
+      }
     };
     getData();
   }, [setListings]);
 
   return (
-    <div className="max-h-[100vh] h-[100vh]">
+    <div className="max-h-[100vh] h-[100vh] overflow-auto no-scrollbar bg-gray-50">
       <Navbar />
-      <ListingBar />
+      {/* <ListingBar /> */}
       {/* <div className="flex items-center justify-center">
         <div className="w-[90vw] overflow-auto no-scrollbar mt-3 px-5">
           <ul className="flex gap-5 h-full">
@@ -51,7 +57,7 @@ export default function Home() {
       {isMapView ? <MapView /> : <ListView />}
       {/* <ViewSwitchBadge /> */}
       <Footer />
-      {isAuthModalOpen && <AuthModal />}
+      {authModal && <AuthModal />} {/* 🔥 Conditionally render modal */}
     </div>
   );
 }

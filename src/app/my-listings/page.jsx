@@ -48,31 +48,28 @@ const page = () => {
     <div>
       <Navbar />
       {mergedListings?.length > 0 ? (
-        <div className="flex justify-center items-center">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 px-20 gap-10 py-10 justify-start items-start">
-            {mergedListings.map((listing) => (
-              <ListingCard
-                data={listing}
-                isMyListing
-                key={listing.farmHouseCode}
-                onDelete={(code) => {
-                  setMergedListings((prev) =>
-                    prev.filter((item) => item.farmHouseCode !== code)
-                  );
-                  setListings(
-                    listings.filter((item) => item.farmHouseCode !== code)
-                  );
-                }}
-              />
-            ))}
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 px-20 gap-10 py-10 justify-start items-start hide-scroll">
+          {mergedListings.map((listing) => (
+            <ListingCard
+              data={listing}
+              isMyListing
+              key={listing.farmHouseCode}
+              onDelete={(code) => {
+                setMergedListings((prev) =>
+                  prev.filter((item) => item.farmHouseCode !== code)
+                );
+                setListings(
+                  listings.filter((item) => item.farmHouseCode !== code)
+                );
+              }}
+            />
+          ))}
         </div>
       ) : (
         <div className="flex justify-center items-center p-6 mt-5">
           <h2 className="font-semibold text-2xl">You dont have any listings</h2>
         </div>
       )}
-
       <Footer />
     </div>
   );

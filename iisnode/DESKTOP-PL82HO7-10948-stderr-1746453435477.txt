@@ -1,0 +1,1000 @@
+(node:10948) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+<w> [webpack.cache.PackFileCacheStrategy] Restoring pack failed from D:\BOS projects\pastoral-paradise\.next\cache\webpack\server-development.pack.gz: Error: invalid code lengths set
+ ⨯ SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>) {
+  page: '/'
+}
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/@swc/helpers/esm/_interop_require_default.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\BOS projects\pastoral-paradise\node_modules\@swc\helpers\esm\_interop_require_default.js'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/esm/_interop_require_default.js
+ ⨯ ./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+Error: Failed to read source code from D:\BOS projects\pastoral-paradise\node_modules\lucide-react\dist\esm\icons\chevron-left.js
+
+Caused by:
+    The system cannot find the path specified. (os error 3)
+
+Import trace for requested module:
+./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+__barrel_optimize__?names=ChevronLeft,ChevronRight!=!./node_modules/lucide-react/dist/esm/lucide-react.js
+./src/components/listingbar/ListingBar.jsx
+./src/app/page.jsx
+ ⨯ ./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+Error: Failed to read source code from D:\BOS projects\pastoral-paradise\node_modules\lucide-react\dist\esm\icons\chevron-left.js
+
+Caused by:
+    The system cannot find the path specified. (os error 3)
+
+Import trace for requested module:
+./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+__barrel_optimize__?names=ChevronLeft,ChevronRight!=!./node_modules/lucide-react/dist/esm/lucide-react.js
+./src/components/listingbar/ListingBar.jsx
+./src/app/page.jsx
+ ⨯ ./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+Error: Failed to read source code from D:\BOS projects\pastoral-paradise\node_modules\lucide-react\dist\esm\icons\chevron-left.js
+
+Caused by:
+    The system cannot find the path specified. (os error 3)
+
+Import trace for requested module:
+./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+__barrel_optimize__?names=ChevronLeft,ChevronRight!=!./node_modules/lucide-react/dist/esm/lucide-react.js
+./src/components/listingbar/ListingBar.jsx
+./src/app/page.jsx
+ ⨯ ./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+Error: Failed to read source code from D:\BOS projects\pastoral-paradise\node_modules\lucide-react\dist\esm\icons\chevron-left.js
+
+Caused by:
+    The system cannot find the path specified. (os error 3)
+
+Import trace for requested module:
+./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+__barrel_optimize__?names=ChevronLeft,ChevronRight!=!./node_modules/lucide-react/dist/esm/lucide-react.js
+./src/components/listingbar/ListingBar.jsx
+./src/app/page.jsx
+ ⨯ ./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+Error: Failed to read source code from D:\BOS projects\pastoral-paradise\node_modules\lucide-react\dist\esm\icons\chevron-left.js
+
+Caused by:
+    The system cannot find the path specified. (os error 3)
+
+Import trace for requested module:
+./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+__barrel_optimize__?names=ChevronLeft,ChevronRight!=!./node_modules/lucide-react/dist/esm/lucide-react.js
+./src/components/listingbar/ListingBar.jsx
+./src/app/page.jsx
+ ⨯ ./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+Error: Failed to read source code from D:\BOS projects\pastoral-paradise\node_modules\lucide-react\dist\esm\icons\chevron-left.js
+
+Caused by:
+    The system cannot find the path specified. (os error 3)
+
+Import trace for requested module:
+./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+__barrel_optimize__?names=ChevronLeft,ChevronRight!=!./node_modules/lucide-react/dist/esm/lucide-react.js
+./src/components/listingbar/ListingBar.jsx
+./src/app/page.jsx
+ ⨯ ./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+Error: Failed to read source code from D:\BOS projects\pastoral-paradise\node_modules\lucide-react\dist\esm\icons\chevron-left.js
+
+Caused by:
+    The system cannot find the path specified. (os error 3)
+
+Import trace for requested module:
+./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+__barrel_optimize__?names=ChevronLeft,ChevronRight!=!./node_modules/lucide-react/dist/esm/lucide-react.js
+./src/components/listingbar/ListingBar.jsx
+./src/app/page.jsx
+ ⨯ ./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+Error: Failed to read source code from D:\BOS projects\pastoral-paradise\node_modules\lucide-react\dist\esm\icons\chevron-left.js
+
+Caused by:
+    The system cannot find the path specified. (os error 3)
+
+Import trace for requested module:
+./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+__barrel_optimize__?names=ChevronLeft,ChevronRight!=!./node_modules/lucide-react/dist/esm/lucide-react.js
+./src/components/listingbar/ListingBar.jsx
+./src/app/page.jsx
+ ⨯ ./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+Error: Failed to read source code from D:\BOS projects\pastoral-paradise\node_modules\lucide-react\dist\esm\icons\chevron-left.js
+
+Caused by:
+    The system cannot find the path specified. (os error 3)
+
+Import trace for requested module:
+./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+__barrel_optimize__?names=ChevronLeft,ChevronRight!=!./node_modules/lucide-react/dist/esm/lucide-react.js
+./src/components/listingbar/ListingBar.jsx
+./src/app/page.jsx
+ ⨯ ./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+Error: Failed to read source code from D:\BOS projects\pastoral-paradise\node_modules\lucide-react\dist\esm\icons\chevron-left.js
+
+Caused by:
+    The system cannot find the path specified. (os error 3)
+
+Import trace for requested module:
+./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+__barrel_optimize__?names=ChevronLeft,ChevronRight!=!./node_modules/lucide-react/dist/esm/lucide-react.js
+./src/components/listingbar/ListingBar.jsx
+./src/app/page.jsx
+ ⨯ ./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+Error: Failed to read source code from D:\BOS projects\pastoral-paradise\node_modules\lucide-react\dist\esm\icons\chevron-left.js
+
+Caused by:
+    The system cannot find the path specified. (os error 3)
+
+Import trace for requested module:
+./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+__barrel_optimize__?names=ChevronLeft,ChevronRight!=!./node_modules/lucide-react/dist/esm/lucide-react.js
+./src/components/listingbar/ListingBar.jsx
+./src/app/page.jsx
+ ⨯ ./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+Error: Failed to read source code from D:\BOS projects\pastoral-paradise\node_modules\lucide-react\dist\esm\icons\chevron-left.js
+
+Caused by:
+    The system cannot find the path specified. (os error 3)
+
+Import trace for requested module:
+./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+__barrel_optimize__?names=ChevronLeft,ChevronRight!=!./node_modules/lucide-react/dist/esm/lucide-react.js
+./src/components/listingbar/ListingBar.jsx
+./src/app/page.jsx
+ ⨯ ./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+Error: Failed to read source code from D:\BOS projects\pastoral-paradise\node_modules\lucide-react\dist\esm\icons\chevron-left.js
+
+Caused by:
+    The system cannot find the path specified. (os error 3)
+
+Import trace for requested module:
+./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+__barrel_optimize__?names=ChevronLeft,ChevronRight!=!./node_modules/lucide-react/dist/esm/lucide-react.js
+./src/components/listingbar/ListingBar.jsx
+./src/app/page.jsx
+ ⨯ ./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+Error: Failed to read source code from D:\BOS projects\pastoral-paradise\node_modules\lucide-react\dist\esm\icons\chevron-left.js
+
+Caused by:
+    The system cannot find the path specified. (os error 3)
+
+Import trace for requested module:
+./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+__barrel_optimize__?names=ChevronLeft,ChevronRight!=!./node_modules/lucide-react/dist/esm/lucide-react.js
+./src/components/listingbar/ListingBar.jsx
+./src/app/page.jsx
+ ⨯ ./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+Error: Failed to read source code from D:\BOS projects\pastoral-paradise\node_modules\lucide-react\dist\esm\icons\chevron-left.js
+
+Caused by:
+    The system cannot find the path specified. (os error 3)
+
+Import trace for requested module:
+./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+__barrel_optimize__?names=ChevronLeft,ChevronRight!=!./node_modules/lucide-react/dist/esm/lucide-react.js
+./src/components/listingbar/ListingBar.jsx
+./src/app/page.jsx
+ ⨯ ./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+Error: Failed to read source code from D:\BOS projects\pastoral-paradise\node_modules\lucide-react\dist\esm\icons\chevron-left.js
+
+Caused by:
+    The system cannot find the path specified. (os error 3)
+
+Import trace for requested module:
+./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+__barrel_optimize__?names=ChevronLeft,ChevronRight!=!./node_modules/lucide-react/dist/esm/lucide-react.js
+./src/components/listingbar/ListingBar.jsx
+./src/app/page.jsx
+ ⨯ ./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+Error: Failed to read source code from D:\BOS projects\pastoral-paradise\node_modules\lucide-react\dist\esm\icons\chevron-left.js
+
+Caused by:
+    The system cannot find the path specified. (os error 3)
+
+Import trace for requested module:
+./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+__barrel_optimize__?names=ChevronLeft,ChevronRight!=!./node_modules/lucide-react/dist/esm/lucide-react.js
+./src/components/listingbar/ListingBar.jsx
+./src/app/page.jsx
+ ⨯ ./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+Error: Failed to read source code from D:\BOS projects\pastoral-paradise\node_modules\lucide-react\dist\esm\icons\chevron-left.js
+
+Caused by:
+    The system cannot find the path specified. (os error 3)
+
+Import trace for requested module:
+./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+__barrel_optimize__?names=ChevronLeft,ChevronRight!=!./node_modules/lucide-react/dist/esm/lucide-react.js
+./src/components/listingbar/ListingBar.jsx
+./src/app/page.jsx
+ ⨯ ./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+Error: Failed to read source code from D:\BOS projects\pastoral-paradise\node_modules\lucide-react\dist\esm\icons\chevron-left.js
+
+Caused by:
+    The system cannot find the path specified. (os error 3)
+
+Import trace for requested module:
+./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+__barrel_optimize__?names=ChevronLeft,ChevronRight!=!./node_modules/lucide-react/dist/esm/lucide-react.js
+./src/components/listingbar/ListingBar.jsx
+./src/app/page.jsx
+ ⨯ ./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+Error: Failed to read source code from D:\BOS projects\pastoral-paradise\node_modules\lucide-react\dist\esm\icons\chevron-left.js
+
+Caused by:
+    The system cannot find the path specified. (os error 3)
+
+Import trace for requested module:
+./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+__barrel_optimize__?names=ChevronLeft,ChevronRight!=!./node_modules/lucide-react/dist/esm/lucide-react.js
+./src/components/listingbar/ListingBar.jsx
+./src/app/page.jsx
+ ⨯ ./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+Error: Failed to read source code from D:\BOS projects\pastoral-paradise\node_modules\lucide-react\dist\esm\icons\chevron-left.js
+
+Caused by:
+    The system cannot find the path specified. (os error 3)
+
+Import trace for requested module:
+./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+__barrel_optimize__?names=ChevronLeft,ChevronRight!=!./node_modules/lucide-react/dist/esm/lucide-react.js
+./src/components/listingbar/ListingBar.jsx
+./src/app/page.jsx
+ ⨯ ./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+Error: Failed to read source code from D:\BOS projects\pastoral-paradise\node_modules\lucide-react\dist\esm\icons\chevron-left.js
+
+Caused by:
+    The system cannot find the path specified. (os error 3)
+
+Import trace for requested module:
+./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+__barrel_optimize__?names=ChevronLeft,ChevronRight!=!./node_modules/lucide-react/dist/esm/lucide-react.js
+./src/components/listingbar/ListingBar.jsx
+./src/app/page.jsx
+ ⨯ ./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+Error: Failed to read source code from D:\BOS projects\pastoral-paradise\node_modules\lucide-react\dist\esm\icons\chevron-left.js
+
+Caused by:
+    The system cannot find the path specified. (os error 3)
+
+Import trace for requested module:
+./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+__barrel_optimize__?names=ChevronLeft,ChevronRight!=!./node_modules/lucide-react/dist/esm/lucide-react.js
+./src/components/listingbar/ListingBar.jsx
+./src/app/page.jsx
+ ⨯ ./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+Error: Failed to read source code from D:\BOS projects\pastoral-paradise\node_modules\lucide-react\dist\esm\icons\chevron-left.js
+
+Caused by:
+    The system cannot find the path specified. (os error 3)
+
+Import trace for requested module:
+./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+__barrel_optimize__?names=ChevronLeft,ChevronRight!=!./node_modules/lucide-react/dist/esm/lucide-react.js
+./src/components/listingbar/ListingBar.jsx
+./src/app/page.jsx
+ ⨯ ./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+Error: Failed to read source code from D:\BOS projects\pastoral-paradise\node_modules\lucide-react\dist\esm\icons\chevron-left.js
+
+Caused by:
+    The system cannot find the path specified. (os error 3)
+
+Import trace for requested module:
+./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+__barrel_optimize__?names=ChevronLeft,ChevronRight!=!./node_modules/lucide-react/dist/esm/lucide-react.js
+./src/components/listingbar/ListingBar.jsx
+./src/app/page.jsx
+ ⨯ ./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+Error: Failed to read source code from D:\BOS projects\pastoral-paradise\node_modules\lucide-react\dist\esm\icons\chevron-left.js
+
+Caused by:
+    The system cannot find the path specified. (os error 3)
+
+Import trace for requested module:
+./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+__barrel_optimize__?names=ChevronLeft,ChevronRight!=!./node_modules/lucide-react/dist/esm/lucide-react.js
+./src/components/listingbar/ListingBar.jsx
+./src/app/page.jsx
+ ⨯ ./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+Error: Failed to read source code from D:\BOS projects\pastoral-paradise\node_modules\lucide-react\dist\esm\icons\chevron-left.js
+
+Caused by:
+    The system cannot find the path specified. (os error 3)
+
+Import trace for requested module:
+./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+__barrel_optimize__?names=ChevronLeft,ChevronRight!=!./node_modules/lucide-react/dist/esm/lucide-react.js
+./src/components/listingbar/ListingBar.jsx
+./src/app/page.jsx
+ ⨯ ./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+Error: Failed to read source code from D:\BOS projects\pastoral-paradise\node_modules\lucide-react\dist\esm\icons\chevron-left.js
+
+Caused by:
+    The system cannot find the path specified. (os error 3)
+
+Import trace for requested module:
+./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+__barrel_optimize__?names=ChevronLeft,ChevronRight!=!./node_modules/lucide-react/dist/esm/lucide-react.js
+./src/components/listingbar/ListingBar.jsx
+./src/app/page.jsx
+ ⨯ ./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+Error: Failed to read source code from D:\BOS projects\pastoral-paradise\node_modules\lucide-react\dist\esm\icons\chevron-left.js
+
+Caused by:
+    The system cannot find the path specified. (os error 3)
+
+Import trace for requested module:
+./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+__barrel_optimize__?names=ChevronLeft,ChevronRight!=!./node_modules/lucide-react/dist/esm/lucide-react.js
+./src/components/listingbar/ListingBar.jsx
+./src/app/page.jsx
+ ⨯ ./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+Error: Failed to read source code from D:\BOS projects\pastoral-paradise\node_modules\lucide-react\dist\esm\icons\chevron-left.js
+
+Caused by:
+    The system cannot find the path specified. (os error 3)
+
+Import trace for requested module:
+./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+__barrel_optimize__?names=ChevronLeft,ChevronRight!=!./node_modules/lucide-react/dist/esm/lucide-react.js
+./src/components/listingbar/ListingBar.jsx
+./src/app/page.jsx
+ ⨯ ./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+Error: Failed to read source code from D:\BOS projects\pastoral-paradise\node_modules\lucide-react\dist\esm\icons\chevron-left.js
+
+Caused by:
+    The system cannot find the path specified. (os error 3)
+
+Import trace for requested module:
+./node_modules/lucide-react/dist/esm/icons/chevron-left.js
+__barrel_optimize__?names=ChevronLeft,ChevronRight!=!./node_modules/lucide-react/dist/esm/lucide-react.js
+./src/components/listingbar/ListingBar.jsx
+./src/app/page.jsx
+ ⨯ Module not found: Error: Can't resolve 'next-flight-client-entry-loader' in 'D:\BOS projects\pastoral-paradise'
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, stat 'D:\BOS projects\pastoral-paradise\.next\cache\webpack\client-development\1.pack.gz'

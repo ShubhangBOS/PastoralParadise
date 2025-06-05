@@ -41,9 +41,9 @@ export default function RootLayout({ children }) {
         cz-shortcut-listen="true"
       >
         {children}
-        <Suspense fallback={null}>
+        {/* <Suspense fallback={null}>
           <NavigationEvents />
-        </Suspense>
+        </Suspense> */}
       </body>
     </html>
   );
