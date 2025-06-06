@@ -16,3 +16,4 @@ export const post = (url, body) => {
   return axios.post(url, body);
 };
 export const patch = api.patch;
+export const url = apiUrl;

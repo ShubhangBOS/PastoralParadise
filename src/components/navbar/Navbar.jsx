@@ -7,6 +7,7 @@ import ContextMenu from "../common/ContextMenu";
 import { useAppStore } from "@/store/store";
 import { useRouter } from "next/navigation";
 import SearchInput from "./Search";
+import { url } from "@/lib/http";
 
 const Navbar = () => {
   const router = useRouter();
@@ -113,7 +114,7 @@ const Navbar = () => {
             <Image src="/home/logo.png" width={150} height={60} alt="logo" />
           </div>
         </div>
-          <SearchInput/>
+        <SearchInput />
         <div className="flex-grow basis-0">
           <ul className="flex items-center justify-end gap-6 font-medium">
             {userInfo?.emailid === "admin" && (
@@ -132,18 +133,19 @@ const Navbar = () => {
               onClick={() => setIsContextMenuVisible(!isContextMenuVisible)}
             >
               <Menu />
-              {userInfo ? (
-                <span className="flex justify-center bg-black items-center text-white h-7 w-7 text-sm rounded-full">
-                  {userInfo?.firstName?.split("").shift().toUpperCase()}
-                </span>
-              ) : (
+              {userInfo?.profilePic ? (
                 <span>
                   <Image
-                    src="/home/empty-profile.png"
-                    alt="profile"
+                    src={`${url}${userInfo.profilePic}`}
+                    alt="Profile"
                     width={30}
                     height={30}
+                    className="rounded-full object-cover"
                   />
+                </span>
+              ) : (
+                <span className="flex justify-center bg-black items-center text-white h-7 w-7 text-sm rounded-full">
+                  {userInfo?.firstName?.charAt(0)?.toUpperCase() || "U"}
                 </span>
               )}
             </li>
