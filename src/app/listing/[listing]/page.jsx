@@ -67,11 +67,11 @@ const page = () => {
             {/* Main Content */}
             <div className="flex flex-col gap-6">
               <div className="flex flex-col gap-1">
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold break-words">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold break-words mb-2">
                   {currentListing?.farmName}
                 </h2>
-                <span className="text-base sm:text-lg cursor-pointer ">
-                  {currentListing?.city}, {currentListing?.state}
+                <span className="text-md">
+                  {currentListing?.city} {' '} {currentListing?.pinCode}, {currentListing?.state}
                 </span>
               </div>
 
@@ -79,7 +79,7 @@ const page = () => {
 
               <div className="flex flex-col gap-6 mb-8">
                 <div className="flex flex-col gap-4">
-                  <h3 className="text-xl sm:text-2xl font-semibold">
+                  <h3 className="text-xl sm:text-2xl font-semibold text-gray-600">
                     Farmhouse hosted by Hemant Sharma
                   </h3>
 

@@ -65,7 +65,9 @@ const QueryResultsPage = () => {
           >
             {/* Image */}
             <img
-              src={data.farm_ImagePath1 || "/home/default-placeholder.jpg"}
+              src={data.farm_ImagePath1 || data.farm_ImagePath2 || 
+                data.farm_ImagePath3 || data.farm_ImagePath4 || data.farm_ImagePath5 || data.farm_ImagePath6 || data.farm_ImagePath7 || data.farm_ImagePath8 || data.farm_ImagePath9 || data.farm_ImagePath10 ||
+                "/home/default-placeholder.jpg"}
               alt={data.farmName}
               className="w-full h-40 object-cover rounded mb-2"
             />
@@ -95,27 +97,40 @@ const QueryResultsPage = () => {
                     d="M19.5 10.5c0 7.5-7.5 10.5-7.5 10.5S4.5 18 4.5 10.5a7.5 7.5 0 1115 0z"
                   />
                 </svg>
-                <span>{data.city}</span>
+                <span>
+                  {data.city}, {data.state}
+                </span>
               </div>
               <span className="text-green-700 font-semibold text-xl">
                 ₹ {data.farmBookingPrice}
               </span>
             </div>
+            <div className="flex justify-between items-center px-4 py-2">
+              {/* Description */}
+              <p className="text-sm text-gray-700 line-clamp-2 w-3/4">
+                {data.farmDescription}
+              </p>
 
-            {/* Description */}
-            <p className="text-sm text-gray-700 mb-1 line-clamp-2">
-              {data.farmDescription}
-            </p>
+              {/* Explore Button */}
+              <button
+                onClick={() => router.push(`/listing/${data.farmHouseCode}`)}
+                className="bg-pastoral-theme-color text-white px-4 py-2 rounded hover:bg-opacity-90 transition whitespace-nowrap cursor-pointer hover:underline"
+              >
+                Explore
+              </button>
+            </div>
 
             {/* Landmark */}
-            <p className="text-xs text-gray-500 italic mb-3">{data.landMark}</p>
+            <p className="text-xs text-gray-700 italic mb-3 ml-4">
+              {data.landMark}
+            </p>
 
             {/* Amenities */}
             <div className="flex flex-wrap gap-2 mb-4">
               {displayAmenities.map((amenity, i) => (
                 <span
                   key={i}
-                  className="text-xs px-2 py-1 bg-blue-100 text-blue-700 rounded-full"
+                  className="text-lg px-2 py-1 bg-blue-100 text-blue-700 rounded-sm"
                 >
                   {amenity.aminitiesName}
                 </span>
@@ -125,15 +140,6 @@ const QueryResultsPage = () => {
                   +{remainingCount} more
                 </span>
               )}
-            </div>
-            <div className="flex items-end justify-end p-4 m-4">
-              {/* Explore Button */}
-              <button
-                onClick={() => router.push(`/listing/${data.farmHouseCode}`)}
-                className="bg-pastoral-theme-color text-white px-4 py-2 rounded hover:bg-opacity-90 transition w-1/10 cursor-pointer hover:underline"
-              >
-                Explore
-              </button>
             </div>
           </div>
         );

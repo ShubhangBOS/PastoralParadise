@@ -9,6 +9,7 @@ import "react-date-range/dist/theme/default.css";
 
 export default function TripScheduler() {
   const router = useRouter();
+
   const { currentListing, userInfo, setBookingDetails, checkInOutDates } =
     useAppStore();
 
@@ -84,6 +85,7 @@ export default function TripScheduler() {
 
     const numberOfDays = calculateDaysDifference();
 
+    // Later in your function:
     setBookingDetails({
       farmhouseCode: currentListing.farmHouseCode,
       checkinDatetime: startDate.toISOString(),
@@ -95,6 +97,7 @@ export default function TripScheduler() {
       numberofPets: guestCounts.pets,
       totalNumberofGuest: totalGuests,
     });
+    
 
     router.push("/book");
   };
@@ -216,31 +219,24 @@ export default function TripScheduler() {
           Reserve
         </button>
 
-        <span className="text-center w-full">You won't be charged yet</span>
+        <span className="text-center w-full mb-4 text-sm text-gray-600">You won't be charged yet</span>
         <div className="flex justify-between w-full">
-          <span>
+          <span className="text-md font-semibold">
             &#8377;{currentListing.farmBookingPrice} x{" "}
             {calculateDaysDifference()} nights
           </span>
-          <span>
+          <span className="text-lg text-green-700">
             &#8377;{currentListing.farmBookingPrice * calculateDaysDifference()}
           </span>
         </div>
-        <div className="flex justify-between w-full">
+        {/* <div className="flex justify-between w-full">
           <span>Total before taxes</span>
           <span>
             &#8377;{currentListing.farmBookingPrice * calculateDaysDifference()}
           </span>
-        </div>
+        </div> */}
       </div>
 
-      <div className="flex border border-gray-400 rounded-lg p-4 gap-2 items-start px-8">
-        <span>
-          <strong>This is a rare find. </strong>
-          Hemant's place on Pastoral is usually fully booked.
-        </span>
-        <Daimond />
-      </div>
 
       <div className="flex gap-3 items-center cursor-pointer mb-5">
         <span className="underline font-semibold">Report this listing</span>

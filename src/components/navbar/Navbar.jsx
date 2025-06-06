@@ -103,7 +103,7 @@ const Navbar = () => {
   ];
   
   return (
-    <header className="w-full flex flex-col justify-center transition-all duration-300 h-20  mb-4">
+    <header className="w-full flex flex-col justify-center transition-all duration-300 h-20  mb-4 bg-gray-50 shadow-md">
       <div className="flex items-center justify-between px-5 md:px-20">
         <div className="flex-grow basis-0">
           <div

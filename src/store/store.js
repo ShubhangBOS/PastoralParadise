@@ -39,4 +39,8 @@ export const useAppStore = create((set) => ({
 
   isLoggedIn: false,
   setIsLoggedIn: (val) => set({ isLoggedIn: val }),
+
+  // Booking details
+  bookingDetails: null,
+  setBookingDetails: (details) => set({ bookingDetails: details }),
 }));

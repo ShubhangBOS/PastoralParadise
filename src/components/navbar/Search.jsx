@@ -37,7 +37,7 @@ const SearchInput = () => {
         value={farmhouseTitle}
         onChange={(e) => setFarmhouseTitle(e.target.value)}
         placeholder="Farmhouse Title"
-        className="flex-1 min-w-[180px] p-2 border border-gray-300 rounded-md text-md outline-none focus:border-gray-400 transition"
+        className="flex-1 min-w-[180px] p-2 border border-gray-300 rounded-md text-md outline-none focus:border-gray-400 transition text-black"
       />
 
       {/* Check-in */}
@@ -51,7 +51,7 @@ const SearchInput = () => {
         }}
         placeholderText="Check-in Date"
         minDate={new Date()}
-        className="p-2 border border-gray-300 rounded-md text-md outline-none focus:border-gray-400 transition w-full"
+        className="p-2 border border-gray-300 rounded-md text-md outline-none focus:border-gray-400 transition w-full text-black"
       />
 
       {/* Check-out */}
@@ -60,7 +60,7 @@ const SearchInput = () => {
         onChange={(date) => setCheckOutDate(date)}
         placeholderText="Check-out Date"
         minDate={checkInDate || new Date()}
-        className="p-2 border border-gray-300 rounded-md text-md outline-none focus:border-gray-400 transition w-full"
+        className="p-2 border border-gray-300 rounded-md text-md outline-none focus:border-gray-400 transition w-full text-black"
       />
 
       {/* State */}
@@ -69,7 +69,7 @@ const SearchInput = () => {
         value={state}
         onChange={(e) => setState(e.target.value)}
         placeholder="State"
-        className="p-2 border border-gray-300 rounded-md text-md outline-none focus:border-gray-400 transition"
+        className="p-2 border border-gray-300 rounded-md text-md outline-none focus:border-gray-400 transition text-black"
       />
 
       {/* Search Button */}

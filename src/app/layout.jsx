@@ -1,8 +1,12 @@
 // import { Geist, Geist_Mono } from "next/font/google";
+
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Suspense } from "react";
 import NavigationEvents from "@/components/common/NavigationEvents";
+
+import { useAppStore } from "@/store/store";
+import ModalWrapper from "@/components/common/ModalWrapper";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -40,7 +44,9 @@ export default function RootLayout({ children }) {
         className={inter.className}
         cz-shortcut-listen="true"
       >
+        <ModalWrapper/>
         {children}
+      
         {/* <Suspense fallback={null}>
           <NavigationEvents />
         </Suspense> */}

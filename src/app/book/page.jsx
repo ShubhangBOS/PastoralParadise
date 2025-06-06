@@ -54,17 +54,17 @@ const BookPage = () => {
 
     if (bookingData?.status === true) {
       setShowSuccessModal(true);
-      localStorage.setItem("bookingCompleted", "true");
+      sessionStorage.setItem("bookingCompleted", "true");
     }
   };
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 lg:grid-cols-3 gap-16">
-      <div className="lg:col-span-2 space-y-8">
+      <div className="lg:col-span-2 space-y-6">
         <h1 className="text-2xl font-semibold">Request to book</h1>
-        <hr className="w-full border border-gray-300" />
+        <hr className="w-full border border-amber-600" />
         <div className=" rounded-lg p-4 space-y-2">
-          <h2 className="font-medium text-lg">Your trip</h2>
+          <h2 className="font-medium text-lg">Your Trip Details</h2>
           <div className="flex justify-between">
             <div>
               <p className="text-sm font-medium">Dates</p>
@@ -91,8 +91,7 @@ const BookPage = () => {
         </div>
 
         <div className="space-y-4">
-          <hr className="w-full border border-gray-300" />
-          <h2 className="text-lg font-medium">Fill up the details to book</h2>
+          <h2 className="text-lg font-medium capitalize">Provide Your Details for booking</h2>
           <form
             onSubmit={(e) => {
               e.preventDefault();
@@ -160,8 +159,8 @@ const BookPage = () => {
 
             <div className="space-y-2 mt-5">
               <p className="text-xs text-gray-500">
-                We’ll call and mail you to confirm your booking. For any
-                additional enquiry you can contact to our support team.
+                We will call and mail you to confirm your booking. For any
+                additional enquiry you can contact our support team.
               </p>
               <button
                 type="submit"
