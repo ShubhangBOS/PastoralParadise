@@ -4,6 +4,7 @@ import { X } from "lucide-react";
 import FormInput from "../common/FormInput";
 import { useAppStore } from "@/store/store";
 import { login, signup } from "@/lib/auth";
+import { useRouter } from "next/navigation";
 
 const AuthModal = () => {
   const { setAuthModal, setIsLoggedIn, setUserInfo, authMode } = useAppStore();
@@ -13,7 +14,7 @@ const AuthModal = () => {
   const [lastName, setLastName] = useState("");
   const [isHost, setIsHost] = useState(false);
   const [userRole, setUserRole] = useState("");
-
+  const router = useRouter();
   const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
   const determineUserRole = () => {
@@ -39,6 +40,15 @@ const AuthModal = () => {
         setIsLoggedIn(true);
         setAuthModal(false);
         sessionStorage.setItem("userInfo", JSON.stringify(data.data[0]));
+        const userInfoString = sessionStorage.getItem("userInfo");
+
+        if (userInfoString) {
+          const userInfo = JSON.parse(userInfoString);
+          console.log("User Info from sessionStorage:", userInfo);
+        } else {
+          console.log("No userInfo found in sessionStorage.");
+        }
+
         sessionStorage.setItem("isLoggedIn", "true");
       } else {
         alert(data.returnMessage || "Login failed.");
@@ -62,7 +72,15 @@ const AuthModal = () => {
         setIsLoggedIn(true);
         setAuthModal(false);
         sessionStorage.setItem("userInfo", JSON.stringify(data));
+        const userInfoString = sessionStorage.getItem("userInfo");
+        if(userInfoString) {
+          const userInfo = JSON.parse(userInfoString);
+          console.log("User Info from session storage:",userInfo);
+        } else {
+          alert(data.returnMessage || "Login Failed")
+        }
         sessionStorage.setItem("isLoggedIn", "true");
+        router.push("/profilepage")
       }
     }
   };
