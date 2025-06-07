@@ -142,6 +142,26 @@ export const searchQueryAPI = async (
   }
 };
 
+export const updateUserProfile = async (formData) => {
+  try {
+    const response = await post(
+      createUrl("/api/Login/UpdateProfile"),
+      formData,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    );
+
+    return response.data;
+  } catch (err) {
+    alert("Could not update profile.");
+    console.error(err);
+  }
+};
+
+
 
 export const getCheckInCheckouts = async (listingId) => {
   try {

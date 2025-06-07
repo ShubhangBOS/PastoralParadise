@@ -2,7 +2,10 @@
 import Navbar from "@/components/navbar/Navbar";
 import React, { useState, useEffect } from "react";
 import { User } from "lucide-react";
-
+import { url } from "@/lib/http";
+import { updateUserProfile } from "@/lib/lisitng";
+import toast, { Toaster } from "react-hot-toast";
+import {useRouter} from 'next/navigation';
 
 const indianStates = [
   "Andhra Pradesh",
@@ -39,18 +42,21 @@ const indianStates = [
   "West Bengal",
 ];
 
-
 const genders = ["Male", "Female", "Prefer Not To Say"];
 
 export const Profile = () => {
   const [userData, setUserData] = useState({
-    firstName : "",
-    lastName : "",
-    emailid : "",
-    password : "",
-    userRole : ""
-  })
+    firstName: "",
+    lastName: "",
+    emailid: "",
+    password: "",
+    userRole: "",
+    profilePic: "",
+  });
+
   const [imagePreview, setImagePreview] = useState(null);
+
+  const route = useRouter();
 
   const [form, setForm] = useState({
     firstName: "",
@@ -65,7 +71,7 @@ export const Profile = () => {
     fax: "",
     about: "",
     currentAddress: "",
-    permanentAddress: "",
+    ParmanentAddress: "",
     city: "",
     district: "",
     state: "",
@@ -76,78 +82,160 @@ export const Profile = () => {
   });
 
   const [filteredStates, setFilteredStates] = useState(indianStates);
-  const [showSuggestions, setShowSuggestions] = useState(false);
 
-  useEffect(() => {
-    if (form.sameAddress) {
-      setForm((prev) => ({
-        ...prev,
-        permanentAddress: prev.currentAddress,
-      }));
-    }
-  }, [form.sameAddress, form.currentAddress]);
-
+  // Handle loading data from session
   useEffect(() => {
     const stored = sessionStorage.getItem("userInfo");
     if (stored) {
       const user = JSON.parse(stored);
-      setUserData({
-        firstName: user.firstName,
-        lastName: user.lastName,
-        emailid: user.emailid,
-        password: user.password,
-        userRole: user.userRole,
-      });
+      setUserData(user);
+      if (user.profilePic) {
+        setImagePreview(`${url}${user.profilePic}`);
+      }
     }
   }, []);
 
+  // Keep permanentAddress in sync if checkbox is checked
+  useEffect(() => {
+    if (form.sameAddress) {
+      setForm((prev) => ({
+        ...prev,
+        ParmanentAddress: prev.currentAddress,
+      }));
+    }
+  }, [form.sameAddress, form.currentAddress]);
+
+  // Universal input handler
   const handleChange = (e) => {
-    const value = e.target.value;
+    const { name, value, type, checked } = e.target;
+
+    // Checkbox logic
+    if (type === "checkbox") {
+      setForm((prev) => ({
+        ...prev,
+        [name]: checked,
+        ParmanentAddress: checked ? prev.currentAddress : "",
+      }));
+      return;
+    }
 
     setForm((prev) => ({
       ...prev,
-      state: value,
+      [name]: value,
     }));
 
-    const filtered = indianStates.filter((s) =>
-      s.toLowerCase().includes(value.toLowerCase())
-    );
-    setFilteredStates(filtered);
-    setShowSuggestions(true);
-  };
-
-  const userInfoString = sessionStorage.getItem("userInfo");
-  if (userInfoString) {
-    const userInfo = JSON.parse(userInfoString);
-    console.log("User Info from session storage:", userInfo);
-  } else {
-    alert(data.returnMessage || "Login Failed");
-  }
-
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file && file.type.startsWith("image/")) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImagePreview(reader.result);
-      };
-      reader.readAsDataURL(file);
+    // If user is typing state, update suggestions
+    if (name === "state") {
+      const filtered = indianStates.filter((s) =>
+        s.toLowerCase().includes(value.toLowerCase())
+      );
+      setFilteredStates(filtered);
     }
   };
 
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setImagePreview(URL.createObjectURL(file));
+      setForm((prev) => ({
+        ...prev,
+        profilePic: file,
+      }));
+    }
+  };
+
+  const UpdateUserDetails = async (e) => {
+    e.preventDefault(); // Prevent page reload
+
+    const {
+      gender,
+      mobile,
+      dob,
+      phone,
+      fax,
+      about,
+      currentAddress,
+      ParmanentAddress,
+      city,
+      district,
+      state,
+      pincode,
+      profilePic,
+    } = form;
+
+
+    // Validate required fields
+    if (
+      !gender ||
+      !mobile ||
+      !dob ||
+      !currentAddress ||
+      !ParmanentAddress ||
+      !city ||
+      !district ||
+      !state ||
+      !pincode ||
+      !profilePic
+    ) {
+      alert("Please fill all required fields.");
+      return;
+    }
+    const userInfo = JSON.parse(sessionStorage.getItem("userInfo"));
+    const userId = userInfo?.userId;
+    
+
+    const formData = new FormData();
+    formData.append("userId", userId);
+    formData.append("Gender", gender);
+    formData.append("MobileNo", mobile);
+    formData.append("Dob", dob);
+    formData.append("Phoneno", phone); 
+    formData.append("Faxno", fax);
+    formData.append("About", about);
+    formData.append("CurrentAddress", currentAddress);
+    formData.append("ParmanentAddress", ParmanentAddress);
+    formData.append("City", city);
+    formData.append("District", district);
+    formData.append("State", state);
+    formData.append("PinCode", pincode);
+    formData.append("Image", profilePic);
+
+    try {
+      const response = await updateUserProfile(formData);
+
+      if (response.status) {
+        sessionStorage.setItem("userInfo", JSON.stringify(response.data[0]));
+        toast.success("Profile updated successfully!");
+        setTimeout( () => {
+          route.push('/')
+        },2000)
+      } else {
+        alert(response.returnMessage || "Profile update failed.");
+      }
+    } catch (err) {
+      console.error("Error updating profile:", err);
+      alert("An error occurred while updating the profile.");
+    }
+  };
+  
 
   return (
     <>
       <Navbar />
+      <Toaster/>
       <div className="max-w-4xl mx-auto mt-10 p-6 bg-gray-50 rounded-2xl shadow-md">
         <div className="flex justify-center items-center">
           <h2 className="text-amber-700 font-semibold mb-6 text-3xl">
             Update Profile
           </h2>
         </div>
-        <form className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="flex flex-col items-center space-y-4">
-            {/* Image Circle */}
+        <form
+          className="grid grid-cols-1 md:grid-cols-2 gap-4"
+          onSubmit={UpdateUserDetails}
+          encType="multipart/form-data"
+        >
+          {/* Profile Pic Upload */}
+          <div className="flex flex-col items-center space-y-4 justify-center w-full">
             <label
               htmlFor="profilePic"
               className="cursor-pointer relative w-32 h-32 rounded-full border-2 border-dashed border-amber-500 flex items-center justify-center overflow-hidden"
@@ -161,7 +249,6 @@ export const Profile = () => {
               ) : (
                 <User className="w-12 h-12 text-gray-400" />
               )}
-              {/* Hidden file input */}
               <input
                 id="profilePic"
                 type="file"
@@ -171,70 +258,56 @@ export const Profile = () => {
                 onChange={handleImageChange}
               />
             </label>
-
             <p className="text-sm text-gray-500">
               Click the circle to upload your profile picture
             </p>
           </div>
+
+          {/* Basic Fields */}
           <input
             name="firstName"
             placeholder="First Name"
             value={userData.firstName}
             readOnly
-            className="border border-gray-300 rounded px-4 py-2 w-full focus:border-amber-700 outline-none h-auto max-h-12 bg-gray-100"
-            onChange={handleChange}
+            className="bg-gray-100 border border-gray-300 rounded px-4 py-2 w-full focus:border-amber-700 outline-none max-h-12 mt-28"
           />
           <input
             name="lastName"
             placeholder="Last Name"
             value={userData.lastName}
             readOnly
-            className="border border-gray-300 rounded px-4 py-2 w-full focus:border-amber-700 outline-none bg-gray-100"
-            onChange={handleChange}
+            className="bg-gray-100 border border-gray-300 rounded px-4 py-2 w-full focus:border-amber-700 outline-none"
           />
           <input
             type="email"
             name="email"
-            readOnly
             placeholder="Email"
             value={userData.emailid}
-            className="border border-gray-300 rounded px-4 py-2 w-full focus:border-amber-700 outline-none bg-gray-100"
-            onChange={handleChange}
+            readOnly
+            className="bg-gray-100 border border-gray-300 rounded px-4 py-2 w-full focus:border-amber-700 outline-none"
           />
-          {/* <input
-            type="password"
-            name="password"
-            value={userData.password}
-            readOnly
-            placeholder="Password"
-            className="border border-gray-300 rounded px-4 py-2 w-full focus:border-amber-700 outline-none"
-            onChange={handleChange}
-          /> */}
-          {/* <input
-            name="userRole"
-            value={userData.userRole}
-            readOnly
-            placeholder="User Role"
-            className="border border-gray-300 rounded px-4 py-2 w-full focus:border-amber-700 outline-none"
-            onChange={handleChange}
-          /> */}
+
+          {/* Other form inputs */}
           <select
             name="gender"
             className="border border-gray-300 rounded px-4 py-2 w-full focus:border-amber-700 outline-none"
             onChange={handleChange}
             value={form.gender}
+            required
           >
             <option value="">Select Gender</option>
             {genders.map((g) => (
               <option key={g}>{g}</option>
             ))}
           </select>
+
           <input
             type="date"
             name="dob"
             placeholder="DOB"
             className="border border-gray-300 rounded px-4 py-2 w-full focus:border-amber-700 outline-none"
             onChange={handleChange}
+            value={form.dob}
             required
           />
           <input
@@ -242,6 +315,8 @@ export const Profile = () => {
             placeholder="Mobile No."
             className="border border-gray-300 rounded px-4 py-2 w-full focus:border-amber-700 outline-none"
             onChange={handleChange}
+            value={form.mobile}
+            maxLength={10}
             required
           />
           <input
@@ -249,19 +324,23 @@ export const Profile = () => {
             placeholder="Phone No."
             className="border border-gray-300 rounded px-4 py-2 w-full focus:border-amber-700 outline-none"
             onChange={handleChange}
+            value={form.phone}
+            maxLength={12}
           />
           <input
             name="fax"
             placeholder="Fax No."
             className="border border-gray-300 rounded px-4 py-2 w-full focus:border-amber-700 outline-none"
             onChange={handleChange}
+            value={form.fax}
           />
           <textarea
             name="about"
             placeholder="Tell Us About Yourself"
             className="border border-gray-300 rounded px-4 py-2 w-full col-span-2 focus:border-amber-700 outline-none"
             onChange={handleChange}
-            required
+            value={form.about}
+            maxLength={500}
           />
           <input
             name="currentAddress"
@@ -269,8 +348,10 @@ export const Profile = () => {
             className="border border-gray-300 rounded px-4 py-2 w-full col-span-2 focus:border-amber-700 outline-none"
             required
             onChange={handleChange}
+            value={form.currentAddress}
           />
 
+          {/* Checkbox logic */}
           <div className="flex items-center col-span-2 space-x-2">
             <input
               type="checkbox"
@@ -278,16 +359,16 @@ export const Profile = () => {
               checked={form.sameAddress}
               onChange={handleChange}
             />
-            <label htmlFor="sameAddress focus:border-amber-700 outline-none">
+            <label htmlFor="sameAddress" className="text-sm text-gray-700">
               Same as current address
             </label>
           </div>
 
           <input
-            name="permanentAddress"
+            name="ParmanentAddress"
             placeholder="Permanent Address"
             className="border border-gray-300 rounded px-4 py-2 w-full col-span-2 focus:border-amber-700 outline-none"
-            value={form.permanentAddress}
+            value={form.ParmanentAddress}
             onChange={handleChange}
             required
           />
@@ -296,36 +377,34 @@ export const Profile = () => {
             placeholder="City"
             className="border border-gray-300 rounded px-4 py-2 w-full focus:border-amber-700 outline-none"
             onChange={handleChange}
+            value={form.city}
+            required
           />
           <input
             name="district"
             placeholder="District"
             className="border border-gray-300 rounded px-4 py-2 w-full focus:border-amber-700 outline-none"
             onChange={handleChange}
+            value={form.district}
+            required
           />
 
-          {/* <label className="block mb-2 text-sm font-medium text-gray-700">
-            Country
-          </label> */}
           <input
             name="country"
             className="border border-gray-300 rounded px-4 py-2 w-full focus:border-amber-700 outline-none"
             value="India"
+            readOnly
           />
 
           <select
             name="state"
-            className="w-full mb-4 border border-gray-300 rounded px-4 py-2 focus:border-amber-700 outline-none"
+            className="w-full border border-gray-300 rounded px-4 py-2 focus:border-amber-700 outline-none"
             value={form.state}
             onChange={handleChange}
+            required
           >
-            <option
-              value=""
-              className="text-xs font-light bg-gray-50 hover:bg-gray-100"
-            >
-              Select State
-            </option>
-            {indianStates.map((state) => (
+            <option value="">Select State</option>
+            {filteredStates.map((state) => (
               <option key={state} value={state}>
                 {state}
               </option>
@@ -337,6 +416,8 @@ export const Profile = () => {
             placeholder="Pin Code"
             className="border border-gray-300 rounded px-4 py-2 w-full focus:border-amber-700 outline-none"
             onChange={handleChange}
+            value={form.pincode}
+            required
           />
 
           <button
@@ -350,6 +431,5 @@ export const Profile = () => {
     </>
   );
 };
-
 
 export default Profile;

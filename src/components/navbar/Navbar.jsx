@@ -67,6 +67,13 @@ const Navbar = () => {
       },
     },
     {
+      name: "Update Profile",
+      callBack: () => {
+        setIsContextMenuVisible(false);
+        router.push("/profilepage");
+      },
+    },
+    {
       name: "Trips",
       callBack: () => {
         setIsContextMenuVisible(false);

@@ -6,6 +6,7 @@ import { useAppStore } from "@/store/store";
 import { login, signup } from "@/lib/auth";
 import { useRouter } from "next/navigation";
 
+
 const AuthModal = () => {
   const { setAuthModal, setIsLoggedIn, setUserInfo, authMode } = useAppStore();
   const [email, setEmail] = useState("");
