@@ -30,17 +30,15 @@ const SearchInput = () => {
   };
 
   return (
-    <div className="flex flex-wrap gap-4 items-center p-4 bg-gray-50 rounded-xl w-full max-w-7xl mx-auto">
-      {/* Farmhouse Title */}
+    <div className="flex flex-wrap sm:flex-nowrap gap-2 items-center justify-center p-4 bg-gray-50 rounded-xl w-full max-w-7xl mx-auto text-sm">
       <input
         type="text"
         value={farmhouseTitle}
         onChange={(e) => setFarmhouseTitle(e.target.value)}
         placeholder="Farmhouse Title"
-        className="flex-1 min-w-[180px] p-2 border border-gray-300 rounded-md text-md outline-none focus:border-gray-400 transition text-black"
+        className="flex-1 min-w-[120px] p-2 border border-gray-300 rounded-md outline-none focus:border-gray-400 text-black"
       />
 
-      {/* Check-in */}
       <DatePicker
         selected={checkInDate}
         onChange={(date) => {
@@ -49,32 +47,29 @@ const SearchInput = () => {
             setCheckOutDate(null);
           }
         }}
-        placeholderText="Check-in Date"
+        placeholderText="Check-in"
         minDate={new Date()}
-        className="p-2 border border-gray-300 rounded-md text-md outline-none focus:border-gray-400 transition w-full text-black"
+        className="min-w-[120px] flex-1 p-2 border border-gray-300 rounded-md outline-none focus:border-gray-400 text-black"
       />
 
-      {/* Check-out */}
       <DatePicker
         selected={checkOutDate}
         onChange={(date) => setCheckOutDate(date)}
-        placeholderText="Check-out Date"
+        placeholderText="Check-out"
         minDate={checkInDate || new Date()}
-        className="p-2 border border-gray-300 rounded-md text-md outline-none focus:border-gray-400 transition w-full text-black"
+        className="min-w-[120px] flex-1 p-2 border border-gray-300 rounded-md outline-none focus:border-gray-400 text-black"
       />
 
-      {/* State */}
       <input
         type="text"
         value={state}
         onChange={(e) => setState(e.target.value)}
         placeholder="State"
-        className="p-2 border border-gray-300 rounded-md text-md outline-none focus:border-gray-400 transition text-black"
+        className="min-w-[100px] flex-1 p-2 border border-gray-300 rounded-md outline-none focus:border-gray-400 text-black"
       />
 
-      {/* Search Button */}
       <button
-        className="bg-pastoral-theme-color text-white border p-2 rounded-lg text-sm hover:opacity-90 transition cursor-pointer"
+        className="bg-pastoral-theme-color text-white px-3 py-2 rounded-md hover:opacity-90 transition min-w-[80px]"
         onClick={searchQuery}
       >
         Search

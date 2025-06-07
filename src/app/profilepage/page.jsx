@@ -222,8 +222,8 @@ export const Profile = () => {
   return (
     <>
       <Navbar />
-      <Toaster/>
-      <div className="max-w-4xl mx-auto mt-10 p-6 bg-gray-50 rounded-2xl shadow-md">
+      <Toaster />
+      <div className="max-w-4xl mx-auto mt-10 p-6 bg-gradient-to-bl from-amber-500 to-[#ffffff] rounded-2xl shadow-md">
         <div className="flex justify-center items-center">
           <h2 className="text-amber-700 font-semibold mb-6 text-3xl">
             Update Profile
