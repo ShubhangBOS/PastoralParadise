@@ -1,3 +1,4 @@
+import { url } from "@/lib/http";
 import { useAppStore } from "@/store/store";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
@@ -17,7 +18,7 @@ const ListingPhotos = () => {
           fill
           src={
             imageListings.length > 0
-              ? `https://api.thepastoralparadise.com${imageListings[currentPhoto].imagePath}`
+              ? `${url}${imageListings[currentPhoto].imagePath}`
               : "/home/defaultFarmImage.jpg"
           }
         />
@@ -31,7 +32,7 @@ const ListingPhotos = () => {
               onClick={() => setCurrentPhoto(index)}
             >
               <Image
-                src={`https://api.thepastoralparadise.com${photo.imagePath}`}
+                src={`${url}${photo.imagePath}`}
                 fill
                 alt="all photos"
               />

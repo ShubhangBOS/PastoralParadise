@@ -30,7 +30,7 @@ const SearchInput = () => {
   };
 
   return (
-    <div className="flex flex-wrap sm:flex-nowrap gap-2 items-center justify-center p-4 bg-gray-50 rounded-xl w-full max-w-7xl mx-auto text-sm">
+    <div className="flex flex-wrap sm:flex-nowrap gap-2 items-center justify-center p-4 bg-gray-50 rounded-xl w-full max-w-7xl text-sm">
       <input
         type="text"
         value={farmhouseTitle}
@@ -69,7 +69,7 @@ const SearchInput = () => {
       />
 
       <button
-        className="bg-pastoral-theme-color text-white px-3 py-2 rounded-md hover:opacity-90 transition min-w-[80px]"
+        className="bg-pastoral-theme-color text-white px-3 py-2 rounded-md hover:opacity-90 transition min-w-[80px] cursor-pointer mr-8"
         onClick={searchQuery}
       >
         Search

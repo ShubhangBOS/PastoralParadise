@@ -116,18 +116,30 @@ const Navbar = () => {
     <header className="w-full transition-all duration-300 bg-gray-50 shadow-md mb-4">
       {/* Main Header Container */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 px-5 md:px-20 py-4 lg:w-full">
-        {/* Row 1: Logo and ContextMenu */}
-        <div className="flex items-center justify-between lg:w-full sm:w-auto">
+        {/* Row: Logo and ContextMenu */}
+        <div className="flex items-center justify-between w-full lg:justify-center gap-4">
           {/* Logo */}
-          <div className="cursor-pointer mx-52" onClick={() => router.push("/")}>
-            <Image src="/home/logo.png" width={450} height={60} alt="logo" />
+          <div
+            className="cursor-pointer max-w-[180px] sm:max-w-[240px] md:max-w-[320px] lg:max-w-[300px] xl:max-w-[400px]"
+            onClick={() => router.push("/")}
+          >
+            <Image
+              src="/home/logo.png"
+              alt="logo"
+              width={500}
+              height={60}
+              className="w-9/10 h-auto"
+              priority
+            />
           </div>
-          <div className="w-full mr-12">
+
+          {/* Search - show on md+ only */}
+          <div className="hidden md:block w-full max-w-3xl px-4">
             <SearchInput />
           </div>
 
-          {/* ContextMenu */}
-          <ul className="flex items-center gap-4 w-full">
+          {/* Context Menu */}
+          <ul className="flex items-center gap-4">
             {userInfo?.emailid === "admin" && (
               <li
                 className="cursor-pointer hidden sm:block"
@@ -140,7 +152,7 @@ const Navbar = () => {
               className="flex cursor-pointer items-center gap-2 border border-gray-300 py-2 px-3 rounded-full hover:shadow-xl transition-all duration-500"
               onClick={() => setIsContextMenuVisible(!isContextMenuVisible)}
             >
-              <Menu className="text-6xl"/>
+              <Menu className="text-2xl" />
               {userInfo?.profilePic ? (
                 <Image
                   src={`${url}${userInfo.profilePic}`}
@@ -157,8 +169,6 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-
-        {/* Row 2: SearchInput - always visible on desktop, stacked on mobile */}
       </div>
 
       {/* Context Menu */}
@@ -167,8 +177,8 @@ const Navbar = () => {
           contextMenu={isContextMenuVisible}
           setContextMenu={setIsContextMenuVisible}
           coordinates={{
-            x: window.innerWidth - 250,
-            y: 55,
+            x: window.innerWidth - 550,
+            y: 65,
           }}
           options={
             userInfo ? authenticatedContextMenuOptions : contextMenuOptions

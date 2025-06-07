@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
+import Image from "next/image";
 
 export default function TripScheduler() {
   const router = useRouter();
@@ -134,7 +135,22 @@ export default function TripScheduler() {
             onClick={toggleDropdown}
             className="flex flex-col gap-1 border border-gray-300 p-2 rounded-md cursor-pointer"
           >
-            <label className="font-semibold text-xs">GUESTS</label>
+            
+              <label className="font-semibold text-xs">GUESTS</label>
+              
+            
+            {/*   
+            <span className="flex items-center text-lg text-green-700 font-semibold">
+            &#8377;{currentListing.farmBookingPrice * calculateDaysDifference()}
+            <span className="relative w-20 h-20">
+              <Image
+                src="/PastoralParadiseIcon/PricesTag.svg"
+                alt="Price Tag Icon"
+                fill
+              />
+            </span>
+          </span> 
+          */}
             <span className="text-sm">
               {totalGuests} guest{totalGuests > 1 ? "s" : ""}{" "}
               {guestCounts.infants > 0
@@ -219,16 +235,28 @@ export default function TripScheduler() {
           Reserve
         </button>
 
-        <span className="text-center w-full mb-4 text-sm text-gray-600">You won't be charged yet</span>
-        <div className="flex justify-between w-full">
+        <span className="text-center w-full mb-4 text-sm text-gray-600">
+          You won't be charged yet
+        </span>
+        <div className="flex justify-between items-center w-full">
           <span className="text-md font-semibold">
             &#8377;{currentListing.farmBookingPrice} x{" "}
             {calculateDaysDifference()} nights
           </span>
-          <span className="text-lg text-green-700">
+
+          {/* Price with icon */}
+          <span className="flex items-center text-lg text-green-700 font-semibold">
             &#8377;{currentListing.farmBookingPrice * calculateDaysDifference()}
+            <span className="relative w-20 h-20">
+              <Image
+                src="/PastoralParadiseIcon/PricesTag.svg"
+                alt="Price Tag Icon"
+                fill
+              />
+            </span>
           </span>
         </div>
+
         {/* <div className="flex justify-between w-full">
           <span>Total before taxes</span>
           <span>
@@ -236,7 +264,6 @@ export default function TripScheduler() {
           </span>
         </div> */}
       </div>
-
 
       <div className="flex gap-3 items-center cursor-pointer mb-5">
         <span className="underline font-semibold">Report this listing</span>

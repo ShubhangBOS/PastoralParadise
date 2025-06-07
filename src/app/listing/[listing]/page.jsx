@@ -16,6 +16,7 @@ import {
   getCheckInCheckouts,
 } from "@/lib/lisitng";
 import { useParams } from "next/navigation";
+import { MapView } from "./components/MapView";
 
 const page = () => {
   const params = useParams();
@@ -71,7 +72,8 @@ const page = () => {
                   {currentListing?.farmName}
                 </h2>
                 <span className="text-md">
-                  {currentListing?.city} {' '} {currentListing?.pinCode}, {currentListing?.state}
+                  {currentListing?.city} {currentListing?.pinCode},{" "}
+                  {currentListing?.state}
                 </span>
               </div>
 
@@ -80,7 +82,8 @@ const page = () => {
               <div className="flex flex-col gap-6 mb-8">
                 <div className="flex flex-col gap-4">
                   <h3 className="text-xl sm:text-2xl font-semibold text-gray-600">
-                    Farmhouse hosted by Hemant Sharma
+                    Farmhouse hosted by{" "}
+                    {currentListing?.farmHouseOwnerName || "Owner"}
                   </h3>
 
                   {/* Space Info */}
@@ -100,11 +103,23 @@ const page = () => {
                     ))}
                   </ul>
 
-                  <hr className="w-full border border-gray-300 my-8" />
+                  {/* <hr className="w-full border border-gray-300 my-8" /> */}
 
-                  <p className="text-sm sm:text-base leading-relaxed">
+                  <p className="text-sm sm:text-base leading-relaxed text-gray-400">
                     {currentListing?.farmDescription}
                   </p>
+
+                  <div>
+                    <MapView
+                      address1={currentListing.address1}
+                      address2={currentListing.address2}
+                      address3={currentListing.address3}
+                      city={currentListing.city}
+                      state={currentListing.state}
+                      country={currentListing.country}
+                      pinCode={currentListing.pinCode}
+                    />
+                  </div>
 
                   <hr className="w-full border border-gray-300 my-8" />
 
