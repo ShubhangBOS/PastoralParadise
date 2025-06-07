@@ -1,4 +1,5 @@
 "use client";
+import { MapPin } from "lucide-react";
 import React from "react";
 
 export const MapView = ({
@@ -20,13 +21,12 @@ export const MapView = ({
   };
 
   return (
-    <div className="mt-4">
-      <button
-        onClick={handleOpenMap}
-        className="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded shadow-md transition-all cursor-pointer"
-      >
-        View on Google Maps
-      </button>
+    <div
+      className="bg-pastoral-gradient py-3 mt-5 px-5 text-white text-base font-medium rounded-md cursor-pointer w-full flex items-center justify-center"
+      onClick={handleOpenMap}
+    >
+      <button className="mr-2">View on Google Maps</button>
+      <MapPin />
     </div>
   );
 };

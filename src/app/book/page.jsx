@@ -32,6 +32,20 @@ const BookPage = () => {
     }
   }, [bookingDetails, currentListing, router]);
 
+  const formatDate = (isoString) => {
+    if (!isoString) return "";
+
+    const date = new Date(isoString);
+    return date
+      .toLocaleDateString("en-GB", {
+        day: "2-digit",
+        month: "long", // full month name
+        year: "numeric",
+      })
+      .replace(/ /g, " - "); // to convert spaces to dashes
+  };
+  
+
   const handleContinue = async () => {
     const currentBookingDetails = useAppStore.getState().bookingDetails;
 
@@ -69,8 +83,8 @@ const BookPage = () => {
             <div>
               <p className="text-sm font-medium">Dates</p>
               <p className="text-sm text-gray-600">
-                {bookingDetails?.checkinDatetime.slice(0, 10)} to{" "}
-                {bookingDetails?.checkoutDatetime.slice(0, 10)}
+                {formatDate(bookingDetails?.checkinDatetime)} to{" "}
+                {formatDate(bookingDetails?.checkoutDatetime)}
               </p>
             </div>
             <button className="text-sm font-semibold text-pastoral-theme-color">
@@ -80,7 +94,7 @@ const BookPage = () => {
           <div className="flex justify-between mt-2">
             <div>
               <p className="text-sm font-medium">Guests</p>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-gray-600 font-semibold">
                 {bookingDetails?.totalNumberofGuest || 1} guest
               </p>
             </div>
@@ -91,7 +105,9 @@ const BookPage = () => {
         </div>
 
         <div className="space-y-4">
-          <h2 className="text-lg font-medium capitalize">Provide Your Details for booking</h2>
+          <h2 className="text-lg font-medium capitalize">
+            Provide Your Details for booking
+          </h2>
           <form
             onSubmit={(e) => {
               e.preventDefault();
@@ -173,8 +189,8 @@ const BookPage = () => {
         </div>
       </div>
 
-      <div className="border rounded-lg p-4 shadow-md max-h-100">
-        <div className="text-sm text-gray-700 space-y-1">
+      <div className="border border-amber-700 rounded-lg p-4 shadow-2xl max-h-100">
+        <div className="text-sm text-gray-700 space-y-2">
           <p className="text-2xl">
             <strong>{currentListing?.farmName}</strong>
           </p>
@@ -184,7 +200,10 @@ const BookPage = () => {
           </p>
           <p>
             <strong>City:</strong> {currentListing?.city},{" "}
-            {currentListing?.state} - {currentListing?.pinCode}
+            {currentListing?.pinCode}
+          </p>
+          <p>
+            <strong>State:</strong> {currentListing?.state}
           </p>
           <p>
             <strong>Landmark:</strong> {currentListing?.landMark}
@@ -196,19 +215,16 @@ const BookPage = () => {
             <p>
               ₹{pricePerNight} x {days} night{days > 1 ? "s" : ""}
             </p>
-            <p>₹{subtotal}</p>
+            <p className="text-green-500">₹{subtotal}</p>
           </div>
-          <div className="flex justify-between text-sm">
+          <div className="flex justify-between text-sm mb-8">
             <p>Taxes</p>
-            <p>₹{taxes}</p>
+            <p className="text-gray-500">₹{taxes}</p>
           </div>
           <div className="flex justify-between text-base font-semibold border-t pt-2 mt-2">
             <p>Total (INR)</p>
-            <p>₹{total}</p>
+            <p className="text-green-600">₹{total}</p>
           </div>
-          <a href="#" className="text-sm text-gray-600 underline">
-            Price breakdown
-          </a>
         </div>
       </div>
       <SuccessModal

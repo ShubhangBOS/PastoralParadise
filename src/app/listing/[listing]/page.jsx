@@ -71,10 +71,15 @@ const page = () => {
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold break-words mb-2">
                   {currentListing?.farmName}
                 </h2>
-                <span className="text-md">
+                <p className="text-lg">
                   {currentListing?.city} {currentListing?.pinCode},{" "}
-                  {currentListing?.state}
-                </span>
+                  <span className="text-gray-700 italic">{currentListing?.landMark}</span>
+                  
+                  <br />
+                  <span className=" font-semibold">
+                    {currentListing?.state}
+                  </span>
+                </p>
               </div>
 
               <ListingPhotos />
@@ -85,6 +90,7 @@ const page = () => {
                     Farmhouse hosted by{" "}
                     {currentListing?.farmHouseOwnerName || "Owner"}
                   </h3>
+                  <h4></h4>
 
                   {/* Space Info */}
                   <ul className="flex flex-wrap gap-4">
