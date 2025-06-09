@@ -37,13 +37,14 @@ const ContextMenu = ({ options, coordinates, contextMenu, setContextMenu }) => {
       className="bg-white shadow-2xl fixed py-5 z-[100] rounded-lg border border-gray-200"
     >
       <ul>
-        {options.map(({ name, callBack }) => (
+        {options.map(({ name, callBack, imgSrc }) => (
           <li
-            className="hover:bg-gray-100 pl-5 pr-10 py-2 cursor-pointer"
+            className="hover:bg-gray-100 pl-5 pr-10 py-2 cursor-pointer flex items-center gap-2"
             key={name}
             onClick={(e) => handleClientClick(e, callBack)}
           >
             <span>{name}</span>
+            {imgSrc && <img src={imgSrc} alt={name} className="scale-150 w-12 bg-transparent fill-none" />}
           </li>
         ))}
       </ul>

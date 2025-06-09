@@ -35,6 +35,7 @@ const Navbar = () => {
         setAuthMode("login");
         setIsContextMenuVisible(false);
       },
+      imgSrc : '/PastoralParadiseIcon/LoginSignUp.svg'
     },
     {
       name: "Sign Up",
@@ -128,7 +129,7 @@ const Navbar = () => {
               alt="logo"
               width={500}
               height={60}
-              className="w-9/10 h-auto"
+              className="w-9/10 h-auto scale-60"
               priority
             />
           </div>

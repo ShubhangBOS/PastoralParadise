@@ -22,13 +22,13 @@ const ListingAmenties = () => {
   return (
     <div className="flex flex-col gap-2 mb-2">
       <h4 className="text-xl font-semibold">Amenities</h4>
-      <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2">
+      <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
         {availableAmenities.map((amenity) => (
           <li
             key={amenity.id}
-            className="border border-gray-300 p-3 rounded-lg flex flex-col justify-start items-start"
+            className="border border-gray-300 rounded-lg flex flex-col justify-center items-center my-auto"
           >
-            {amenity.svgPath}
+            <img src={amenity.imgSrc} alt={amenity.name} className="w-1/2 h-auto" />
             <span>{amenity.name}</span>
           </li>
         ))}

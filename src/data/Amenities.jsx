@@ -30,16 +30,20 @@ export const AmenetiesType = [
     type: "basic",
     data: [
       { name: "Wifi", svgPath: <Wifi />, id: "wifi" },
-      { name: "TV", svgPath: <Tv />, id: "tv" },
+      {
+        name: "TV",
+        imgSrc: "/PastoralParadiseIcon/Entertainment.svg",
+        id: "tv",
+      },
       { name: "Kitchen", svgPath: <Kitchen />, id: "kitchen" },
       {
         name: "Washing Machine",
-        svgPath: <WashingMachine />,
+        imgSrc: "/PastoralParadiseIcon/WashingMachine.svg",
         id: "washingMachine",
       },
       {
         name: "Free parking on premises",
-        svgPath: <Parking />,
+        imgSrc: "/PastoralParadiseIcon/Parking.svg",
         id: "freeParking",
       },
       {
@@ -60,15 +64,23 @@ export const AmenetiesType = [
     data: [
       { name: "Pool", svgPath: <Pool />, id: "swimmingPool" },
       { name: "Hot tub", svgPath: <HotTub />, id: "hotTub" },
-      { name: "Patio", svgPath: <Patio />, id: "patio" },
+      { name: "Patio", imgSrc: "/PastoralParadiseIcon/Patio.svg", id: "patio" },
       { name: "BBQ grill", svgPath: <Bbq />, id: "bbqGrill" },
       {
         name: "Outdoor dining area",
         svgPath: <OutdoorDining />,
         id: "outdoorDinningArea",
       },
-      { name: "Fire pit", svgPath: <FirePit />, id: "firePit" },
-      { name: "Pool table", svgPath: <PoolTable />, id: "poolTable" },
+      {
+        name: "Fire pit",
+        imgSrc: "/PastoralParadiseIcon/FirePit.svg",
+        id: "firePit",
+      },
+      {
+        name: "Pool table",
+        imgSrc: "/PastoralParadiseIcon/TablePool.svg",
+        id: "poolTable",
+      },
       {
         name: "Indoor fireplace",
         svgPath: <IndoorFirplace />,
@@ -81,7 +93,7 @@ export const AmenetiesType = [
       { name: "Ski-in/Ski-out", svgPath: <Ski />, id: "skiIn_SkiOut" },
       {
         name: "Outdoor shower",
-        svgPath: <OutdoorShower />,
+        imgSrc: "/PastoralParadiseIcon/Shower.svg",
         id: "outdoorShower",
       },
     ],
