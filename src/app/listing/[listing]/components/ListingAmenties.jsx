@@ -26,9 +26,19 @@ const ListingAmenties = () => {
         {availableAmenities.map((amenity) => (
           <li
             key={amenity.id}
-            className="border border-gray-300 rounded-lg flex flex-col justify-center items-center my-auto"
+            className="border border-gray-300 p-3 rounded-lg flex flex-col justify-start items-start"
           >
-            <img src={amenity.imgSrc} alt={amenity.name} className="w-1/2 h-auto" />
+            {amenity.svgPath ? (
+              <div className="w-18 h-auto p-3 text-[#8a310d]">
+                {amenity.svgPath}
+              </div>
+            ) : (
+              <img
+                src={amenity.imgSrc}
+                alt={amenity.name}
+                className="w-18 h-auto scale-120"
+              />
+            )}
             <span>{amenity.name}</span>
           </li>
         ))}

@@ -25,8 +25,8 @@ export const MapView = ({
       className="bg-pastoral-gradient py-3 mt-5 px-5 text-white text-base font-medium rounded-md cursor-pointer w-full flex items-center justify-center"
       onClick={handleOpenMap}
     >
-      <button className="mr-2">View on Google Maps</button>
-      <MapPin />
+      <button className="mr-2">View on</button>
+      <img src="/PastoralParadiseIcon/LocationMap.png" className="w-8 scale-180"/>
     </div>
   );
 };

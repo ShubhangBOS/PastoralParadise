@@ -201,6 +201,23 @@ export const getTripsAPI = async (tripData) => {
   }
 };
 
+
+
+export const addToWishlistAPI = async (farmhouseCode, userId, task) => {
+  try {
+    const response = await post(createUrl("/api/Wishlist/WishlistFarmhouse"), {
+      farmhouseCode,
+      userId,
+      task, // e.g., "INS" for insert, "DEL" for delete
+    });
+    return response.data;
+  } catch (err) {
+    console.error("Could not update wishlist, please try again later.");
+    return null;
+  }
+};
+
+
 // export const getSearchListing = async (searchTerm) => {
 //   const query = qs.stringify({
 //     where: {

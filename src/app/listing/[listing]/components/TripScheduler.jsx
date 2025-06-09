@@ -7,6 +7,7 @@ import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import Image from "next/image";
+import { addToWishlistAPI } from "@/lib/lisitng";
 
 export default function TripScheduler() {
   const router = useRouter();
@@ -103,6 +104,26 @@ export default function TripScheduler() {
     router.push("/book");
   };
 
+  const addToWishlist = async () => {
+    const userInfo = JSON.parse(sessionStorage.getItem("userInfo"));
+    const userId = userInfo?.userId;
+
+    if (!userId) {
+      console.error("User not logged in");
+      return;
+    }
+
+    const farmhouseCode = currentListing?.farmHouseCode;
+
+    const response = await addToWishlistAPI(farmhouseCode, userId, "INS");
+
+    if (response?.status) {
+      console.log("Added to wishlist!");
+      // Optionally update local UI state here
+    } else {
+      console.error("Failed to add to wishlist");
+    }
+  };
   return (
     <div className="sticky top-0 w-full flex flex-col gap-6 items-center justify-center">
       <div className="border border-gray-400 rounded-lg shadow-lg flex p-4 gap-2 items-start px-8 flex-col w-full mt-5">
@@ -135,10 +156,8 @@ export default function TripScheduler() {
             onClick={toggleDropdown}
             className="flex flex-col gap-1 border border-gray-300 p-2 rounded-md cursor-pointer"
           >
-            
-              <label className="font-semibold text-xs">GUESTS</label>
-              
-            
+            <label className="font-semibold text-xs">GUESTS</label>
+
             {/*   
             <span className="flex items-center text-lg text-green-700 font-semibold">
             &#8377;{currentListing.farmBookingPrice * calculateDaysDifference()}
@@ -227,6 +246,14 @@ export default function TripScheduler() {
             </div>
           )}
         </div>
+        {userInfo?.userId && (
+          <button
+            className="bg-pastoral-gradient py-3 mt-5 px-5 text-white text-base font-medium rounded-md cursor-pointer w-full"
+            onClick={addToWishlist}
+          >
+            Add To Wishlist
+          </button>
+        )}
 
         <button
           className="bg-pastoral-gradient py-3 mt-5 px-5 text-white text-base font-medium rounded-md cursor-pointer w-full"
@@ -266,7 +293,9 @@ export default function TripScheduler() {
       </div>
 
       <div className="flex gap-3 items-center cursor-pointer mb-5">
-        <span className="underline font-semibold">Report this listing</span>
+        <span className="font-extralight text-sm hover:underline">
+          Report this listing
+        </span>
       </div>
     </div>
   );

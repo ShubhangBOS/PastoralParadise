@@ -15,7 +15,6 @@ import OutdoorShower from "@/svg/ameneties/outdoor-shower";
 import PaidParking from "@/svg/ameneties/paid-parking";
 import Parking from "@/svg/ameneties/parking";
 import Patio from "@/svg/ameneties/patio";
-import Piano from "@/svg/ameneties/piano";
 import Pool from "@/svg/ameneties/pool";
 import PoolTable from "@/svg/ameneties/pool-table";
 import Ski from "@/svg/ameneties/ski";
@@ -24,18 +23,30 @@ import Tv from "@/svg/ameneties/tv";
 import WashingMachine from "@/svg/ameneties/washing-machine";
 import Wifi from "@/svg/ameneties/wifi";
 import Workplace from "@/svg/ameneties/workplace";
+import { Dumbbell } from "lucide-react";
+import { Beef } from "lucide-react";
+import { Piano } from "lucide-react";
+import { BellElectric } from "lucide-react";
 
 export const AmenetiesType = [
   {
     type: "basic",
     data: [
-      { name: "Wifi", svgPath: <Wifi />, id: "wifi" },
+      {
+        name: "Wifi",
+        imgSrc: "/PastoralParadiseIcon/Wifi Workplace.svg",
+        id: "wifi",
+      },
       {
         name: "TV",
         imgSrc: "/PastoralParadiseIcon/Entertainment.svg",
         id: "tv",
       },
-      { name: "Kitchen", svgPath: <Kitchen />, id: "kitchen" },
+      {
+        name: "Kitchen",
+        imgSrc: "/PastoralParadiseIcon/Kitchen.svg",
+        id: "kitchen",
+      },
       {
         name: "Washing Machine",
         imgSrc: "/PastoralParadiseIcon/WashingMachine.svg",
@@ -43,7 +54,7 @@ export const AmenetiesType = [
       },
       {
         name: "Free parking on premises",
-        imgSrc: "/PastoralParadiseIcon/Parking.svg",
+        imgSrc: "/PastoralParadiseIcon/Free Parking.svg",
         id: "freeParking",
       },
       {
@@ -51,7 +62,11 @@ export const AmenetiesType = [
         svgPath: <PaidParking />,
         id: "paidParking",
       },
-      { name: "Air conditioning", svgPath: <Ac />, id: "airConditioner" },
+      {
+        name: "Air conditioning",
+        imgSrc: "/PastoralParadiseIcon/AC.svg",
+        id: "airConditioner",
+      },
       {
         name: "Dedicated workplace",
         svgPath: <Workplace />,
@@ -65,7 +80,7 @@ export const AmenetiesType = [
       { name: "Pool", svgPath: <Pool />, id: "swimmingPool" },
       { name: "Hot tub", svgPath: <HotTub />, id: "hotTub" },
       { name: "Patio", imgSrc: "/PastoralParadiseIcon/Patio.svg", id: "patio" },
-      { name: "BBQ grill", svgPath: <Bbq />, id: "bbqGrill" },
+      { name: "BBQ grill", svgPath: <Beef />, id: "bbqGrill" },
       {
         name: "Outdoor dining area",
         svgPath: <OutdoorDining />,
@@ -87,7 +102,11 @@ export const AmenetiesType = [
         id: "indoorFireplace",
       },
       { name: "Piano", svgPath: <Piano />, id: "piano" },
-      { name: "Exercise equipment", svgPath: <Gym />, id: "exerciseEquipment" },
+      {
+        name: "Exercise equipment",
+        svgPath: <Dumbbell />,
+        id: "exerciseEquipment",
+      },
       { name: "Lake access", svgPath: <Lake />, id: "lakeAccess" },
       { name: "Beach access", svgPath: <Beach />, id: "beachAccess" },
       { name: "Ski-in/Ski-out", svgPath: <Ski />, id: "skiIn_SkiOut" },
@@ -101,11 +120,15 @@ export const AmenetiesType = [
   {
     type: "safety",
     data: [
-      { name: "Smoke alarm", svgPath: <SmokeAlarm />, id: "smokeAlarm" },
-      { name: "First aid kit", svgPath: <FirstAid />, id: "firstAidKit" },
+      { name: "Smoke alarm", svgPath: <BellElectric />, id: "smokeAlarm" },
+      {
+        name: "First aid kit",
+        imgSrc: "/PastoralParadiseIcon/First Aid Kit.svg",
+        id: "firstAidKit",
+      },
       {
         name: "Fire Extinguisher",
-        svgPath: <FireExt />,
+        imgSrc: "/PastoralParadiseIcon/Fire Extinguisher.svg",
         id: "fireExtinguisher",
       },
       {
