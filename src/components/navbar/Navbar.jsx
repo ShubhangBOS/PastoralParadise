@@ -35,7 +35,7 @@ const Navbar = () => {
         setAuthMode("login");
         setIsContextMenuVisible(false);
       },
-      imgSrc : '/PastoralParadiseIcon/LoginSignUp.svg'
+      imgSrc: "/PastoralParadiseIcon/Login.png",
     },
     {
       name: "Sign Up",
@@ -44,6 +44,7 @@ const Navbar = () => {
         setAuthMode("signup");
         setIsContextMenuVisible(false);
       },
+      imgSrc: "/PastoralParadiseIcon/SignUp.png",
     },
     {
       name: "Help",

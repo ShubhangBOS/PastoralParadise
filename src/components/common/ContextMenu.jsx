@@ -44,7 +44,7 @@ const ContextMenu = ({ options, coordinates, contextMenu, setContextMenu }) => {
             onClick={(e) => handleClientClick(e, callBack)}
           >
             <span>{name}</span>
-            {imgSrc && <img src={imgSrc} alt={name} className="scale-150 w-12 bg-transparent fill-none" />}
+            {imgSrc && <img src={imgSrc} alt={name} className="scale-150 w-12 -ml-2" />}
           </li>
         ))}
       </ul>
