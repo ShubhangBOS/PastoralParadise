@@ -90,7 +90,8 @@ if (
 
   const addToFavourite = async () => {
     const userInfo = JSON.parse(sessionStorage.getItem("userInfo"));
-    const userId = userInfo?.data?.[0]?.userId;
+    const userId = userInfo?.userId;
+    console.log(userId)
 
     if (!userId) {
       toast.error("Login to Add to Favourite");

@@ -98,7 +98,7 @@ const Navbar = () => {
           },
         },
         {
-          name: "Wishlists",
+          name: "Wishlist",
           callBack: () => {
             setIsContextMenuVisible(false);
             router.push("/wishlist");
