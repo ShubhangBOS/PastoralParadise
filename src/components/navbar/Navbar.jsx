@@ -11,10 +11,9 @@ import { url } from "@/lib/http";
 const Navbar = () => {
   const router = useRouter();
   const { setAuthModal, userInfo, setUserInfo, setAuthMode } = useAppStore();
-
   const [isContextMenuVisible, setIsContextMenuVisible] = useState(false);
 
-  // 🔁 Load userInfo from localStorage on mount if not already in store
+  // Load userInfo from sessionStorage on mount if not already in store
   useEffect(() => {
     const storedUser = sessionStorage.getItem("userInfo");
     if (!userInfo && storedUser) {
@@ -27,6 +26,7 @@ const Navbar = () => {
     }
   }, [userInfo, setUserInfo]);
 
+  // Default guest options
   const contextMenuOptions = [
     {
       name: "Login",
@@ -54,71 +54,109 @@ const Navbar = () => {
     },
   ];
 
-  const authenticatedContextMenuOptions = [
-    {
-      name: "Messages",
-      callBack: () => setIsContextMenuVisible(false),
-    },
-    {
-      name: "Notifications",
-      callBack: () => setIsContextMenuVisible(false),
-    },
-    {
-      name: "Add Your Property",
-      callBack: () => {
-        setIsContextMenuVisible(false);
-        router.push("/new-listing");
+
+  const getAuthenticatedContextMenuOptions = () => {
+    const userId = userInfo?.data?.[0]?.userId || "";
+    const isUser = userId === "admin" || userId.includes("FHO"); 
+
+    const common = [
+      {
+        name: "Messages",
+        callBack: () => setIsContextMenuVisible(false),
       },
-    },
-    {
-      name: "Update Profile",
-      callBack: () => {
-        setIsContextMenuVisible(false);
-        router.push("/profilepage");
+      {
+        name: "Notifications",
+        callBack: () => setIsContextMenuVisible(false),
       },
-    },
-    {
-      name: "Trips",
-      callBack: () => {
-        setIsContextMenuVisible(false);
-        router.push("/trips");
+      {
+        name: "Help",
+        callBack: () => setIsContextMenuVisible(false),
       },
-    },
-    {
-      name: "Wishlists",
-      callBack: () => {
-        setIsContextMenuVisible(false);
-        router.push("/wishlist");
+      {
+        name: "Logout",
+        callBack: () => {
+          setUserInfo(null);
+          setIsContextMenuVisible(false);
+          sessionStorage.removeItem("userInfo");
+          router.push("/");
+        },
       },
-    },
-    {
-      name: "Manage Listings",
-      callBack: () => {
-        setIsContextMenuVisible(false);
-        router.push("/my-listings");
+    ];
+
+    if (isUser) {
+      return [
+        ...common.slice(0, 2),
+        {
+          name: "Profile",
+          callBack: () => {
+            setIsContextMenuVisible(false);
+            router.push("/profilepage");
+          },
+        },
+        {
+          name: "Wishlists",
+          callBack: () => {
+            setIsContextMenuVisible(false);
+            router.push("/wishlist");
+          },
+        },
+        {
+          name: "Favourites",
+          callBack: () => {
+            setIsContextMenuVisible(false);
+            router.push("/favourite");
+          },
+        },
+        {
+          name: "Trips",
+          callBack: () => {
+            setIsContextMenuVisible(false);
+            router.push("/trips");
+          },
+        },
+        ...common.slice(2),
+      ];
+    }
+
+    return [
+      ...common.slice(0, 2),
+      {
+        name: "Add Your Property",
+        callBack: () => {
+          setIsContextMenuVisible(false);
+          router.push("/new-listing");
+        },
       },
-    },
-    {
-      name: "Help",
-      callBack: () => {
-        setIsContextMenuVisible(false);
+      {
+        name: "Profile",
+        callBack: () => {
+          setIsContextMenuVisible(false);
+          router.push("/profilepage");
+        },
       },
-    },
-    {
-      name: "Logout",
-      callBack: () => {
-        setUserInfo(null);
-        setIsContextMenuVisible(false);
-        sessionStorage.removeItem("userInfo");
+      {
+        name: "All Bookings",
+        callBack: () => {
+          setIsContextMenuVisible(false);
+          router.push("/bookings");
+        },
       },
-    },
-  ];
+      {
+        name: "Manage Listings",
+        callBack: () => {
+          setIsContextMenuVisible(false);
+          router.push("/my-listings");
+        },
+      },
+      ...common.slice(2),
+    ];
+  };
+  
 
   return (
     <header className="w-full transition-all duration-300 bg-gray-50 shadow-md mb-4">
-      {/* Main Header Container */}
+      {/* Main Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 px-5 md:px-20 py-4 lg:w-full">
-        {/* Row: Logo and ContextMenu */}
         <div className="flex items-center justify-between w-full lg:justify-center gap-4">
           {/* Logo */}
           <div
@@ -135,14 +173,15 @@ const Navbar = () => {
             />
           </div>
 
-          {/* Search - show on md+ only */}
+          {/* Search - shown on md+ */}
           <div className="hidden md:block w-full max-w-3xl px-4">
             <SearchInput />
           </div>
 
-          {/* Context Menu */}
+          {/* Context menu trigger */}
           <ul className="flex items-center gap-4">
-            {userInfo?.emailid === "admin" && (
+            {(userInfo?.data?.[0]?.userId === "admin" ||
+              userInfo?.data?.[0]?.userId.includes("FHO")) && (
               <li
                 className="cursor-pointer hidden sm:block"
                 onClick={() => router.push("/new-listing")}
@@ -150,6 +189,7 @@ const Navbar = () => {
                 <span>Add Your Property</span>
               </li>
             )}
+
             <li
               className="flex cursor-pointer items-center gap-2 border border-gray-300 py-2 px-3 rounded-full hover:shadow-xl transition-all duration-500"
               onClick={() => setIsContextMenuVisible(!isContextMenuVisible)}
@@ -183,7 +223,7 @@ const Navbar = () => {
             y: 65,
           }}
           options={
-            userInfo ? authenticatedContextMenuOptions : contextMenuOptions
+            userInfo ? getAuthenticatedContextMenuOptions() : contextMenuOptions
           }
         />
       )}

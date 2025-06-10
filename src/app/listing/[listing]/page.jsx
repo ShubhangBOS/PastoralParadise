@@ -4,16 +4,18 @@ const Navbar = dynamic(() => import("@/components/navbar/Navbar"), {
   ssr: false,
 });
 import { useAppStore } from "@/store/store";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import ListingPhotos from "./components/ListingPhotos";
 import ListingAmenties from "./components/ListingAmenties";
 // import ListingMap from "./components/ListingMap";
 import TripScheduler from "./components/TripScheduler";
 import Footer from "@/components/footer/Footer";
+import {toast,Toaster} from 'react-hot-toast';
 import {
   getListing,
   getAllListingImages,
   getCheckInCheckouts,
+  getReviews,
 } from "@/lib/lisitng";
 import { useParams } from "next/navigation";
 import { MapView } from "./components/MapView";
@@ -27,6 +29,8 @@ const page = () => {
     setImageListings,
     setCheckInOutDates,
   } = useAppStore();
+  const [reviews, setReviews] = useState([]);
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -48,6 +52,40 @@ const page = () => {
     fetchData();
   }, [params.listing, setCurrentListing]);
 
+  useEffect(() => {
+    const fetchReviews = async () => {
+      if (!currentListing?.farmHouseCode) return;
+
+      try {
+        const response = await getReviews(
+          currentListing.farmHouseCode,
+          "", // userid not required for GET
+          "", // fullName
+          "", // mobileNo
+          "", // emailid
+          "", // comment
+          "", // overallRating
+          "", // cleanlinessRating
+          "", // accuracyRating
+          "", // checkinRating
+          "", // communicationRating
+          "", // locationRating
+          "", // valueRating
+          "", // reviewrImagepath
+          "GET"
+        );
+
+        if (response?.status) {
+          setReviews(response.data); 
+        }
+      } catch (error) {
+        console.error("Failed to fetch reviews:", error);
+      }
+    };
+
+    fetchReviews();
+  }, [currentListing?.farmHouseCode]);
+
   if (!currentListing) {
     return (
       <div className="text-center py-20">
@@ -63,6 +101,7 @@ const page = () => {
     <div>
       {currentListing && (
         <div>
+          
           <Navbar />
           <div className="px-4 sm:px-8 md:px-12 lg:px-20 mx-0 2xl:mx-40 pt-8 sm:pt-10 text-pastoral-light-black grid gap-8 lg:gap-10 lg:grid-cols-[2fr_1fr]">
             {/* Main Content */}

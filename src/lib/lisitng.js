@@ -208,7 +208,7 @@ export const addToWishlistAPI = async (farmhouseCode, userId, task) => {
     const response = await post(createUrl("/api/Wishlist/WishlistFarmhouse"), {
       farmhouseCode,
       userId,
-      task, // e.g., "INS" for insert, "DEL" for delete
+      task, 
     });
     return response.data;
   } catch (err) {
@@ -216,6 +216,74 @@ export const addToWishlistAPI = async (farmhouseCode, userId, task) => {
     return null;
   }
 };
+
+export const getReviews = async(
+  farmhouseCode,
+  userid,
+  fullName,
+  mobileNo,
+  emailid,
+  comment,
+  overallRating,
+  cleanlinessRating,
+  accuracyRating,
+  checkinRating,
+  communicationRating,
+  locationRating,
+  valueRating,
+  reviewrImagepath,
+  task 
+) => 
+  {
+    try {
+      const payload = {
+        farmhouseCode,
+        userid,
+        fullName,
+        mobileNo,
+        emailid,
+        comment,
+        overallRating,
+        cleanlinessRating,
+        accuracyRating,
+        checkinRating,
+        communicationRating,
+        locationRating,
+        valueRating,
+        reviewrImagepath,
+        task,
+      };
+  
+      const response = await post(createUrl("/api/Reviews/Reviews"), payload);
+  
+      return response.data;
+    } catch (err) {
+      alert("Could not get reviews for this property.");
+      console.error(err);
+    }
+  };
+
+
+export const makeFavourite = async(
+  farmHouseCode,
+  userid,
+  task
+) => {
+  try{
+    const payload = {
+      farmHouseCode,
+      userid,
+      task,
+    }
+    const response = await post(createUrl("/api/Favourite/Favourite"),payload);
+
+    return response.data
+  } catch(err) {
+    alert("Could not get reviews for this property.");
+    console.error(err);
+  }
+}
+
 
 
 // export const getSearchListing = async (searchTerm) => {

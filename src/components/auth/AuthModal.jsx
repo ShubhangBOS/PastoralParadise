@@ -59,32 +59,36 @@ const AuthModal = () => {
 
   const handleSignup = async () => {
     if (email && firstName && lastName && password) {
-      const userRole = "Host" ? "admin" : "user";
+      const roleToSend = userRole === "Host" ? "admin" : "user";
 
       const data = await signup(
         email,
         firstName,
         lastName,
         password,
-        userRole
+        roleToSend
       );
+
       if (data.status) {
         setUserInfo(data);
         setIsLoggedIn(true);
         setAuthModal(false);
         sessionStorage.setItem("userInfo", JSON.stringify(data));
-        const userInfoString = sessionStorage.getItem("userInfo");
-        if(userInfoString) {
-          const userInfo = JSON.parse(userInfoString);
-          console.log("User Info from session storage:",userInfo);
-        } else {
-          alert(data.returnMessage || "Login Failed")
-        }
         sessionStorage.setItem("isLoggedIn", "true");
-        router.push("/profilepage")
+
+        const userInfoString = sessionStorage.getItem("userInfo");
+        if (userInfoString) {
+          const userInfo = JSON.parse(userInfoString);
+          console.log("User Info from session storage:", userInfo);
+        } else {
+          alert(data.returnMessage || "Login Failed");
+        }
+
+        router.push("/profilepage");
       }
     }
   };
+  
   
 
   return (

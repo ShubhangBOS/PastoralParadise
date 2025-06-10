@@ -4,6 +4,7 @@ import { getAllListingImages } from "@/lib/lisitng";
 import dynamic from "next/dynamic";
 import { FixedSizeGrid as Grid } from "react-window";
 
+
 const ListingCard = dynamic(() => import("../ListingCard"), { ssr: false });
 
 const CARD_WIDTH = 300;
@@ -87,7 +88,7 @@ const ListView = () => {
       >
         {Cell}
       </Grid>
-    </div>
+         </div>
   );
 };
 

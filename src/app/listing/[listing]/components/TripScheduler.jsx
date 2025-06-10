@@ -12,8 +12,7 @@ import { addToWishlistAPI } from "@/lib/lisitng";
 export default function TripScheduler() {
   const router = useRouter();
 
-  const { currentListing, userInfo, setBookingDetails, checkInOutDates } =
-    useAppStore();
+  const { currentListing, setBookingDetails, checkInOutDates } = useAppStore();
 
   const [guestCounts, setGuestCounts] = useState({
     adults: 2,
@@ -21,6 +20,8 @@ export default function TripScheduler() {
     infants: 0,
     pets: 0,
   });
+
+  const [userRole, setUserRole] = useState("");
   const [showGuestDropdown, setShowGuestDropdown] = useState(false);
   const toggleDropdown = () => setShowGuestDropdown(!showGuestDropdown);
 
@@ -29,6 +30,15 @@ export default function TripScheduler() {
     endDate: addDays(new Date(), 1),
     key: "selection",
   });
+
+  useEffect(() => {
+    const getUserId = sessionStorage.getItem("userInfo");
+    if (getUserId) {
+      const parsedUser = JSON.parse(getUserId);
+      const role = parsedUser?.data?.[0]?.userRole;
+      setUserRole(role?.toLowerCase());
+    }
+  }, []);
 
   const disabledRanges =
     checkInOutDates?.map((item) => ({
@@ -57,13 +67,12 @@ export default function TripScheduler() {
   const calculateDaysDifference = () =>
     differenceInDays(selectionRange.endDate, selectionRange.startDate);
 
-  const isRangeOverlapping = (start, end) => {
-    return checkInOutDates.some(
+  const isRangeOverlapping = (start, end) =>
+    checkInOutDates.some(
       (range) =>
         new Date(start) < new Date(range.checkOutDateTime) &&
         new Date(end) > new Date(range.checkInDateTime)
     );
-  };
 
   const handleGuestChange = (type, delta) => {
     setGuestCounts((prev) => {
@@ -87,7 +96,6 @@ export default function TripScheduler() {
 
     const numberOfDays = calculateDaysDifference();
 
-    // Later in your function:
     setBookingDetails({
       farmhouseCode: currentListing.farmHouseCode,
       checkinDatetime: startDate.toISOString(),
@@ -99,14 +107,13 @@ export default function TripScheduler() {
       numberofPets: guestCounts.pets,
       totalNumberofGuest: totalGuests,
     });
-    
 
     router.push("/book");
   };
 
   const addToWishlist = async () => {
     const userInfo = JSON.parse(sessionStorage.getItem("userInfo"));
-    const userId = userInfo?.userId;
+    const userId = userInfo?.data?.[0]?.userId;
 
     if (!userId) {
       console.error("User not logged in");
@@ -114,19 +121,61 @@ export default function TripScheduler() {
     }
 
     const farmhouseCode = currentListing?.farmHouseCode;
-
     const response = await addToWishlistAPI(farmhouseCode, userId, "INS");
 
-    if (response?.status) {
-      console.log("Added to wishlist!");
-      // Optionally update local UI state here
+    if (
+      response.status === true &&
+      response.returnMessage === "Record Insert Successfully."
+    ) {
+      toast.custom(
+        (t) => (
+          <div
+            className={`${
+              t.visible ? "animate-enter" : "animate-leave"
+            } max-w-sm w-full bg-white shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}
+          >
+            <div className="p-4 w-full">
+              <div className="flex items-start justify-between">
+                <div className="flex-1">
+                  <p className="text-sm font-medium text-gray-900">
+                    ✅ Added to Wishlist
+                  </p>
+                </div>
+                <div className="ml-3">
+                  <button
+                    onClick={() => toast.dismiss(t.id)}
+                    className="text-gray-400 hover:text-gray-600 cursor-pointer"
+                  >
+                    ✕
+                  </button>
+                </div>
+              </div>
+              <div className="mt-3">
+                <button
+                  onClick={() => {
+                    toast.dismiss(t.id);
+                    router.push("/wishlist"); // change this to your wishlist path
+                  }}
+                  className="bg-none border-none text-green-700 px-3 py-1 text-sm rounded hover:underline cursor-pointer"
+                >
+                  Click Here to View Your Wishlist
+                </button>
+              </div>
+            </div>
+          </div>
+        ),
+        { position: "top-right", duration: 5000 }
+      );
     } else {
-      console.error("Failed to add to wishlist");
+      toast.error("Failed to Add to Wishlist.", { position: "top-right" });
     }
   };
+
   return (
     <div className="sticky top-0 w-full flex flex-col gap-6 items-center justify-center">
+      <Toaster position="top-right" reverseOrder={false} />
       <div className="border border-gray-400 rounded-lg shadow-lg flex p-4 gap-2 items-start px-8 flex-col w-full mt-5">
+        {/* Price Display */}
         <div className="flex gap-1 text-lg">
           <span className="font-bold">
             &#8377;{currentListing?.farmBookingPrice}
@@ -134,6 +183,7 @@ export default function TripScheduler() {
           <span>/ night</span>
         </div>
 
+        {/* Date Picker */}
         <div className="w-full">
           <label className="font-semibold text-xs mb-2 block">
             Select Dates
@@ -150,26 +200,13 @@ export default function TripScheduler() {
           />
         </div>
 
-        {/* Guests Selector */}
+        {/* Guests */}
         <div className="relative w-full">
           <div
             onClick={toggleDropdown}
             className="flex flex-col gap-1 border border-gray-300 p-2 rounded-md cursor-pointer"
           >
             <label className="font-semibold text-xs">GUESTS</label>
-
-            {/*   
-            <span className="flex items-center text-lg text-green-700 font-semibold">
-            &#8377;{currentListing.farmBookingPrice * calculateDaysDifference()}
-            <span className="relative w-20 h-20">
-              <Image
-                src="/PastoralParadiseIcon/PricesTag.svg"
-                alt="Price Tag Icon"
-                fill
-              />
-            </span>
-          </span> 
-          */}
             <span className="text-sm">
               {totalGuests} guest{totalGuests > 1 ? "s" : ""}{" "}
               {guestCounts.infants > 0
@@ -229,11 +266,10 @@ export default function TripScheduler() {
                 </div>
               ))}
               <div className="text-xs text-gray-500 mt-2">
-                This place has a maximum of {currentListing?.noGuest} guests,
-                not including infants.
+                Max {currentListing?.noGuest} guests (infants not counted).{" "}
                 {currentListing?.noPets === 0
-                  ? " There are no pets allowed."
-                  : ` If you're bringing more than ${currentListing?.noPets} pets, please let your Host know.`}
+                  ? "No pets allowed."
+                  : `Up to ${currentListing?.noPets} pets allowed.`}
               </div>
               <div className="text-right">
                 <button
@@ -246,15 +282,23 @@ export default function TripScheduler() {
             </div>
           )}
         </div>
-        {userInfo?.userId && (
-          <button
-            className="bg-pastoral-gradient py-3 mt-5 px-5 text-white text-base font-medium rounded-md cursor-pointer w-full"
-            onClick={addToWishlist}
-          >
-            Add To Wishlist
-          </button>
+
+        {/* Conditional Buttons */}
+        {userRole === "user" && (
+          <div className="flex items-center justify-around w-full">
+            <button
+              className="bg-pastoral-gradient py-3 mt-5 px-5 text-white text-base font-medium rounded-md cursor-pointer w-2/5"
+              onClick={addToWishlist}
+            >
+              Add To Wishlist
+            </button>
+            <button className="bg-pastoral-gradient py-3 mt-5 px-5 text-white text-base font-medium rounded-md cursor-pointer w-2/5">
+              Add To Favourite
+            </button>
+          </div>
         )}
 
+        {/* Reserve Button */}
         <button
           className="bg-pastoral-gradient py-3 mt-5 px-5 text-white text-base font-medium rounded-md cursor-pointer w-full"
           onClick={handleReservation}
@@ -265,13 +309,12 @@ export default function TripScheduler() {
         <span className="text-center w-full mb-4 text-sm text-gray-600">
           You won't be charged yet
         </span>
+
         <div className="flex justify-between items-center w-full">
           <span className="text-md font-semibold">
             &#8377;{currentListing.farmBookingPrice} x{" "}
             {calculateDaysDifference()} nights
           </span>
-
-          {/* Price with icon */}
           <span className="flex items-center text-lg text-green-700 font-semibold">
             &#8377;{currentListing.farmBookingPrice * calculateDaysDifference()}
             <span className="relative w-20 h-20">
@@ -283,13 +326,6 @@ export default function TripScheduler() {
             </span>
           </span>
         </div>
-
-        {/* <div className="flex justify-between w-full">
-          <span>Total before taxes</span>
-          <span>
-            &#8377;{currentListing.farmBookingPrice * calculateDaysDifference()}
-          </span>
-        </div> */}
       </div>
 
       <div className="flex gap-3 items-center cursor-pointer mb-5">
