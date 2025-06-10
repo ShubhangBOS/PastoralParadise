@@ -55,9 +55,13 @@ const Navbar = () => {
   ];
 
 
+
   const getAuthenticatedContextMenuOptions = () => {
-    const userId = userInfo?.data?.[0]?.userId || "";
-    const isUser = userId === "admin" || userId.includes("FHO"); 
+    const userRole = userInfo?.userRole?.toLowerCase() || "";
+    console.log("user role is :",userRole);
+
+    const isUser = userRole === "user";
+    const isHost = userRole === "admin"; 
 
     const common = [
       {
@@ -118,39 +122,45 @@ const Navbar = () => {
       ];
     }
 
-    return [
-      ...common.slice(0, 2),
-      {
-        name: "Add Your Property",
-        callBack: () => {
-          setIsContextMenuVisible(false);
-          router.push("/new-listing");
+    if (isHost) {
+      return [
+        ...common.slice(0, 2),
+        {
+          name: "Add Your Property",
+          callBack: () => {
+            setIsContextMenuVisible(false);
+            router.push("/new-listing");
+          },
         },
-      },
-      {
-        name: "Profile",
-        callBack: () => {
-          setIsContextMenuVisible(false);
-          router.push("/profilepage");
+        {
+          name: "Profile",
+          callBack: () => {
+            setIsContextMenuVisible(false);
+            router.push("/profilepage");
+          },
         },
-      },
-      {
-        name: "All Bookings",
-        callBack: () => {
-          setIsContextMenuVisible(false);
-          router.push("/bookings");
+        {
+          name: "All Bookings",
+          callBack: () => {
+            setIsContextMenuVisible(false);
+            router.push("/bookings");
+          },
         },
-      },
-      {
-        name: "Manage Listings",
-        callBack: () => {
-          setIsContextMenuVisible(false);
-          router.push("/my-listings");
+        {
+          name: "Manage Listings",
+          callBack: () => {
+            setIsContextMenuVisible(false);
+            router.push("/my-listings");
+          },
         },
-      },
-      ...common.slice(2),
-    ];
+        ...common.slice(2),
+      ];
+    }
+
+    // Fallback if userRole is unknown
+    return [...common];
   };
+  
   
 
   return (

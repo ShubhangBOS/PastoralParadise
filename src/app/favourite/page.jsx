@@ -24,7 +24,7 @@ const Page = () => {
         // Do something with response.data if needed
         console.log("Wishlist fetched:", response.data);
       } else {
-        toast.error("Failed to Fetch Your Wishlist.", {
+        toast.error("Failed to Fetch Your Wishlist.", { 
           position: "top-right",
         });
       }

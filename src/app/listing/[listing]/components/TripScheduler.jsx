@@ -8,6 +8,7 @@ import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import Image from "next/image";
 import { addToWishlistAPI } from "@/lib/lisitng";
+import { toast, Toaster } from 'react-hot-toast';
 
 export default function TripScheduler() {
   const router = useRouter();
