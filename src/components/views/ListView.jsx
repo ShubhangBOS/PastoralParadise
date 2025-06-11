@@ -1,9 +1,9 @@
 import { useAppStore } from "@/store/store";
 import React, { useEffect, useState } from "react";
-import { getAllListingImages } from "@/lib/lisitng";
+import { getAllListings } from "@/lib/lisitng";
 import dynamic from "next/dynamic";
 import { FixedSizeGrid as Grid } from "react-window";
-
+import { url } from "@/lib/http";
 
 const ListingCard = dynamic(() => import("../ListingCard"), { ssr: false });
 
@@ -11,38 +11,19 @@ const CARD_WIDTH = 300;
 const CARD_HEIGHT = 360;
 
 const ListView = () => {
-  const { listings } = useAppStore();
+  const { listings, setQueryResult } = useAppStore();
   const [mergedListings, setMergedListings] = useState([]);
   const [windowSize, setWindowSize] = useState({ width: null, height: null });
-  const [columnCount, setColumnCount] = useState(1); // default to 1
+  const [columnCount, setColumnCount] = useState(1);
 
   useEffect(() => {
-    const fetchImagesAndMerge = async () => {
-      const images = await getAllListingImages({ farmHouseCode: "" });
-
-      const imageMap = new Map();
-      images.forEach((img) => {
-        const code = img.farmHouseCode.toUpperCase();
-        if (!imageMap.has(code)) imageMap.set(code, []);
-        imageMap.get(code).push(img);
-      });
-
-      const updatedListings = listings.map((listing) => {
-        const code = listing.farmHouseCode.toUpperCase();
-        const imagesForListing = imageMap.get(code) || [];
-        return {
-          ...listing,
-          farm_ImagePath1: imagesForListing[0]?.imagePath || null,
-          allImages: imagesForListing,
-        };
-      });
-
-      setMergedListings(updatedListings);
+    const getData = async () => {
+      const response = await getAllListings();
+      if (response?.data) {
+        setMergedListings(response.data); // ✅ store listings locally
+        setQueryResult({ data: response.data }); // ✅ optional: update global store if needed
+      }
     };
-
-    if (listings?.length > 0) {
-      fetchImagesAndMerge();
-    }
 
     const handleResize = () => {
       const width = window.innerWidth;
@@ -52,29 +33,40 @@ const ListView = () => {
       setColumnCount(cols);
     };
 
+    getData(); // ✅ call function
+
     if (typeof window !== "undefined") {
-      handleResize(); // initial calculation
+      handleResize(); // initial sizing
       window.addEventListener("resize", handleResize);
       return () => window.removeEventListener("resize", handleResize);
     }
-  }, [listings]);
+  }, []);
 
   const Cell = ({ columnIndex, rowIndex, style }) => {
     const index = rowIndex * columnCount + columnIndex;
     const listing = mergedListings[index];
-
     if (!listing) return null;
+
+    const imagePaths = [];
+    for (let i = 1; i <= 10; i++) {
+      const path = listing[`farm_ImagePath${i}`];
+      if (path) imagePaths.push(`${url}${path}`);
+    }
 
     return (
       <div style={style}>
-        <ListingCard key={listing.farmHouseCode} data={listing} />
+        <ListingCard
+          key={listing.farmHouseCode}
+          data={listing}
+          imagePaths={imagePaths}
+        />
       </div>
     );
   };
 
   const rowCount = Math.ceil(mergedListings.length / columnCount);
 
-  if (!windowSize.height || !windowSize.width) return null;
+  if (!windowSize.width || !windowSize.height) return null;
 
   return (
     <div className="px-10 py-10">
@@ -84,11 +76,11 @@ const ListView = () => {
         height={windowSize.height - 100}
         rowCount={rowCount}
         rowHeight={CARD_HEIGHT}
-        width={windowSize.width - 40} // leave some padding
+        width={windowSize.width - 40}
       >
         {Cell}
       </Grid>
-         </div>
+    </div>
   );
 };
 

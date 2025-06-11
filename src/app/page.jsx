@@ -16,17 +16,18 @@ export default function Home() {
   const { authModal, setListings, isMapView } = useAppStore();
   // const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    const getData = async () => {
-      // setLoading(true);
-      const response = await getAllListings();
-      if (response) {
-        setListings(response.data);
-        // setLoading(false);
-      }
-    };
-    getData();
-  }, [setListings]);
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     // setLoading(true);
+  //     const response = await getAllListings();
+  //     console.log(response.data.farm_ImagePath1);
+  //     if (response) {
+  //       setListings(response.data);
+  //       // setLoading(false);
+  //     }
+  //   };
+  //   getData();
+  // }, [setListings]);
 
   return (
     <div className="max-h-[100vh] h-[100vh] overflow-auto no-scrollbar bg-gray-50">
