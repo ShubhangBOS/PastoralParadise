@@ -4,8 +4,9 @@ import { usePathname, useRouter } from "next/navigation";
 import { Heart, PlusCircle, MapPin } from "lucide-react";
 import { useAppStore } from "@/store/store";
 import { addToWishlistAPI, deleteListingAPI, makeFavourite } from "@/lib/lisitng";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {toast,Toaster} from 'react-hot-toast';
+import Spinner from "./common/Spinner";
 
 const ListingCard = ({
   data,
@@ -21,6 +22,7 @@ const ListingCard = ({
 
   const [heartFilled, setHeartFilled] = useState(false);
   const [heartPlusFilled, setHeartPlusFilled] = useState(false);
+  const [isNavigating, setIsNavigating] = useState(false);
 
   const addToWishlist = async () => {
     const userInfo = JSON.parse(sessionStorage.getItem("userInfo"));
@@ -151,6 +153,11 @@ const ListingCard = ({
     }
   };
 
+  const handleNavigation = () => {
+    setIsNavigating(true); // 3. Show spinner
+    router.push(`/listing/${data.farmHouseCode}`);
+  };
+
   const deleteListing = async (e) => {
     e.stopPropagation();
     const confirmDelete = window.confirm(
@@ -169,97 +176,106 @@ const ListingCard = ({
   return (
     <div
       className="flex items-center justify-center flex-col gap-1"
-      onClick={() => router.push(`/listing/${data.farmHouseCode}`)}
+      onClick={handleNavigation}
     >
-      <div className="flex items-center justify-center cursor-pointer w-full">
-        <div className="flex flex-col gap-2">
-          <div className="relative w-64 h-56 overflow-x-visible whitespace-nowrap rounded-lg shadow-sm hover:shadow-xl">
-            {imagePaths.length > 0 ? (
-              imagePaths.map((src, index) => (
-                <div
-                  key={index}
-                  className="inline-block w-64 h-56 relative mr-2"
-                >
+      {isNavigating ? (
+        <div className="w-64 h-56 flex items-center justify-center">
+          <Spinner />
+        </div>
+      ) : (
+        <div className="flex items-center justify-center cursor-pointer w-full">
+          <div className="flex flex-col gap-2">
+            <div className="relative w-64 h-56 overflow-x-visible whitespace-nowrap rounded-lg shadow-sm hover:shadow-xl">
+              {imagePaths.length > 0 ? (
+                imagePaths.map((src, index) => (
+                  <div
+                    key={index}
+                    className="inline-block w-64 h-56 relative mr-2"
+                  >
+                    <Image
+                      src={src}
+                      fill
+                      alt={`Listing image ${index + 1}`}
+                      className="rounded-lg object-cover"
+                      placeholder="blur"
+                      blurDataURL="/home/defaultFarmImage.jpg"
+                      loading="lazy"
+                    />
+                  </div>
+                ))
+              ) : (
+                <div className="relative w-64 h-56">
                   <Image
-                    src={src}
+                    src="/home/defaultFarmImage.jpg"
                     fill
-                    alt={`Listing image ${index + 1}`}
+                    alt="default"
                     className="rounded-lg object-cover"
                     placeholder="blur"
                     blurDataURL="/home/defaultFarmImage.jpg"
-                    loading="lazy"
                   />
                 </div>
-              ))
-            ) : (
-              <div className="relative w-64 h-56">
-                <Image
-                  src="/home/defaultFarmImage.jpg"
-                  fill
-                  alt="default"
-                  className="rounded-lg object-cover"
-                  placeholder="blur"
-                  blurDataURL="/home/defaultFarmImage.jpg"
+              )}
+
+              {/* Heart - Top Left */}
+              <div
+                className="absolute top-2 left-2 z-10"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setHeartFilled(!heartFilled);
+                }}
+              >
+                <Heart
+                  className={`w-6 h-6 hover:scale-105 ${
+                    heartFilled ? "fill-red-400 text-red-400" : "text-black"
+                  }`}
+                  onClick={addToWishlist}
                 />
               </div>
-            )}
 
-            {/* Heart - Top Left */}
-            <div
-              className="absolute top-2 left-2 z-10"
-              onClick={(e) => {
-                e.stopPropagation();
-                setHeartFilled(!heartFilled);
-              }}
-            >
-              <Heart
-                className={`w-6 h-6 hover:scale-105 ${
-                  heartFilled ? "fill-red-400 text-red-400" : "text-black"
-                }`}
-                onClick={addToWishlist}
-              />
+              {/* HeartPlus - Top Right */}
+              <div
+                className="absolute top-2 right-2 z-10"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setHeartPlusFilled(!heartPlusFilled);
+                }}
+              >
+                <PlusCircle
+                  className={`w-6 h-6 hover:scale-105 ${
+                    heartPlusFilled ? "fill-red-400 text-black" : "text-black"
+                  }`}
+                  onClick={addToFavourite}
+                />
+              </div>
             </div>
 
-            {/* HeartPlus - Top Right */}
-            <div
-              className="absolute top-2 right-2 z-10"
-              onClick={(e) => {
-                e.stopPropagation();
-                setHeartPlusFilled(!heartPlusFilled);
-              }}
-            >
-              <PlusCircle
-                className={`w-6 h-6 hover:scale-105 ${
-                  heartPlusFilled ? "fill-red-400 text-black" : "text-black"
-                }`}
-                onClick={addToFavourite}
-              />
-            </div>
-          </div>
-
-          {/* Text Info */}
-          <div>
-            <h3 className="text-xl font-semibold text-pastoral-theme-color capitalize">
-              {data?.farmName}
-            </h3>
-            <div className="flex flex-col items-left justify-start text-sm gap-1">
-              <span className="font-bold text-gray-600">
-                &#8377; {data?.farmBookingPrice}
-              </span>
-              <div className="flex items-left justify-start text-sm font-light gap-1">
-                <MapPin className="w-4 h-4" />
-                <span className="font-medium capitalize">{data?.city},{' '}{data?.state}</span>
+            {/* Text Info */}
+            <div>
+              <h3 className="text-xl font-semibold text-pastoral-theme-color capitalize">
+                {data?.farmName}
+              </h3>
+              <div className="flex flex-col items-left justify-start text-sm gap-1">
+                <span className="font-bold text-gray-600">
+                  &#8377; {data?.farmBookingPrice}
+                </span>
+                <div className="flex items-left justify-start text-sm font-light gap-1">
+                  <MapPin className="w-4 h-4" />
+                  <span className="font-medium capitalize">
+                    {data?.city}, {data?.state}
+                  </span>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
+
       <Toaster position="top-right" reverseOrder={false} />
 
       {isMyListing && (
         <button
           className="bg-pastoral-gradient py-3 mt-5 text-white text-base font-medium rounded-md cursor-pointer w-70"
-          onClick={deleteListing}
+          onClick={onDelete}
         >
           Delete
         </button>

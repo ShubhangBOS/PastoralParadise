@@ -36,7 +36,7 @@ const ListingAmenties = () => {
               <img
                 src={amenity.imgSrc}
                 alt={amenity.name}
-                className="w-18 h-auto scale-120"
+                className="w-18 h-auto scale-120 text-[#8a310d]"
               />
             )}
             <span>{amenity.name}</span>

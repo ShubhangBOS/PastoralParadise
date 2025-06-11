@@ -27,6 +27,8 @@ import { Dumbbell } from "lucide-react";
 import { Beef } from "lucide-react";
 import { Piano } from "lucide-react";
 import { BellElectric } from "lucide-react";
+import { BriefcaseBusiness } from "lucide-react";
+import { WavesLadder } from "lucide-react";
 
 export const AmenetiesType = [
   {
@@ -59,7 +61,7 @@ export const AmenetiesType = [
       },
       {
         name: "Paid parking on premises",
-        svgPath: <PaidParking />,
+        imgSrc: "/PastoralParadiseIcon/Parking.svg",
         id: "paidParking",
       },
       {
@@ -69,7 +71,7 @@ export const AmenetiesType = [
       },
       {
         name: "Dedicated workplace",
-        svgPath: <Workplace />,
+        svgPath: <BriefcaseBusiness />,
         id: "dedicatedWorkout",
       },
     ],
@@ -77,7 +79,7 @@ export const AmenetiesType = [
   {
     type: "advanced",
     data: [
-      { name: "Pool", svgPath: <Pool />, id: "swimmingPool" },
+      { name: "Pool", svgPath: <WavesLadder />, id: "swimmingPool" },
       { name: "Hot tub", svgPath: <HotTub />, id: "hotTub" },
       { name: "Patio", imgSrc: "/PastoralParadiseIcon/Patio.svg", id: "patio" },
       { name: "BBQ grill", svgPath: <Beef />, id: "bbqGrill" },
