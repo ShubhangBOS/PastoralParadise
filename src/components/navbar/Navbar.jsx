@@ -112,10 +112,10 @@ const Navbar = () => {
           },
         },
         {
-          name: "Trips",
+          name: "My Bookings",
           callBack: () => {
             setIsContextMenuVisible(false);
-            router.push("/trips");
+            router.push("/bookings");
           },
         },
         ...common.slice(2),

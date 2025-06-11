@@ -61,7 +61,7 @@ const Page = () => {
     setDetailedListings(validResults);
   };
 
-  // Fixed: Now accepts farmhouseCode as parameter
+  
   const removeFromFavourite = async (farmhouseCode) => {
     const userInfo = JSON.parse(sessionStorage.getItem("userInfo"));
     const userId = userInfo?.userId;

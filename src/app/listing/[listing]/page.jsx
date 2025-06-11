@@ -38,6 +38,7 @@ const page = () => {
 
       const listingData = await getListing(params.listing);
       const current = listingData.data[0];
+      
       setCurrentListing(current);
 
       const imageData = await getAllListingImages({
@@ -76,6 +77,7 @@ const page = () => {
         );
 
         if (response?.status) {
+         
           setReviews(response.data); 
         }
       } catch (error) {
@@ -86,12 +88,18 @@ const page = () => {
     fetchReviews();
   }, [currentListing?.farmHouseCode]);
 
+  
+
   if (!currentListing) {
     return (
       <div className="text-center py-20">
         <p>Loading farmhouse details...</p>
       </div>
     );
+  } else {
+    const farmhouseOwnerUserId = currentListing.ownerUserid;
+    sessionStorage.setItem("farmhouseOwnerUserId", farmhouseOwnerUserId);
+    console.log(farmhouseOwnerUserId); // This is the value you just stored
   }
 
   const { noBathroom, noBedRoom, noGuest } = currentListing;

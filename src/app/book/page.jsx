@@ -47,6 +47,9 @@ const BookPage = () => {
   
 
   const handleContinue = async () => {
+    const ownerUserId = sessionStorage.getItem("farmhouseOwnerUserId");
+    console.log(ownerUserId);
+
     const currentBookingDetails = useAppStore.getState().bookingDetails;
 
     const updatedBookingDetails = {
@@ -60,6 +63,8 @@ const BookPage = () => {
       pincode: pincode,
       totalBookingPrice: total,
       taxAmount: taxes,
+      task: "INS",
+      ownerUserid : ownerUserId,
     };
 
     useAppStore.getState().setBookingDetails(updatedBookingDetails);

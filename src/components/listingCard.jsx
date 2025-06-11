@@ -26,7 +26,7 @@ const ListingCard = ({
 
   const addToWishlist = async () => {
     const userInfo = JSON.parse(sessionStorage.getItem("userInfo"));
-    const userId = userInfo?.data?.[0]?.userId;
+    const userId = userInfo?.userId;
 
     if (!userId) {
       toast.error("Login to Add to Wishlist");

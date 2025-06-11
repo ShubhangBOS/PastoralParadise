@@ -283,6 +283,20 @@ export const makeFavourite = async(
     console.error(err);
   }
 }
+export const userWiseBookingDetails = async (userId) => {
+  try {
+    const response = await post(
+      createUrl("/api/BookingDetails/UserWiseBookingDetail"),
+      { userId } // ✅ Pass userId in body as an object
+    );
+
+    return response.data;
+  } catch (err) {
+    alert("Could not fetch booking details!");
+    console.error(err);
+  }
+};
+
 
 
 

@@ -80,12 +80,16 @@ export const AmenetiesType = [
     type: "advanced",
     data: [
       { name: "Pool", svgPath: <WavesLadder />, id: "swimmingPool" },
-      { name: "Hot tub", svgPath: <HotTub />, id: "hotTub" },
+      {
+        name: "Hot tub",
+        imgSrc: "/PastoralParadiseIcon/HotTub.png",
+        id: "hotTub",
+      },
       { name: "Patio", imgSrc: "/PastoralParadiseIcon/Patio.svg", id: "patio" },
       { name: "BBQ grill", svgPath: <Beef />, id: "bbqGrill" },
       {
         name: "Outdoor dining area",
-        svgPath: <OutdoorDining />,
+        imgSrc: "/PastoralParadiseIcon/OutdoorDiningArea.png",
         id: "outdoorDinningArea",
       },
       {
@@ -100,7 +104,7 @@ export const AmenetiesType = [
       },
       {
         name: "Indoor fireplace",
-        svgPath: <IndoorFirplace />,
+        imgSrc: "/PastoralParadiseIcon/IndoorFireplace.svg",
         id: "indoorFireplace",
       },
       { name: "Piano", svgPath: <Piano />, id: "piano" },
@@ -109,9 +113,21 @@ export const AmenetiesType = [
         svgPath: <Dumbbell />,
         id: "exerciseEquipment",
       },
-      { name: "Lake access", svgPath: <Lake />, id: "lakeAccess" },
-      { name: "Beach access", svgPath: <Beach />, id: "beachAccess" },
-      { name: "Ski-in/Ski-out", svgPath: <Ski />, id: "skiIn_SkiOut" },
+      {
+        name: "Lake access",
+        imgSrc: "/PastoralParadiseIcon/LakeAccess.svg",
+        id: "lakeAccess",
+      },
+      {
+        name: "Beach access",
+        imgSrc: "/PastoralParadiseIcon/TablePool.svg",
+        id: "beachAccess",
+      },
+      {
+        name: "Ski-in/Ski-out",
+        imgSrc: "/PastoralParadiseIcon/Skiing.png",
+        id: "skiIn_SkiOut",
+      },
       {
         name: "Outdoor shower",
         imgSrc: "/PastoralParadiseIcon/Shower.svg",
@@ -135,7 +151,7 @@ export const AmenetiesType = [
       },
       {
         name: "Carbon monoxide alarm",
-        svgPath: <CarbonMonoxideAlarm />,
+        imgSrc: "/PastoralParadiseIcon/CarbonMonoxideAlarm.png",
         id: "carbonMonoOxideAlarm",
       },
     ],
